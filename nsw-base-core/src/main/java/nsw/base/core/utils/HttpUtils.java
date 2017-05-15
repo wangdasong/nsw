@@ -9,8 +9,6 @@ import java.net.URL;
 
 import javax.servlet.ServletOutputStream;
 
-import com.alibaba.dubbo.common.utils.StringUtils;
-
 public class HttpUtils {
 	
 	//返回内容字符串 但是会造成图片等无法解析,暂不使用

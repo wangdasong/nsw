@@ -29,14 +29,6 @@
   </properties>
   
   <dependencies>
-  	<!-- dubbox 开始 -->
-    <dependency>
-        <groupId>com.alibaba</groupId>
-        <artifactId>dubbo</artifactId>
-        <version>${dubbo.version}</version>
-    </dependency>
-  	<!-- dubbox 结束 -->
-
 	
 	<!-- shiro 开始 -->
 	<!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-all -->
