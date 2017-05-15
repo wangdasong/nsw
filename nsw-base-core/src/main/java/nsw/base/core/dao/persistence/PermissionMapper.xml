@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="nsw.base.core.dao.persistence.PermissionMapper" >
+  <resultMap id="BaseResultMap" type="nsw.base.core.dao.entity.Permission" >
+    <id column="PRI_ID" property="id" />
+    <result column="PRI_PERMISSION_NAME" property="permissionName" />
+    <result column="PRI_PERMISSION" property="permission" />
+    <result column="PRI_DESCRIPTION" property="description" />
+    <result column="PRI_STATE" property="state" />
+    <result column="PRI_RESOURCE_COUNT" property="resourceCount" />
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+    PRI.ID AS PRI_ID,
+    PRI.PERMISSION_NAME AS PRI_PERMISSION_NAME,
+    PRI.PERMISSION AS PRI_PERMISSION,
+    PRI.DESCRIPTION AS PRI_DESCRIPTION,
+    PRI.STATE AS PRI_STATE
+  </sql>
+
+  <select id="getById" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select   <include refid="Base_Column_List" />
+    from SYS_PERMISSION PRI
+    where PRI.ID= #{id}
+  </select>
+
+  <delete id="deleteById" parameterType="java.lang.String" >
+    delete from SYS_PERMISSION
+    where ID = #{id}
+  </delete>
+
+  <insert id="save" parameterType="nsw.base.core.dao.entity.Permission" >
+    <selectKey keyProperty="id" resultType="java.lang.String" order="BEFORE">
+        SELECT SYS_GUID() AS ID FROM DUAL
+    </selectKey>
+    insert into SYS_PERMISSION
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                    ID,
+            </if>
+            <if test="permissionName != null" >
+                    PERMISSION_NAME,
+            </if>
+            <if test="permission != null" >
+                    PERMISSION,
+            </if>
+            <if test="description != null" >
+                    DESCRIPTION,
+            </if>
+            <if test="state != null" >
+                    STATE,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                    #{id},
+            </if>
+            <if test="permissionName != null" >
+                    #{permissionName},
+            </if>
+            <if test="permission != null" >
+                    #{permission},
+            </if>
+            <if test="description != null" >
+                    #{description},
+            </if>
+            <if test="state != null" >
+                    #{state},
+            </if>
+        </trim>
+  </insert>
+
+  <update id="update" parameterType="nsw.base.core.dao.entity.Permission" >
+    update SYS_PERMISSION
+    <set>
+      <if test="permissionName != null" > 
+        PERMISSION_NAME = #{permissionName},
+      </if> 
+      <if test="permission != null" > 
+        PERMISSION = #{permission},
+      </if> 
+      <if test="description != null" > 
+        DESCRIPTION = #{description},
+      </if> 
+      <if test="state != null" > 
+        STATE = #{state},
+      </if> 
+    </set>
+    where ID = #{id}
+  </update>
+
+  <select id="getListByCondition" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select   <include refid="Base_Column_List" />
+    <include refid="Find_List_Base_Sql" />
+  </select>
+    <sql id="Find_List_Base_Sql" >
+        FROM SYS_PERMISSION PRI
+        <where>
+            <trim prefixOverrides="AND |OR ">
+                <if test="id!=null">
+                    AND PRI.ID='${id}'
+                </if>
+                <if test="permissionName!=null">
+                    AND PRI.PERMISSION_NAME='${permissionName}'
+                </if>
+                <if test="permission!=null">
+                    AND PRI.PERMISSION='${permission}'
+                </if>
+                <if test="description!=null">
+                    AND PRI.DESCRIPTION='${description}'
+                </if>
+                <if test="state!=null">
+                    AND PRI.STATE='${state}'
+                </if>
+            </trim>
+        </where>
+    </sql>
+    <sql id="Find_Page_Base_Sql" >
+        FROM SYS_PERMISSION PRI
+        	, (SELECT PERMISSION_ID, COUNT(PRE.ID) RESOURCE_COUNT
+        	FROM SYS_PERMISSION_RESOURCE PRE
+        	GROUP BY PRE.PERMISSION_ID
+        	)PRE
+           <if test="options.roleId!=null">
+           , SYS_ROLE_PERMISSION RP
+           </if>
+        <where>
+            <trim prefixOverrides="AND |OR ">
+            	PRI.ID = PRE.PERMISSION_ID(+)
+                <if test="options.roleId!=null">
+                	AND PRI.ID = RP.PERMISSION_ID(+)
+                    AND RP.ROLE_ID(+) = '${options.roleId}'
+                </if>
+                <if test="options.id!=null">
+                    AND PRI.ID='${options.id}'
+                </if>
+                <if test="options.permissionName!=null">
+                    AND PRI.PERMISSION_NAME='${options.permissionName}'
+                </if>
+                <if test="options.permission!=null">
+                    AND PRI.PERMISSION='${options.permission}'
+                </if>
+                <if test="options.description!=null">
+                    AND PRI.DESCRIPTION='${options.description}'
+                </if>
+                <if test="options.state!=null">
+                    AND PRI.STATE='${options.state}'
+                </if>
+            </trim>
+        </where>
+    </sql>
+
+    <sql id="Sort_Page_Base_Sql" >
+        <if test="pageSort!=null">
+            order by 
+            <foreach item="item" index="index" collection="pageSortArray" separator="," >
+                <if test="item=='id'">
+                    ID
+                </if>
+                <if test="item=='id desc'">
+                    ID DESC
+                </if>
+                <if test="item=='permissionName'">
+                    PERMISSION_NAME
+                </if>
+                <if test="item=='permissionName desc'">
+                    PERMISSION_NAME DESC
+                </if>
+                <if test="item=='permission'">
+                    PERMISSION
+                </if>
+                <if test="item=='permission desc'">
+                    PERMISSION DESC
+                </if>
+                <if test="item=='description'">
+                    DESCRIPTION
+                </if>
+                <if test="item=='description desc'">
+                    DESCRIPTION DESC
+                </if>
+                <if test="item=='state'">
+                    STATE
+                </if>
+                <if test="item=='state desc'">
+                    STATE DESC
+                </if>
+            </foreach>
+        </if>
+    </sql>
+
+    <select id="findPageData" parameterType="nsw.base.core.utils.paging.Pagination" resultMap="BaseResultMap">
+        <include refid="oraclesplit_prefix" />
+        <include refid="Base_Column_List" />, TO_CHAR(NVL(PRE.RESOURCE_COUNT, 0)) AS PRI_RESOURCE_COUNT
+        <include refid="Find_Page_Base_Sql" />
+        <include refid="Sort_Page_Base_Sql" />
+        <include refid="oraclesplit_suffix" />
+    </select>
+    <sql id="oraclesplit_prefix" > 
+        select * from ( select row_.*, rownum rownum_ from (select 
+    </sql>
+    <sql id="oraclesplit_suffix">
+        )row_ where rownum &lt;= #{oracle_maxrow}) where rownum_ > #{oracle_minrow}
+    </sql>
+    <select id="getCount" parameterType="nsw.base.core.utils.paging.Pagination" resultType="int">
+        select count(*) 
+        <include refid="Find_Page_Base_Sql" />
+    </select>
+
+
+</mapper>

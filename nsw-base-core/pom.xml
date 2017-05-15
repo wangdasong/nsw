@@ -1,0 +1,288 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>nsw</groupId>
+  <artifactId>nsw-base-core</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <!-- spring版本号 -->
+	<spring.version>3.2.17.RELEASE</spring.version>
+	<!-- mybatis版本号 -->
+	<mybatis.version>3.4.1</mybatis.version>
+	<!-- log4j日志文件管理包版本 -->
+	<slf4j.version>1.7.22</slf4j.version>
+	<log4j.version>1.2.17</log4j.version>
+    <junit.version>4.12</junit.version>
+    <dubbo.version>2.8.4</dubbo.version>
+    <druid.version>1.0.27</druid.version>    
+    <poi.version>3.10-beta2</poi.version>
+    <commons-io.version>2.5</commons-io.version>
+    <jdom.version>1.0</jdom.version>
+    <fastjson.version>1.2.22</fastjson.version>
+    <jackson-mapper-asl.version>1.9.13</jackson-mapper-asl.version>
+    <json-lib.version>2.4</json-lib.version>
+    
+    <mybatis.spring.version>1.3.0</mybatis.spring.version>  
+	<!-- 定义autoconfig的版本，建议将此行写在parent pom.xml中。 -->
+	<autoconfig-plugin-version>1.2</autoconfig-plugin-version>
+  </properties>
+  
+  <dependencies>
+  	<!-- dubbox 开始 -->
+    <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>dubbo</artifactId>
+        <version>${dubbo.version}</version>
+    </dependency>
+  	<!-- dubbox 结束 -->
+
+	
+	<!-- shiro 开始 -->
+	<!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-all -->
+	<dependency>
+	    <groupId>org.apache.shiro</groupId>
+	    <artifactId>shiro-all</artifactId>
+	    <version>1.3.2</version>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/net.sf.ehcache/ehcache -->
+	<dependency>
+	    <groupId>net.sf.ehcache</groupId>
+	    <artifactId>ehcache</artifactId>
+	    <version>2.10.3</version>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/net.sf.ehcache/ehcache-core
+	<dependency>
+	    <groupId>net.sf.ehcache</groupId>
+	    <artifactId>ehcache-core</artifactId>
+	    <version>2.6.11</version>
+	</dependency> -->
+	<!-- https://mvnrepository.com/artifact/net.sf.ehcache/ehcache-jcache -->
+	<dependency>
+	    <groupId>net.sf.ehcache</groupId>
+	    <artifactId>ehcache-jcache</artifactId>
+	    <version>1.5.0-0.5</version>
+	</dependency>
+	<dependency>
+	    <groupId>net.sf.ehcache</groupId>
+	    <artifactId>ehcache-jgroupsreplication</artifactId>
+	    <version>1.7</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.quartz-scheduler</groupId>
+	    <artifactId>quartz</artifactId>
+	    <version>2.2.3</version>
+	</dependency>
+
+	<!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-quartz -->
+	<dependency>
+	    <groupId>org.apache.shiro</groupId>
+	    <artifactId>shiro-quartz</artifactId>
+	    <version>1.4.0-RC2</version>
+	</dependency>
+  	<dependency>
+  		<groupId>redis.clients</groupId>
+  		<artifactId>jedis</artifactId>
+  		<version>2.7.2</version>
+  	</dependency>
+	<!-- shiro 结束 -->
+    <!-- Excel操作Jar-POI 开始 -->
+	<dependency>
+		<groupId>org.apache.poi</groupId>
+		<artifactId>poi</artifactId>
+		<version>${poi.version}</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.apache.poi</groupId>
+	    <artifactId>poi-ooxml</artifactId>
+	    <version>${poi.version}</version>
+	</dependency>
+	<!-- Excel操作Jar-POI 结束 -->
+
+	<!-- spring 开始 -->
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-core</artifactId>
+		<version>${spring.version}</version>
+	</dependency>
+
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-web</artifactId>
+		<version>${spring.version}</version>
+	</dependency>
+
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-oxm</artifactId>
+		<version>${spring.version}</version>
+	</dependency>
+
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-tx</artifactId>
+		<version>${spring.version}</version>
+	</dependency>
+
+	<dependency>
+		<groupId>com.google.code.gson</groupId>
+		<artifactId>gson</artifactId>
+		<version>2.2.4</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-jdbc</artifactId>
+		<version>${spring.version}</version>
+	</dependency>
+
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-webmvc</artifactId>
+		<version>${spring.version}</version>
+	</dependency>
+
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-context-support</artifactId>
+		<version>${spring.version}</version>
+	</dependency>
+
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-aop</artifactId>
+		<version>${spring.version}</version>
+	</dependency>
+
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-test</artifactId>
+		<version>${spring.version}</version>
+	</dependency>
+	<!-- spring 结束 -->
+ 
+	<!-- json数据 开始 -->
+	<dependency>
+		<groupId>com.alibaba</groupId>
+		<artifactId>fastjson</artifactId>
+		<version>${fastjson.version}</version>
+	</dependency>
+	<!-- 阿里巴巴数据源 包 -->
+	<dependency>
+		<groupId>com.alibaba</groupId>
+		<artifactId>druid</artifactId>
+		<version>${druid.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.codehaus.jackson</groupId>
+		<artifactId>jackson-mapper-asl</artifactId>
+		<version>${jackson-mapper-asl.version}</version>
+	</dependency>
+	<dependency>
+	    <groupId>net.sf.json-lib</groupId>
+	    <artifactId>json-lib</artifactId>
+	    <version>${json-lib.version}</version>
+	    <classifier>jdk15</classifier>
+	</dependency>
+	<!-- json数据 结束 -->
+
+	<!-- commons-io 开始 -->
+	<dependency>
+	    <groupId>commons-io</groupId>
+	    <artifactId>commons-io</artifactId>
+	    <version>${commons-io.version}</version>
+	</dependency>
+	<!-- commons-io 结束 -->
+	<!-- fileupload 开始 -->
+	<dependency>
+	    <groupId>commons-fileupload</groupId>
+	    <artifactId>commons-fileupload</artifactId>
+	    <version>1.3.2</version>
+	</dependency>
+	<!-- fileupload 结束 -->
+	<!-- wsdl -->
+	<!-- https://mvnrepository.com/artifact/javax.wsdl/com.springsource.javax.wsdl -->
+	<dependency>
+	    <groupId>javax.wsdl</groupId>
+	    <artifactId>com.springsource.javax.wsdl</artifactId>
+	    <version>1.6.1</version>
+	</dependency>
+	<!-- XML解析用jdom 开始 -->
+	<dependency>
+	    <groupId>jdom</groupId>
+	    <artifactId>jdom</artifactId>
+	    <version>${jdom.version}</version>
+	</dependency>
+	<!-- XML解析用jdom 结束 -->
+	
+
+	<!-- 日志文件管理包 开始 -->
+	<!-- log start -->
+	<dependency>
+		<groupId>log4j</groupId>
+		<artifactId>log4j</artifactId>
+		<version>${log4j.version}</version>
+	</dependency>
+	<dependency>
+	    <groupId>commons-logging</groupId>
+	    <artifactId>commons-logging</artifactId>
+	    <version>1.2</version>
+	</dependency>
+	<dependency>
+		<groupId>org.slf4j</groupId>
+		<artifactId>slf4j-api</artifactId>
+		<version>${slf4j.version}</version>
+	</dependency>
+	<!-- 日志文件管理包 结束 -->
+	
+	<!-- XFire start -->
+	<dependency>
+	    <groupId>org.codehaus.xfire</groupId>
+	    <artifactId>xfire-all</artifactId>
+	    <version>1.2.6</version>
+	</dependency>
+	<!-- XFire end -->
+	<!-- aspectj 开始-->
+	<dependency>
+	    <groupId>org.aspectj</groupId>
+	    <artifactId>aspectjweaver</artifactId>
+	    <version>1.8.2</version>
+	</dependency>
+	<dependency>  
+	  <groupId>org.aspectj</groupId>  
+	  <artifactId>aspectjrt</artifactId>  
+	  <version>1.8.2</version>  
+	</dependency>
+	<!-- aspectj 结束-->
+	
+	<!-- 数据库操作 开始 -->
+	<!-- mybatis核心包 -->
+	<dependency>
+		<groupId>org.mybatis</groupId>
+		<artifactId>mybatis</artifactId>
+		<version>${mybatis.version}</version>
+	</dependency>
+	<!-- mybatis/spring包 -->
+	<dependency>
+		<groupId>org.mybatis</groupId>
+		<artifactId>mybatis-spring</artifactId>
+		<version>${mybatis.spring.version}</version>
+	</dependency>
+	<!-- oracle 驱动包 -->
+	<dependency>
+		<groupId>ojdbc6</groupId>
+		<artifactId>ojdbc6</artifactId>
+		<version>12.1.0.2</version>
+	</dependency>
+	<!-- 数据库操作 结束-->
+  </dependencies>
+   <build> 
+     <!-- 主资源目录 -->
+        <resources>
+            <resource>
+                <!-- 设定主资源目录  -->  
+                <directory>src/main/resources</directory>  
+                <filtering>true</filtering>  
+            </resource>  
+        </resources>  
+ 	</build>  
+</project>
