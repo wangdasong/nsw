@@ -214,6 +214,14 @@
 	</dependency>
 	<!-- XML解析用jdom 结束 -->
 	
+	<!-- servlet包 -->
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>javax.servlet-api</artifactId>
+		<version>3.1.0</version>
+		<!-- <scope>provided</scope> -->
+	</dependency>
+	<!-- servlet  end-->
 
 	<!-- 日志文件管理包 开始 -->
 	<!-- log start -->
