@@ -31,6 +31,22 @@ public class Constants {
 	public static final String REST_USER_EDIT = "/edit";
 	public static final String REST_USER_ADD = "/add";
 	public static final String REST_USER_DEL = "/del";
+	/**
+	 * 子系统配置相关请求
+	 */
+	public static final String REST_SUBSYS_PREFIX = "/api/subsys";
+	public static final String REST_SUBSYS_LIST = "/list";
+	public static final String REST_SUBSYS_EDIT = "/edit";
+	public static final String REST_SUBSYS_ADD = "/add";
+	public static final String REST_SUBSYS_DEL = "/del";
+	/**
+	 * 服务提供者配置相关请求
+	 */
+	public static final String REST_PROVIDER_PREFIX = "/api/provider";
+	public static final String REST_PROVIDER_LIST = "/list";
+	public static final String REST_PROVIDER_EDIT = "/edit";
+	public static final String REST_PROVIDER_ADD = "/add";
+	public static final String REST_PROVIDER_DEL = "/del";
 	
 	/**
 	 * 用户角色相关请求

@@ -82,6 +82,7 @@ angular.module('controller.webpage.container.widget.button', [])
             		var outputType = "";
             		var inputId = "";
             		var outputId = null;
+            		var outputServiceName = null;
             		var inputList = [];
             		if(input){
             			inputList = input.split(":");
