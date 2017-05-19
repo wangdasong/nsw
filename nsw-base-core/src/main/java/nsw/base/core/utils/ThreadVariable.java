@@ -63,6 +63,10 @@ public class ThreadVariable {
 	 * 当前服务端口号线程变量
 	 */
 	private static ThreadLocal<String> serverPortVariable = new ThreadLocal<String>();
+	/**
+	 * 当前子系统编码线程变量
+	 */
+	private static ThreadLocal<String> subsysCodeVariable = new ThreadLocal<String>();
 
 	/**
 	 * 设置当前用户
@@ -277,6 +281,14 @@ public class ThreadVariable {
 
 	public static void setServerPortVariable(String serverPort) {
 		ThreadVariable.serverPortVariable.set(serverPort);
+	}
+
+	public static String getSubsysCodeVariable() {
+		return subsysCodeVariable.get();
+	}
+
+	public static void setSubsysCodeVariable(String subsys) {
+		ThreadVariable.subsysCodeVariable.set(subsys);
 	}
 	
 }

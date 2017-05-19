@@ -10,6 +10,7 @@ public interface WidgetService {
 	public Pagination getMyAttConfigPage(int pageNo, int size, String sort, Widget widget);
 	public List<AttConfig> getMyAttConfigList(Widget widget);
 	public Widget getWidgetDetailById(String widgetId);
+	public List<Widget> getWidgetByCondition(Widget widget);
 	public void editWidget(Widget widget);
 	public void addWidget(Widget widget);
 	public void delWidget(Widget widget);

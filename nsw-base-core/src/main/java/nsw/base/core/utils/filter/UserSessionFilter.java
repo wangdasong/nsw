@@ -15,8 +15,10 @@ import nsw.base.core.dao.entity.User;
 import nsw.base.core.dao.entity.base.BaseEntity;
 import nsw.base.core.utils.ShiroFilterUtils;
 import nsw.base.core.utils.ThreadVariable;
+import nsw.base.core.utils.WebContextFactoryUtil;
 
 import org.apache.shiro.subject.Subject;
+import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
 import org.apache.shiro.web.filter.authc.UserFilter;
 import org.apache.shiro.web.util.WebUtils;
 
@@ -27,13 +29,23 @@ public class UserSessionFilter extends UserFilter  {
 	protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue){
         HttpServletRequest req = (HttpServletRequest) request;
         String reqUrl = req.getRequestURI();
+		Subject subject = getSubject(request, response);
 		if (isLoginRequest(request, response)) {
 			return true;
 		}
-		Subject subject = getSubject(request, response);
+		Map<String, Object> resultMap = new HashMap<String, Object>();
+		if(reqUrl.contains("changeSubsys")){
+			String subsysCode = req.getParameter("subsysCode");
+			subject.getSession().setAttribute("SUBSYS_CODE", subsysCode);
+			subject.getSession().getAttribute("SUBSYS_CODE");
+			Map<String, Integer> codeMap = new HashMap<String, Integer>();
+			codeMap.put("code", 200);
+			resultMap.put("status", codeMap);
+			ShiroFilterUtils.out(response, resultMap);
+			return false;
+		}
 		User currUser = (User) subject.getSession().getAttribute("LOGIN_USER");
 		if((subject.getPrincipal() == null || currUser == null) && ShiroFilterUtils.isAjax(request)){
-			Map<String, Object> resultMap = new HashMap<String, Object>();
 			Map<String, Integer> codeMap = new HashMap<String, Integer>();
 			codeMap.put("code", 300);
 			resultMap.put("status", codeMap);
@@ -46,41 +58,25 @@ public class UserSessionFilter extends UserFilter  {
 		}
 		boolean result = subject.getPrincipal() != null;
 		if(result){
+			//如果是读取菜单路径，是指
 	        if(reqUrl.contains("menuPath")){
 	        	String menuId = reqUrl.substring(reqUrl.indexOf("menuPath") + 9, reqUrl.length());
 	        	subject.getSession().setAttribute("CURR_MENU_ID", menuId);
 	        }
+	        //如果是弹出页面的话,设置弹出页面的弹出控件ID
 	        if(reqUrl.contains("setPopupSession")){
 	        	String popupWidgetId = req.getParameter("widgetId");
 				subject.getSession().setAttribute("CURR_POPUP_WIDGET_ID", popupWidgetId);
 	        }
+	        //清除弹出页面控件ID
 	        if(reqUrl.contains("clearPopupSession")){
 				subject.getSession().setAttribute("CURR_POPUP_WIDGET_ID", null);
 	        	Map<String, Integer> codeMap = new HashMap<String, Integer>();
-	        	Map<String, Object> resultMap = new HashMap<String, Object>();
 	        	codeMap.put("code", 100);
 				resultMap.put("status", codeMap);
 				resultMap.put("message","返回dummy数据！");
 				ShiroFilterUtils.out(response, resultMap);
 	        }
-	        //此处试验Dubbox框架的Rest请求
-//	        if(reqUrl.contains("price/list")){
-//	        	req.getParameterMap();
-//	        	Client client = ClientBuilder.newClient();
-//	        	String redirectUrl = "http://localhost:8888/services/" + reqUrl.substring(reqUrl.indexOf("rest/api/") + 9) +".json";
-//	            WebTarget target = client.target(redirectUrl);
-//	            Response response2 = target.request().post(Entity.json(new Pagination()));
-//	            try {
-//	                if (response2.getStatus() != 200) {
-//	                    throw new RuntimeException("Failed with HTTP error code : " + response2.getStatus());
-//	                }
-//	                System.out.println("Successfully got result: " + response2.readEntity(String.class));
-//	                ShiroFilterUtils.out(response, response2.readEntity(Pagination.class));
-//	            } finally {
-//	            	response2.close();
-//	                client.close();
-//	            }
-//	        }
 
 			Cookie[] cookies = req.getCookies();
 			String serverTypeCookie = null;
@@ -107,6 +103,7 @@ public class UserSessionFilter extends UserFilter  {
 			Set<String> currElementPermissions = (Set<String>) subject.getSession().getAttribute("USER_ELEMENT_PERMISSIONS");
 			String currMenuId = (String) subject.getSession().getAttribute("CURR_MENU_ID");
 			String currPopupWidgetId = (String) subject.getSession().getAttribute("CURR_POPUP_WIDGET_ID");
+			String subsysCode = (String) subject.getSession().getAttribute("SUBSYS_CODE");
 			//设置线程变量
 			ThreadVariable.setUser(currUser);
 			ThreadVariable.setResourceSetVariable(currResource);
@@ -121,6 +118,9 @@ public class UserSessionFilter extends UserFilter  {
         	ThreadVariable.setServerTypeVariable(serverTypeCookie);
         	ThreadVariable.setServerIpVariable(serverIpCookie);
         	ThreadVariable.setServerPortVariable(serverPortCookie);
+        	ThreadVariable.setSubsysCodeVariable(subsysCode);
+        	System.out.println("reqUrl = "+reqUrl);
+        	System.out.println("subsysCode = "+subsysCode);
 		}
 		return result;
 	}

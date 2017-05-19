@@ -10,6 +10,7 @@ import nsw.base.core.dao.persistence.base.BaseDaoMapper;
 import nsw.base.core.service.SubsysConfigService;
 import nsw.base.core.service.base.DataSrcService;
 import nsw.base.core.service.impl.base.BaseServiceImpl;
+import nsw.base.core.utils.ThreadVariable;
 import nsw.base.core.utils.paging.Pagination;
 import nsw.base.core.utils.paging.TablePagingService;
 
@@ -58,6 +59,14 @@ public class SubsysConfigServiceImpl extends BaseServiceImpl<SubsysConfig> imple
 		Pagination pr = new Pagination(pageNo, size, sort, this);
 		try {
 			pr.doPage(subsysConfig);
+			if(pr.getList() != null ){
+				for(SubsysConfig currSubsysConfig : (List<SubsysConfig>)pr.getList()){
+					System.out.println("getSubsysConfigPage----"+ThreadVariable.getSubsysCodeVariable());
+					if(currSubsysConfig.getCode().equals(ThreadVariable.getSubsysCodeVariable())){
+						currSubsysConfig.setActive(true);
+					}
+				}
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

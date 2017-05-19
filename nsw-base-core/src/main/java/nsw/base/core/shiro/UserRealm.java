@@ -4,10 +4,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 import nsw.base.core.dao.entity.Resource;
+import nsw.base.core.dao.entity.SubsysConfig;
 import nsw.base.core.dao.entity.User;
 import nsw.base.core.dao.entity.base.BaseEntity;
 import nsw.base.core.service.LoginService;
+import nsw.base.core.service.SubsysConfigService;
 import nsw.base.core.utils.ThreadVariable;
+import nsw.base.core.utils.paging.Pagination;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -32,6 +35,8 @@ import com.alibaba.druid.support.logging.LogFactory;
 public class UserRealm extends AuthorizingRealm {
 	@Autowired
 	private LoginService loginService;
+	@Autowired
+	SubsysConfigService subsysConfigService;
 	
 	@Override
     public String getName() {
@@ -45,6 +50,18 @@ public class UserRealm extends AuthorizingRealm {
 	 */
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
     	logger.debug("class:UserRealm method:doGetAuthorizationInfo(PrincipalCollection principals)");
+
+        //获取shiro的session对象
+        Session session = SecurityUtils.getSubject().getSession();   
+    	if(session.getAttribute("SUBSYS_CODE") == null || "".equals(session.getAttribute("SUBSYS_CODE"))){
+        	Pagination page = subsysConfigService.getSubsysConfigPage(1, 20, null, new SubsysConfig());
+        	//设置默认的子系统
+        	if(page.getList() != null && page.getList().get(0) != null){
+        		SubsysConfig subsysConfig = (SubsysConfig) page.getList().get(0);
+            	session.setAttribute("SUBSYS_CODE", subsysConfig.getCode());
+        	}
+    	}
+		ThreadVariable.setSubsysCodeVariable((String) session.getAttribute("SUBSYS_CODE"));
     	//System.out.println("============UserRealm=======L41======start!========");
     	//获取用户名
         String username = (String)principals.getPrimaryPrincipal();
@@ -61,9 +78,7 @@ public class UserRealm extends AuthorizingRealm {
     		}
         	resourceStringSet.add(resource.getId());
         }
-        authorizationInfo.setStringPermissions(resourceStringSet);
-        //获取shiro的session对象
-        Session session = SecurityUtils.getSubject().getSession();       
+        authorizationInfo.setStringPermissions(resourceStringSet);    
         try {
         	//两手准备，将user对象的信息放入session中。
         	Set<BaseEntity> permissions = resourceSet;

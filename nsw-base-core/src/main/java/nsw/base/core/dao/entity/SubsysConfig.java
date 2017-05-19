@@ -14,6 +14,7 @@ public class SubsysConfig extends BaseEntity {
     private String name;
     private String logo;
     private String description;
+    private Boolean active = false;
 
 
     public String getCode() {
@@ -50,6 +51,12 @@ public class SubsysConfig extends BaseEntity {
         this.description = description;
     }
 
+	public Boolean getActive() {
+		return active;
+	}
 
+	public void setActive(boolean active) {
+		this.active = active;
+	}
 
 }

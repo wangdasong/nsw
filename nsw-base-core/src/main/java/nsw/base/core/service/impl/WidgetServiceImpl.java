@@ -232,5 +232,9 @@ public class WidgetServiceImpl implements DataSrcService<Widget>, WidgetService 
 		}
 		widgetMapper.deleteById(widget.getId());
 	}
+	@Override
+	public List<Widget> getWidgetByCondition(Widget widget) {
+		return widgetMapper.getListByCondition(widget);
+	}
 
 }

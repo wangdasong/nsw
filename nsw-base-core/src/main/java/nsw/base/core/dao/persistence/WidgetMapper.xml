@@ -71,7 +71,30 @@
     and ELT.PARENT_ID(+) = ELT.WIDGET_ID(+)
     order by ELT.ATT_VALUE, ELTSUB1.ATT_VALUE, ELTSUB2.ATT_VALUE, ELTSUB3.ATT_VALUE
   </select>
-
+  <select id="getListByCondition" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select   <include refid="Base_Column_List" />
+    <include refid="Find_List_Base_Sql" />
+  </select>
+    <sql id="Find_List_Base_Sql" >
+        FROM SMS_WIDGET WDT
+        <where>
+            <trim prefixOverrides="AND |OR ">
+                <if test="id!=null">
+                    WDT.ID= #{id}
+                </if>
+                <if test="name!=null">
+                    AND WDT.NAME='${name}'
+                </if>
+                <if test="code!=null">
+                    AND WDT.CODE='${code}'
+                </if>
+                <if test="type!=null">
+                    AND WDT.TYPE='${type}'
+                </if>
+            </trim>
+        </where>
+    </sql>
+    
   <delete id="deleteById" parameterType="java.lang.String" >
     delete from SMS_WIDGET
     where ID = #{id}

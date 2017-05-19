@@ -38,6 +38,18 @@ public class ContainerServiceImpl implements DataSrcService<Container>, Containe
 		//取得容器列表
 		List<Container> containerList = containerMapper.getListByParentId(containerId);
 		//角色未系统管理员或编辑视图功能
+		for(Container container : containerList){
+			List<Widget> needDealList = new ArrayList<Widget>();
+			for(Widget widget : container.getWidgets()){
+				String subsysCode = ThreadVariable.getSubsysCodeVariable();
+				if("menu".equals(widget.getType()) && !subsysCode.equals(widget.getCode())){
+					needDealList.add(widget);
+				}
+			}
+			for(Widget widget : needDealList){
+				container.getWidgets().remove(widget);
+			}
+		}
 		if(SecurityUtils.getSubject().hasRole("sysadmin") || containerId.length() < 32){
 			return containerList;
 		}

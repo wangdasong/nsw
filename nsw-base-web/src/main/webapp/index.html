@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta charset="utf-8"/>
-    <title>Finance-中邮物流</title>
+    <title>中邮物流信息化平台</title>
 
     <meta name="description" content="User login page"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
@@ -179,6 +179,7 @@
 
 </head>
 <body>
+<div class="tabbable">
 	<div class="navbar navbar-default" id="navbar">
 		<script type="text/javascript">
 			try{ace.settings.check('navbar' , 'fixed')}catch(e){}
@@ -187,235 +188,20 @@
 		<div class="navbar-container" id="navbar-container">
 			<div class="navbar-header pull-left">
 				<a href="#" class="navbar-brand">
-					<small>
-						<i class="icon-desktop"></i>
-						Finance-中邮物流
+					<small id="subsys_logo">
+					<i class="icon-desktop"></i>
+					</small>
+					<small id="subsys_name">
+						CPSCS信息化平台
 					</small>
 				</a><!-- /.brand -->
 			</div><!-- /.navbar-header -->
-
+			<div class="navbar-header">
+				<ul class="nav nav-tabs" style="margin-top:16px" id="myTabs">
+				</ul>
+			</div>
 			<div class="navbar-header pull-right" role="navigation">
 				<ul class="nav ace-nav">
-				
-				
-				<!-- 下面这段代码是ACE模板自带，由于功能性上暂时用不到，所以先封存注释一下，
-						待后期升级改造若有需要利用这个位置进行开发的可以解封并修改 -->
-<!-- 					<li class="grey">
-						<a data-toggle="dropdown" class="dropdown-toggle" href="#">
-							<i class="icon-tasks"></i>
-							<span class="badge badge-grey">4</span>
-						</a>
-
-						<ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
-							<li class="dropdown-header">
-								<i class="icon-ok"></i>
-								还有4个任务完成
-							</li>
-
-							<li>
-								<a href="#">
-									<div class="clearfix">
-										<span class="pull-left">软件更新</span>
-										<span class="pull-right">65%</span>
-									</div>
-
-									<div class="progress progress-mini ">
-										<div style="width:65%" class="progress-bar "></div>
-									</div>
-								</a>
-							</li>
-
-							<li>
-								<a href="#">
-									<div class="clearfix">
-										<span class="pull-left">硬件更新</span>
-										<span class="pull-right">35%</span>
-									</div>
-
-									<div class="progress progress-mini ">
-										<div style="width:35%" class="progress-bar progress-bar-danger"></div>
-									</div>
-								</a>
-							</li>
-
-							<li>
-								<a href="#">
-									<div class="clearfix">
-										<span class="pull-left">单元测试</span>
-										<span class="pull-right">15%</span>
-									</div>
-
-									<div class="progress progress-mini ">
-										<div style="width:15%" class="progress-bar progress-bar-warning"></div>
-									</div>
-								</a>
-							</li>
-
-							<li>
-								<a href="#">
-									<div class="clearfix">
-										<span class="pull-left">错误修复</span>
-										<span class="pull-right">90%</span>
-									</div>
-
-									<div class="progress progress-mini progress-striped active">
-										<div style="width:90%" class="progress-bar progress-bar-success"></div>
-									</div>
-								</a>
-							</li>
-
-							<li>
-								<a href="#">
-									查看任务详情
-									<i class="icon-arrow-right"></i>
-								</a>
-							</li>
-						</ul>
-					</li>
-					
-					 -->
-					<!-- 
-					<li class="purple">
-						<a data-toggle="dropdown" class="dropdown-toggle" href="#">
-							<i class="icon-bell-alt icon-animated-bell"></i>
-							<span class="badge badge-important">8</span>
-						</a>
-
-						<ul class="pull-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close">
-							<li class="dropdown-header">
-								<i class="icon-warning-sign"></i>
-								8条通知
-							</li>
-
-							<li>
-								<a href="#">
-									<div class="clearfix">
-										<span class="pull-left">
-											<i class="btn btn-xs no-hover btn-pink icon-comment"></i>
-											新闻评论
-										</span>
-										<span class="pull-right badge badge-info">+12</span>
-									</div>
-								</a>
-							</li>
-
-							<li>
-								<a href="#">
-									<i class="btn btn-xs btn-primary icon-user"></i>
-									切换为编辑登录..
-								</a>
-							</li>
-
-							<li>
-								<a href="#">
-									<div class="clearfix">
-										<span class="pull-left">
-											<i class="btn btn-xs no-hover btn-success icon-shopping-cart"></i>
-											新订单
-										</span>
-										<span class="pull-right badge badge-success">+8</span>
-									</div>
-								</a>
-							</li>
-
-							<li>
-								<a href="#">
-									<div class="clearfix">
-										<span class="pull-left">
-											<i class="btn btn-xs no-hover btn-info icon-twitter"></i>
-											粉丝
-										</span>
-										<span class="pull-right badge badge-info">+11</span>
-									</div>
-								</a>
-							</li>
-
-							<li>
-								<a href="#">
-									查看所有通知
-									<i class="icon-arrow-right"></i>
-								</a>
-							</li>
-						</ul>
-					</li>
-					
-					 -->
-					
-					<!-- 
-					<li class="green">
-						<a data-toggle="dropdown" class="dropdown-toggle" href="#">
-							<i class="icon-envelope icon-animated-vertical"></i>
-							<span class="badge badge-success">5</span>
-						</a>
-
-						<ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
-							<li class="dropdown-header">
-								<i class="icon-envelope-alt"></i>
-								5条消息
-							</li>
-
-							<li>
-								<a href="#">
-									<img src="thirdparty/assets/avatars/avatar.png" class="msg-photo" alt="Alex's Avatar" />
-									<span class="msg-body">
-										<span class="msg-title">
-											<span class="blue">Alex:</span>
-											不知道写啥 ...
-										</span>
-
-										<span class="msg-time">
-											<i class="icon-time"></i>
-											<span>1分钟以前</span>
-										</span>
-									</span>
-								</a>
-							</li>
-
-							<li>
-								<a href="#">
-									<img src="thirdparty/assets/avatars/avatar3.png" class="msg-photo" alt="Susan's Avatar" />
-									<span class="msg-body">
-										<span class="msg-title">
-											<span class="blue">Susan:</span>
-											不知道翻译...
-										</span>
-
-										<span class="msg-time">
-											<i class="icon-time"></i>
-											<span>20分钟以前</span>
-										</span>
-									</span>
-								</a>
-							</li>
-
-							<li>
-								<a href="#">
-									<img src="thirdparty/assets/avatars/avatar4.png" class="msg-photo" alt="Bob's Avatar" />
-									<span class="msg-body">
-										<span class="msg-title">
-											<span class="blue">Bob:</span>
-											到底是不是英文 ...
-										</span>
-
-										<span class="msg-time">
-											<i class="icon-time"></i>
-											<span>下午3:15</span>
-										</span>
-									</span>
-								</a>
-							</li>
-
-							<li>
-								<a href="inbox.html">
-									查看所有消息
-									<i class="icon-arrow-right"></i>
-								</a>
-							</li>
-						</ul>
-					</li>
-					
-					 -->
-
 					<li class="light-blue">
 						<a data-toggle="dropdown"  class="dropdown-toggle">
 							<img class="nav-user-photo" src="thirdparty/assets/avatars/user03.jpg" alt="Jason's Photo" />
@@ -453,7 +239,7 @@
 						</ul>
 					</li>
 				</ul><!-- /.ace-nav -->
-			</div><!-- /.navbar-header -->
+			</div>
 		</div><!-- /.container -->
 	</div>
 
@@ -524,6 +310,7 @@
 			<i class="icon-double-angle-up icon-only bigger-110"></i>
 		</a>
 	</div>
+</div>
 </body>
 <script type="text/javascript">
 
@@ -611,7 +398,7 @@ $(function(){
 			return;
 		}
 	},500);
-
+	getSubsysList();
     
     $(login_username).html(username);
     
@@ -644,9 +431,50 @@ function GetUsername(){
 
 }
 
-
-
-
+function getSubsysList(){
+	var requrl = "/rest/api/subsys/list?t=" + new Date().getTime();
+    $.ajax({
+        type: "POST",
+        url: requrl,
+        data: null,
+        dataType: 'text',
+        async: false,  
+        success: function(data){
+        	if(data.code == null & typeof(data.code) == "undefined"){	
+	            if(data){
+	            	results = JSON.parse(data);
+	            	for(var i = 0; i < results.list.length; i ++ ){
+	            		var currSubsysConfig = results.list[i];
+	            		var code = currSubsysConfig.code;
+	            		var name = currSubsysConfig.name;
+	            		var logo = currSubsysConfig.logo;
+	            		var active = currSubsysConfig.active;
+	            		var activeStr = "";
+	            		if(active){
+	            			activeStr = "active";
+	            		}
+	            		var currNodeHtml = '<li class="' + activeStr + '"><a data-toggle="tab" onclick=gotoSubsys("/rest/api/changeSubsys?subsysCode=' + code + '") href="#"><i class="green ' + logo + ' bigger-110"></i>' + name + '</a></li>';
+	            		$("#myTabs").append(currNodeHtml);
+	            	}
+	            }
+        	}
+        }  
+    });
+}
+function gotoSubsys(gotourl){
+    $.ajax({
+        type: "POST",
+        url: gotourl,
+        data: null,
+        dataType: 'json',
+        async: false,  
+        success: function(data){
+        	if(data.status.code == 200){
+                window.location.reload();
+        	}
+        }  
+    });
+}
 
 
 
@@ -706,16 +534,6 @@ function testPermission(){
 	
 }
 
-
-
-
-
-
-
-
-
-
-
 function testResource(){
 	var url =  "/rest/resource/findPermissionsByResourceId";
 
@@ -724,34 +542,9 @@ function testResource(){
             null,
             function(data,status){
               alert("数据：" + data + "\n状态：" + status);
-    		  //if ($.trim(data) == "failure") {
-              //if($.trim(JSON.parse(data).status) == 1){
-    			  //window.location.href = basePath + "/rest/forward/401";
-    		 // } else if ($.trim(data) == "success") {
-              //} else if ($.trim(JSON.parse(data).status) == 0){
-    			 // alert("is success");
-    			 // window.location.href = basePath + "/rest/forward/login";
-    		  //}
             });
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-
-
 </script>
 
 

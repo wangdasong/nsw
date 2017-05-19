@@ -1,8 +1,12 @@
 package nsw.base.web.controller.urpl;
 
+import java.util.List;
+
 import nsw.base.core.controller.base.BaseController;
 import nsw.base.core.dao.entity.SubsysConfig;
+import nsw.base.core.dao.entity.Widget;
 import nsw.base.core.service.SubsysConfigService;
+import nsw.base.core.service.WidgetService;
 import nsw.base.core.utils.Constants;
 import nsw.base.core.utils.paging.Pagination;
 
@@ -19,6 +23,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class SubsysConfigController extends BaseController {
 	@Autowired
 	SubsysConfigService subsysConfigService;
+	@Autowired
+	WidgetService widgetService;
 	
 
 	/**	
@@ -50,6 +56,12 @@ public class SubsysConfigController extends BaseController {
 			subsysConfig.setId(null);
 		}
 		subsysConfigService.add(subsysConfig);
+		Widget widget = new Widget();
+		widget.setCode(subsysConfig.getCode());
+		widget.setName(subsysConfig.getName() + "菜单");
+		widget.setType("menu");
+		widget.setContainerId("systemmenu");
+		widgetService.addWidget(widget);
 		return subsysConfig;
 	}
 	/**
@@ -58,6 +70,19 @@ public class SubsysConfigController extends BaseController {
 	@RequestMapping(value = Constants.REST_SUBSYS_DEL)
 	@ResponseBody
 	public SubsysConfig del(SubsysConfig subsysConfig){
+		//查看是否还有菜单控件
+		Widget widget = new Widget();
+		widget.setCode(subsysConfig.getCode());
+		List<Widget> widgetList = widgetService.getWidgetByCondition(widget);
+		for(Widget currWidget : widgetList ){
+			//如果当前菜单有内容，结束删除子系统
+			if(currWidget.getElements() != null && currWidget.getElements().size() > 0){
+				return null;
+			}else{
+				//删除菜单控件
+				widgetService.delWidget(currWidget);
+			}
+		}
 		subsysConfigService.del(subsysConfig.getId());
 		return subsysConfig;
 	}
