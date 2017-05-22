@@ -61,7 +61,7 @@ public class CommonResController extends BaseController {
 	AttConfigService attConfigService;
 	
 	/**
-	 * 构�?�页面请�?
+	 * 构造页面请求
 	 */
 	@RequestMapping(value = Constants.PAGE_CONTAINERS)
 	@ResponseBody
