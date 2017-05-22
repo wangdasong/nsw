@@ -87,5 +87,10 @@ public class SubsysConfigServiceImpl extends BaseServiceImpl<SubsysConfig> imple
 		return dataSrcEntityList;
 	}
 
+	@Override
+	public List<SubsysConfig> getAllList() {
+		return subsysConfigMapper.getAllData();
+	}
+
 
 }

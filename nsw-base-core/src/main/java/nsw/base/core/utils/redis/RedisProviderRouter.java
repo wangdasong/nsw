@@ -14,7 +14,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import nsw.base.core.dao.entity.ProviderConfig;
+import nsw.base.core.dao.entity.SubsysConfig;
 import nsw.base.core.service.ProviderConfigService;
+import nsw.base.core.service.SubsysConfigService;
 import nsw.base.core.utils.PropertyUtils;
 import nsw.base.core.utils.SimpleProxy;
 import nsw.base.core.utils.ThreadVariable;
@@ -36,8 +38,20 @@ public class RedisProviderRouter {
 	private HashMap<String, ProviderConfig> providerConfigAllMapNew = new HashMap<String, ProviderConfig>();
 	private HashMap<String, List<String>> providerConfigRandomIdMapNew = new HashMap<String, List<String>>();
 	private boolean useNew = false;
-	//每小时执行一次
-	@Scheduled(cron = "0 0 * * * ?")
+	
+	//加载服务提供者
+	public void reloadProviders(){
+		//给每个提供者进行注册
+		SubsysConfigService subsysConfigService = (SubsysConfigService) WebContextFactoryUtil.getBean("subsysConfigServiceImpl");
+		List<SubsysConfig> subsysConfigList = subsysConfigService.getAllList();
+		for(SubsysConfig subsysConfig : subsysConfigList){
+			this.registProvider(subsysConfig.getCode());
+		}
+	}
+	
+	
+	//每5分钟执行一次
+	@Scheduled(cron = "0 1/5 * * * ?")
 	public void reloadJob(){
 		System.out.println("################################systemdate =" + new Date());
 		String serverType = PropertyUtils.getPropertyValue("serverType");
@@ -90,11 +104,25 @@ public class RedisProviderRouter {
 	 */
 	public void registProvider(){
 		ProviderConfigService providerConfigService = (ProviderConfigService) WebContextFactoryUtil.getBean("providerConfigServiceImpl");
-		List<ProviderConfig> providerConfigList = providerConfigService.getProviderConfigsByCode(null);
+		List<ProviderConfig> providerConfigList = providerConfigService.getProviderConfigsByCode(providerCode);
 		if(providerConfigList != null && providerConfigList.size() > 0){
-			if(this.providerCode == null || "".equals(this.providerCode)){
-				providerCode = providerConfigList.get(0).getCode();
+			HashMap<String, List<ProviderConfig>> providerConfigMap = getAllProvider();
+			if(providerConfigMap == null){
+				providerConfigMap = new HashMap<String, List<ProviderConfig>>();
 			}
+			providerConfigMap.put(providerCode, providerConfigList);
+			this.providerConfigMap = providerConfigMap;
+			RedisDb.setObject(REDIS_PROVIDERS_KEY.getBytes(), RedisDb.providerConfigMapToByte(providerConfigMap));
+		}
+	}
+	/**
+	 * 服务发现
+	 * 发现当前启动服务提供者的所有服务器，并注册到redis上
+	 */
+	public void registProvider(String providerCode){
+		ProviderConfigService providerConfigService = (ProviderConfigService) WebContextFactoryUtil.getBean("providerConfigServiceImpl");
+		List<ProviderConfig> providerConfigList = providerConfigService.getProviderConfigsByCode(providerCode);
+		if(providerConfigList != null && providerConfigList.size() > 0){
 			HashMap<String, List<ProviderConfig>> providerConfigMap = getAllProvider();
 			if(providerConfigMap == null){
 				providerConfigMap = new HashMap<String, List<ProviderConfig>>();

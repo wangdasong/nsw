@@ -55,7 +55,7 @@
 	
 	<!-- 服务提供者 -->
     <bean id="redisProviderRouter" class="nsw.base.core.utils.redis.RedisProviderRouter">
-        <property name="providerCode" value="finance"/>
+        <property name="providerCode" value="common"/>
     </bean>
 	<task:executor id="executor" pool-size="5" />  
 	<task:scheduler id="scheduler" pool-size="10" />  

@@ -39,6 +39,7 @@ public class Constants {
 	public static final String REST_SUBSYS_EDIT = "/edit";
 	public static final String REST_SUBSYS_ADD = "/add";
 	public static final String REST_SUBSYS_DEL = "/del";
+	public static final String REST_SUBSYS_RELOAD = "/reload";
 	/**
 	 * 服务提供者配置相关请求
 	 */

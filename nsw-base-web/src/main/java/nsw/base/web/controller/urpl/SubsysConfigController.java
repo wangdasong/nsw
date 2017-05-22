@@ -8,7 +8,10 @@ import nsw.base.core.dao.entity.Widget;
 import nsw.base.core.service.SubsysConfigService;
 import nsw.base.core.service.WidgetService;
 import nsw.base.core.utils.Constants;
+import nsw.base.core.utils.WebContextFactoryUtil;
 import nsw.base.core.utils.paging.Pagination;
+import nsw.base.core.utils.redis.RedisProviderRouter;
+import nsw.base.core.utils.result.ResultString;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -43,6 +46,15 @@ public class SubsysConfigController extends BaseController {
 	@RequestMapping(value = Constants.REST_SUBSYS_EDIT)
 	@ResponseBody
 	public SubsysConfig edit(SubsysConfig subsysConfig){
+
+		//查看是否还有菜单控件
+		Widget widget = new Widget();
+		widget.setCode(subsysConfig.getCode());
+		List<Widget> widgetList = widgetService.getWidgetByCondition(widget);
+		for(Widget currWidget : widgetList ){
+			currWidget.setCode(subsysConfig.getCode());
+			widgetService.editWidget(currWidget);
+		}
 		subsysConfigService.edit(subsysConfig);
 		return subsysConfig;
 	}
@@ -85,6 +97,19 @@ public class SubsysConfigController extends BaseController {
 		}
 		subsysConfigService.del(subsysConfig.getId());
 		return subsysConfig;
+	}
+	/**
+	 * 重新加载服务
+	 */
+	@RequestMapping(value = Constants.REST_SUBSYS_RELOAD)
+	@ResponseBody
+	public ResultString reload(){
+		ResultString resultString= new ResultString();
+		RedisProviderRouter redisProviderRouter = (RedisProviderRouter)WebContextFactoryUtil.getBean("redisProviderRouter");
+		redisProviderRouter.reloadProviders();
+		resultString.setStatus(0);
+		resultString.setMsg("服务重载成功！");
+		return resultString;
 	}
 	
 }
