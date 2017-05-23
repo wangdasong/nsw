@@ -1,7 +1,11 @@
 package nsw.base.core.shiro;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 
 import nsw.base.core.dao.entity.Resource;
 import nsw.base.core.dao.entity.SubsysConfig;
@@ -10,7 +14,6 @@ import nsw.base.core.dao.entity.base.BaseEntity;
 import nsw.base.core.service.LoginService;
 import nsw.base.core.service.SubsysConfigService;
 import nsw.base.core.utils.ThreadVariable;
-import nsw.base.core.utils.paging.Pagination;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -25,6 +28,8 @@ import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.apache.shiro.web.util.SavedRequest;
+import org.apache.shiro.web.util.WebUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -52,16 +57,7 @@ public class UserRealm extends AuthorizingRealm {
     	logger.debug("class:UserRealm method:doGetAuthorizationInfo(PrincipalCollection principals)");
 
         //获取shiro的session对象
-        Session session = SecurityUtils.getSubject().getSession();   
-    	if(session.getAttribute("SUBSYS_CODE") == null || "".equals(session.getAttribute("SUBSYS_CODE"))){
-        	Pagination page = subsysConfigService.getSubsysConfigPage(1, 20, null, new SubsysConfig());
-        	//设置默认的子系统
-        	if(page.getList() != null && page.getList().get(0) != null){
-        		SubsysConfig subsysConfig = (SubsysConfig) page.getList().get(0);
-            	session.setAttribute("SUBSYS_CODE", subsysConfig.getCode());
-        	}
-    	}
-		ThreadVariable.setSubsysCodeVariable((String) session.getAttribute("SUBSYS_CODE"));
+        Session session = SecurityUtils.getSubject().getSession();
     	//System.out.println("============UserRealm=======L41======start!========");
     	//获取用户名
         String username = (String)principals.getPrimaryPrincipal();
@@ -145,6 +141,10 @@ public class UserRealm extends AuthorizingRealm {
      */
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
     	logger.debug("class:UserRealm method:doGetAuthorizationInfo(PrincipalCollection principals)");
+    	Session session = SecurityUtils.getSubject().getSession();
+        SavedRequest savedRequest = (SavedRequest)SecurityUtils.getSubject().getSession().getAttribute("shiroSavedRequest");
+        
+		ThreadVariable.setSubsysCodeVariable((String) session.getAttribute("SUBSYS_CODE"));
     	//获取用户名
         String username = (String)token.getPrincipal();
         //得到密码
@@ -182,8 +182,28 @@ public class UserRealm extends AuthorizingRealm {
                 getName()  //realm name
         );*/
     	SimpleAuthenticationInfo account= new SimpleAuthenticationInfo(user.getUsername(), user.getPassword(), getName());
-        Session session = SecurityUtils.getSubject().getSession();
     	session.setAttribute("LOGIN_USER", user);
+    	
+        if(session.getAttribute("SUBSYS_CODE") == null || "".equals(session.getAttribute("SUBSYS_CODE"))){
+        	Cookie subsysCodeCookie = null;
+        	HttpServletRequest req = WebUtils.getHttpRequest(SecurityUtils.getSubject());
+			Cookie[] cookies = req.getCookies();
+			for(Cookie cookie : cookies){
+	            if(cookie.getName().equals("subsysCode")){
+	            	subsysCodeCookie = cookie;
+	            }
+	        }
+			if(subsysCodeCookie != null && subsysCodeCookie.getValue() != null && !"".equals(subsysCodeCookie.getValue())){
+				session.setAttribute("SUBSYS_CODE", subsysCodeCookie.getValue());
+			}else{
+	        	List<SubsysConfig> subsysConfigList = subsysConfigService.getAllList();
+	        	//设置默认的子系统
+	        	if(subsysConfigList != null && subsysConfigList.get(0) != null){
+	        		SubsysConfig subsysConfig = (SubsysConfig) subsysConfigList.get(0);
+	            	session.setAttribute("SUBSYS_CODE", subsysConfig.getCode());
+	        	}
+			}
+    	}
 		ThreadVariable.setUser(user);
         return account;
     }

@@ -15,10 +15,8 @@ import nsw.base.core.dao.entity.User;
 import nsw.base.core.dao.entity.base.BaseEntity;
 import nsw.base.core.utils.ShiroFilterUtils;
 import nsw.base.core.utils.ThreadVariable;
-import nsw.base.core.utils.WebContextFactoryUtil;
 
 import org.apache.shiro.subject.Subject;
-import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
 import org.apache.shiro.web.filter.authc.UserFilter;
 import org.apache.shiro.web.util.WebUtils;
 
@@ -28,7 +26,9 @@ public class UserSessionFilter extends UserFilter  {
 	@Override
 	protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue){
         HttpServletRequest req = (HttpServletRequest) request;
+        HttpServletResponse rep = (HttpServletResponse) response;
         String reqUrl = req.getRequestURI();
+        System.out.println("reqUrl====" + reqUrl);
 		Subject subject = getSubject(request, response);
 		if (isLoginRequest(request, response)) {
 			return true;
@@ -37,12 +37,27 @@ public class UserSessionFilter extends UserFilter  {
 		if(reqUrl.contains("changeSubsys")){
 			String subsysCode = req.getParameter("subsysCode");
 			subject.getSession().setAttribute("SUBSYS_CODE", subsysCode);
-			subject.getSession().getAttribute("SUBSYS_CODE");
+			Cookie subsysCodeCookie = null;
+			Cookie[] cookies = req.getCookies();
+			for(Cookie cookie : cookies){
+	            if(cookie.getName().equals("subsysCode")){
+	            	subsysCodeCookie = cookie;
+	            }
+	        }
+			if(subsysCodeCookie == null){
+				subsysCodeCookie = new Cookie("subsysCode", subsysCode);
+			}else{
+				subsysCodeCookie.setValue(subsysCode);
+			}
+			subsysCodeCookie.setPath("/");
+			//设置cookies一年有效
+			subsysCodeCookie.setMaxAge(60*60*24*365);
+			rep.addCookie(subsysCodeCookie);
 			Map<String, Integer> codeMap = new HashMap<String, Integer>();
 			codeMap.put("code", 200);
 			resultMap.put("status", codeMap);
 			ShiroFilterUtils.out(response, resultMap);
-			return false;
+			return true;
 		}
 		User currUser = (User) subject.getSession().getAttribute("LOGIN_USER");
 		if((subject.getPrincipal() == null || currUser == null) && ShiroFilterUtils.isAjax(request)){
@@ -119,8 +134,6 @@ public class UserSessionFilter extends UserFilter  {
         	ThreadVariable.setServerIpVariable(serverIpCookie);
         	ThreadVariable.setServerPortVariable(serverPortCookie);
         	ThreadVariable.setSubsysCodeVariable(subsysCode);
-        	System.out.println("reqUrl = "+reqUrl);
-        	System.out.println("subsysCode = "+subsysCode);
 		}
 		return result;
 	}

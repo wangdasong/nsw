@@ -333,6 +333,7 @@ public class LoginController {
 			serverTypeCookie.setValue(serverType);
 		}
 		serverTypeCookie.setPath("/");
+		serverTypeCookie.setMaxAge(60*60*24*365);
 		response.addCookie(serverTypeCookie);
 		//本地
 		if("1".equals(serverType)){
@@ -348,7 +349,9 @@ public class LoginController {
 			}
 		}
 		serverIpCookie.setPath("/");
+		serverIpCookie.setMaxAge(60*60*24*365);
 		serverPortCookie.setPath("/");
+		serverPortCookie.setMaxAge(60*60*24*365);
 		response.addCookie(serverIpCookie);
 		response.addCookie(serverPortCookie);
 		resultString.setStatus(ResultString.RESULT_STATUS_SUCCESS);
