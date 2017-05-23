@@ -92,5 +92,10 @@ public class SubsysConfigServiceImpl extends BaseServiceImpl<SubsysConfig> imple
 		return subsysConfigMapper.getAllData();
 	}
 
+	@Override
+	public SubsysConfig getById(String subsysConfigId) {
+		return subsysConfigMapper.getById(subsysConfigId);
+	}
+
 
 }

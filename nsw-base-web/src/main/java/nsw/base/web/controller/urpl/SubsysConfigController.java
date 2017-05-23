@@ -3,8 +3,10 @@ package nsw.base.web.controller.urpl;
 import java.util.List;
 
 import nsw.base.core.controller.base.BaseController;
+import nsw.base.core.dao.entity.ProviderConfig;
 import nsw.base.core.dao.entity.SubsysConfig;
 import nsw.base.core.dao.entity.Widget;
+import nsw.base.core.service.ProviderConfigService;
 import nsw.base.core.service.SubsysConfigService;
 import nsw.base.core.service.WidgetService;
 import nsw.base.core.utils.Constants;
@@ -28,6 +30,8 @@ public class SubsysConfigController extends BaseController {
 	SubsysConfigService subsysConfigService;
 	@Autowired
 	WidgetService widgetService;
+	@Autowired
+	ProviderConfigService providerConfigService;
 	
 
 	/**	
@@ -48,12 +52,18 @@ public class SubsysConfigController extends BaseController {
 	public SubsysConfig edit(SubsysConfig subsysConfig){
 
 		//查看是否还有菜单控件
+		SubsysConfig oldSubsysConfig = subsysConfigService.getById(subsysConfig.getId());
 		Widget widget = new Widget();
-		widget.setCode(subsysConfig.getCode());
+		widget.setCode(oldSubsysConfig.getCode());
 		List<Widget> widgetList = widgetService.getWidgetByCondition(widget);
 		for(Widget currWidget : widgetList ){
 			currWidget.setCode(subsysConfig.getCode());
 			widgetService.editWidget(currWidget);
+		}
+		List<ProviderConfig> providerConfigList = providerConfigService.getProviderConfigsByCode(oldSubsysConfig.getCode());
+		for(ProviderConfig providerConfig : providerConfigList ){
+			providerConfig.setCode(subsysConfig.getCode());
+			providerConfigService.edit(providerConfig);
 		}
 		subsysConfigService.edit(subsysConfig);
 		return subsysConfig;
