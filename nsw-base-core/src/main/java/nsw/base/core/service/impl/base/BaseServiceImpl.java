@@ -17,12 +17,14 @@ import javax.servlet.http.HttpServletRequest;
 
 import nsw.base.core.dao.entity.AttConfig;
 import nsw.base.core.dao.entity.Element;
+import nsw.base.core.dao.entity.User;
 import nsw.base.core.dao.entity.Widget;
 import nsw.base.core.dao.entity.base.BaseEntity;
 import nsw.base.core.dao.entity.base.DataSrcEntity;
 import nsw.base.core.dao.persistence.base.BaseDaoMapper;
 import nsw.base.core.service.ElementService;
 import nsw.base.core.service.WidgetService;
+import nsw.base.core.service.base.BaseService;
 import nsw.base.core.service.base.DataSrcService;
 import nsw.base.core.service.base.ExportService;
 import nsw.base.core.service.base.ImportService;
@@ -33,6 +35,8 @@ import nsw.base.core.utils.ExcelHelper;
 import nsw.base.core.utils.RequestToBean;
 import nsw.base.core.utils.ThreadVariable;
 import nsw.base.core.utils.WebContextFactoryUtil;
+import nsw.base.core.utils.paging.Pagination;
+import nsw.base.core.utils.paging.TablePagingService;
 
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -44,7 +48,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 
-public abstract class BaseServiceImpl<T extends BaseEntity> implements ImportService<T>, ExportService<T>{
+public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseService<T>, ImportService<T>, ExportService<T> , TablePagingService{
 	@Autowired
 	WidgetService widgetService;
 	@Autowired
@@ -483,5 +487,65 @@ public abstract class BaseServiceImpl<T extends BaseEntity> implements ImportSer
 			e.printStackTrace();
 		}
 		return ExcelHelper.exportExcel(null, exportList);
+	}
+
+	@Override
+	public T addEntity(T t) {
+		this.getCurrDaoMapper().save(t);
+		return t;
+	}
+
+	@Override
+	public T editEntity(T t) {
+		Date currTime = new Date();
+		User loginUser = null;
+		loginUser = (User) ThreadVariable.getUser();
+		t.setCreateDate(currTime);
+		t.setUpdateDate(currTime);
+		if(loginUser != null){
+			t.setCreateUserId(loginUser.getCreateUserId());
+			t.setUpdateUserId(loginUser.getCreateUserId());
+		}
+		this.getCurrDaoMapper().update(t);
+		return t;
+	}
+
+	@Override
+	public T getEntityById(String id){
+		return this.getCurrDaoMapper().getById(id);
+	}
+	@Override
+	public T delEntity(String id) {
+		//获取删除前的Entity
+		T t = this.getCurrDaoMapper().getById(id);
+		//按照ID删除Entity
+		this.getCurrDaoMapper().deleteById(id);
+		return t;
+	}
+
+	@Override
+	public List<T> getEntityListByCondition(T t) {
+		return this.getCurrDaoMapper().getListByCondition(t);
+	}
+
+	@Override
+	public Pagination getEntityPage(int pageNo, int size, String sort, T t) {
+		Pagination pr = new Pagination(pageNo, size, sort, this);
+		try {
+			pr.doPage(t);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return pr;
+	}
+
+	@Override
+	public int getCount(Pagination page) {
+		return this.getCurrDaoMapper().getCount(page);
+	}
+
+	@Override
+	public List findPageData(Pagination page) {
+		return this.getCurrDaoMapper().findPageData(page);
 	}
 }
