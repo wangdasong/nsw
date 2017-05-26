@@ -313,6 +313,9 @@ public class LoginController {
 		String serverIp = json.getString("serverIp");
 		String serverPort = json.getString("serverPort");
 		Cookie[] cookies = request.getCookies();
+		if(cookies == null){
+			cookies = new Cookie[0];
+		}
 		Cookie serverTypeCookie = null;
 		Cookie serverIpCookie = null;
 		Cookie serverPortCookie = null;
