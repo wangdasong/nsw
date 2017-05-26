@@ -338,22 +338,23 @@ public class LoginController {
 		//本地
 		if("1".equals(serverType)){
 			if(serverIpCookie == null){
-				serverIpCookie = new Cookie("serverIpCookie", serverType);
+				serverIpCookie = new Cookie("serverIpCookie", serverIp);
 			}else{
 				serverIpCookie.setValue(serverIp);
 			}
 			if(serverPortCookie == null){
-				serverPortCookie = new Cookie("serverPortCookie", serverType);
+				serverPortCookie = new Cookie("serverPortCookie", serverPort);
 			}else{
 				serverPortCookie.setValue(serverPort);
 			}
+			serverIpCookie.setPath("/");
+			serverIpCookie.setMaxAge(60*60*24*365);
+			serverPortCookie.setPath("/");
+			serverPortCookie.setMaxAge(60*60*24*365);
+			response.addCookie(serverIpCookie);
+			response.addCookie(serverPortCookie);
+
 		}
-		serverIpCookie.setPath("/");
-		serverIpCookie.setMaxAge(60*60*24*365);
-		serverPortCookie.setPath("/");
-		serverPortCookie.setMaxAge(60*60*24*365);
-		response.addCookie(serverIpCookie);
-		response.addCookie(serverPortCookie);
 		resultString.setStatus(ResultString.RESULT_STATUS_SUCCESS);
     	resultString.setData("success");
 		
