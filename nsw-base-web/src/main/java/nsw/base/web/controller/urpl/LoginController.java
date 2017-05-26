@@ -363,8 +363,7 @@ public class LoginController {
     	
     	return resultString; 
     }  
-   
-	
+
 	
     /**
      * <p>方法描述: 找回密码功能</p>
