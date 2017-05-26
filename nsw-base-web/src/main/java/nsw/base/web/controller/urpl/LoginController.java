@@ -352,8 +352,7 @@ public class LoginController {
 			serverPortCookie.setPath("/");
 			serverPortCookie.setMaxAge(60*60*24*365);
 			response.addCookie(serverIpCookie);
-			response.addCookie(serverPortCookie);
-
+			response.addCookie(serverPortCookie); 
 		}
 		resultString.setStatus(ResultString.RESULT_STATUS_SUCCESS);
     	resultString.setData("success");
