@@ -74,6 +74,9 @@
 			<if test="tmpFlg != null" >
                     TMP_FLG,
             </if>
+			<if test="providerCode != null" >
+                    PROVIDER_CODE,
+            </if>
 			<if test="createDate != null" >
                     CREATE_DATE,
             </if>
@@ -101,7 +104,10 @@
                     #{screenSize},
             </if>
 			<if test="tmpFlg != null" >
-                    #{tmpFlg}
+                    #{tmpFlg},
+            </if>
+			<if test="providerCode != null" >
+                    #{providerCode},
             </if>
 			<if test="createDate != null" >
                     #{createDate},
@@ -133,6 +139,9 @@
       <if test="tmpFlg != null" > 
         TMP_FLG = #{tmpFlg},
       </if> 
+      <if test="providerCode != null" > 
+        PROVIDER_CODE = #{providerCode},
+      </if>
       <if test="createDate != null" > 
         CREATE_DATE = #{createDate},
       </if> 
