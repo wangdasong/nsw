@@ -216,38 +216,36 @@ public class RedisProviderRouter {
 			HttpServletResponse response) throws IOException{
 		String reqUrl = request.getRequestURI();
 		String providerCode = reqUrl.substring(reqUrl.indexOf("providerCode_") + 13, reqUrl.indexOf("_", reqUrl.indexOf("providerCode_") + 13));
-		ProviderConfig providerConfig = randomProviderConfig(providerCode);
-		if(providerConfig != null){
-			String providerIp = "127.0.0.1";
-			String providerPort = "80";
+		String providerIp = "127.0.0.1";
+		String providerPort = "80";
 
-			String serverType = ThreadVariable.getServerTypeVariable();
-			if("1".equals(serverType)){
-				if(!StringUtils.isEmpty(ThreadVariable.getServerIpVariable())){
-					providerIp = ThreadVariable.getServerIpVariable();
-				}
-				if(!StringUtils.isEmpty(ThreadVariable.getServerPortVariable())){
-					providerPort = ThreadVariable.getServerPortVariable();
-				}
-			}else{
-				if(!StringUtils.isEmpty(providerConfig.getIp())){
-					providerIp = providerConfig.getIp();
-				}
-				if(!StringUtils.isEmpty(providerConfig.getPort())){
-					providerPort = providerConfig.getPort();
-				}
+		String serverType = ThreadVariable.getServerTypeVariable();
+		if("1".equals(serverType)){
+			if(!StringUtils.isEmpty(ThreadVariable.getServerIpVariable())){
+				providerIp = ThreadVariable.getServerIpVariable();
 			}
-			String strUrl= "http://" + providerIp + ":"+ providerPort + reqUrl;
-			String queryString = request.getQueryString();
-			if(queryString!=null&&("".equals(queryString.trim()))==false){
-				strUrl+="?"+queryString;
+			if(!StringUtils.isEmpty(ThreadVariable.getServerPortVariable())){
+				providerPort = ThreadVariable.getServerPortVariable();
 			}
-			strUrl = strUrl.replace("providerCode_" + providerConfig.getCode()+"_", "");
-			System.out.println(strUrl);
-			SimpleProxy.doServer(request, response, strUrl);
-			
+		}else{
+			ProviderConfig providerConfig = randomProviderConfig(providerCode);
+			if(!StringUtils.isEmpty(providerConfig.getIp())){
+				providerIp = providerConfig.getIp();
+			}
+			if(!StringUtils.isEmpty(providerConfig.getPort())){
+				providerPort = providerConfig.getPort();
+			}
+		}
+		String strUrl= "http://" + providerIp + ":"+ providerPort + reqUrl;
+		String queryString = request.getQueryString();
+		if(queryString!=null&&("".equals(queryString.trim()))==false){
+			strUrl+="?"+queryString;
+		}
+		strUrl = strUrl.replace("providerCode_" + providerCode+"_", "");
+		System.out.println(strUrl);
+		SimpleProxy.doServer(request, response, strUrl);
+		
 //	        HttpUtils.getOutputContext(strUrl, cookiesStr, requestUrl, outputStream);
 //	        outputStream.close();
-		}
 	}
 }
