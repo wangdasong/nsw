@@ -491,6 +491,15 @@ public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseServi
 
 	@Override
 	public T addEntity(T t) {
+		Date currTime = new Date();
+		User loginUser = null;
+		loginUser = (User) ThreadVariable.getUser();
+		t.setCreateDate(currTime);
+		t.setUpdateDate(currTime);
+		if(loginUser != null){
+			t.setCreateUserId(loginUser.getCreateUserId());
+			t.setUpdateUserId(loginUser.getCreateUserId());
+		}
 		this.getCurrDaoMapper().save(t);
 		return t;
 	}
