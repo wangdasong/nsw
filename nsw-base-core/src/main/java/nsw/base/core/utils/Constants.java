@@ -84,6 +84,7 @@ public class Constants {
 	public static final String REST_ELEMENT_EDIT = "/edit";
 	public static final String REST_ELEMENT_ADD = "/add";
 	public static final String REST_ELEMENT_DEL = "/del";
+	public static final String REST_ELEMENT_IMPORT = "/import";
 
 	/**
 	 * 控件相关请求

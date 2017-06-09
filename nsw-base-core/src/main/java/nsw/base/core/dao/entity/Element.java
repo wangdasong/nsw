@@ -10,14 +10,15 @@ import nsw.base.core.dao.entity.base.BaseEntity;
 
 public class Element extends BaseEntity {
 
-    private String code;
     private String name;
     private String parentId;
     private String widgetId;
     private int subCount;
     private List<AttConfig> attConfigs;
-    private List<Element> childElements;
+    private String code;
+	private List<Element> childElements;
     private Element parentElement;
+    private String sampleType;
 
     public String getId() {
         return id;
@@ -90,6 +91,14 @@ public class Element extends BaseEntity {
 
 	public void setParentElement(Element parentElement) {
 		this.parentElement = parentElement;
+	}
+
+	public String getSampleType() {
+		return sampleType;
+	}
+
+	public void setSampleType(String sampleType) {
+		this.sampleType = sampleType;
 	}
 
 }

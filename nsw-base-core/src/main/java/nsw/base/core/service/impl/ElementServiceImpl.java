@@ -175,6 +175,9 @@ public class ElementServiceImpl implements DataSrcService<Element>, TreeDataServ
 			attConfig.setCreateDate(new Date());
 			attConfig.setUpdateDate(new Date());
 			attConfig.setBelongId(myElement.getId());
+			if("TABLE_ELEMENT_INDEX".equals(attConfig.getCode())){
+				attConfig.setAttValue(myElement.getName());
+			}
 			attConfigService.addAttConfig(attConfig);
 			attConfigs.add(attConfig);
 		}

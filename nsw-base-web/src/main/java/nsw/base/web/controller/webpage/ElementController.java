@@ -1,11 +1,14 @@
 package nsw.base.web.controller.webpage;
 
+import java.util.List;
+
 import nsw.base.core.dao.entity.Element;
 import nsw.base.core.dao.entity.Widget;
 import nsw.base.core.service.ElementService;
 import nsw.base.core.service.WidgetService;
 import nsw.base.core.utils.Constants;
 import nsw.base.core.utils.paging.Pagination;
+import nsw.base.core.utils.result.ResultString;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -40,7 +43,7 @@ public class ElementController {
 	 */
 	@RequestMapping(value = Constants.REST_ELEMENT_COPY_TEMPLETE)
 	@ResponseBody
-	public Element copyTemplete(Pagination page, Element element, String sampleType){
+	public Element copyTemplete(Element element, String sampleType){
 		Element tempElement = new Element();
 		tempElement.setId("44EA45BA27912E9CE0530100007F5070");
 		String widgetId = element.getWidgetId();
@@ -93,6 +96,19 @@ public class ElementController {
 	public Element saveOrUpdate(Element element){
 		element = elementService.saveOrUpdateElement(element);
 		return element;
+	}
+	/**
+	 * 导入数据表的元素数据
+	 */
+	@RequestMapping(value = Constants.REST_ELEMENT_IMPORT)
+	@ResponseBody
+	public ResultString importData(List<Element> elements){
+		ResultString resultString = new ResultString();
+		for(Element element : elements){
+			element = elementService.saveOrUpdateElement(element);
+			copyTemplete(element, element.getSampleType());
+		}
+		return resultString;
 	}
 
 	/**
