@@ -178,6 +178,9 @@ public class ElementServiceImpl implements DataSrcService<Element>, TreeDataServ
 			if("TABLE_ELEMENT_INDEX".equals(attConfig.getCode())){
 				attConfig.setAttValue(myElement.getName());
 			}
+			if("TABLE_ELEMENT_LABEL".equals(attConfig.getCode())){
+				attConfig.setAttValue(myElement.getAttConfigs().get(0).getAttValue());
+			}
 			attConfigService.addAttConfig(attConfig);
 			attConfigs.add(attConfig);
 		}

@@ -1,7 +1,10 @@
 package nsw.base.web.controller.webpage;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
+import nsw.base.core.dao.entity.AttConfig;
 import nsw.base.core.dao.entity.Element;
 import nsw.base.core.dao.entity.Widget;
 import nsw.base.core.service.ElementService;
@@ -102,11 +105,26 @@ public class ElementController {
 	 */
 	@RequestMapping(value = Constants.REST_ELEMENT_IMPORT)
 	@ResponseBody
-	public ResultString importData(List<Element> elements){
+	public ResultString importData(String[] widgetIds, String[] codes, String[] names, String[] sampleTypes , String[] labels ){
 		ResultString resultString = new ResultString();
-		for(Element element : elements){
+		int i = 0;
+		for(String widgetId : widgetIds){
+			Element element = new Element();
+			element.setWidgetId(widgetId);
+			element.setCode(codes[i]);
+			element.setName(names[i]);
+			element.setSampleType(sampleTypes[i]);
+			element.setParentId(widgetId);
+			element.setCreateUserId("01062317");
+			element.setCreateDate(new Date());
 			element = elementService.saveOrUpdateElement(element);
+			AttConfig attConfig = new AttConfig();
+			attConfig.setAttValue(labels[i]);
+			List<AttConfig>  attConfigs = new ArrayList<AttConfig>();
+			attConfigs.add(attConfig);
+			element.setAttConfigs(attConfigs);
 			copyTemplete(element, element.getSampleType());
+			i ++ ;
 		}
 		return resultString;
 	}

@@ -96,7 +96,7 @@ public class WidgetServiceImpl implements DataSrcService<Widget>, WidgetService 
 	@Override
 	public Widget getWidgetDetailById(String widgetId) {
 		Widget widget = widgetMapper.getDetailById(widgetId);
-		if(SecurityUtils.getSubject().hasRole("sysadmin") || ThreadVariable.getPopupWidgetVariable() != null){
+		if(SecurityUtils.getSubject().getPrincipal() == null || SecurityUtils.getSubject().hasRole("sysadmin") || ThreadVariable.getPopupWidgetVariable() != null){
 			return widget;
 		}
 		//如果是读取菜单信息，检查菜单权限

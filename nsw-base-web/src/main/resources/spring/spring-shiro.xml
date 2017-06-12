@@ -164,6 +164,7 @@
                 <!-- 注册表单提交 -->
                 /rest/login/register = anon
                 /demo-ace/* = anon
+                /rest/api/element/import = anon
                 
                 /favicon.ico = anon
                 /**.html = anon
