@@ -105,7 +105,7 @@ public class ElementController {
 	 */
 	@RequestMapping(value = Constants.REST_ELEMENT_IMPORT)
 	@ResponseBody
-	public ResultString importData(String[] widgetIds, String[] codes, String[] names, String[] sampleTypes , String[] labels ){
+	public ResultString importData(String[] widgetIds, String[] sorts, String[] codes, String[] names, String[] sampleTypes , String[] editFlgs, String[] labels ){
 		ResultString resultString = new ResultString();
 		int i = 0;
 		for(String widgetId : widgetIds){
@@ -121,6 +121,12 @@ public class ElementController {
 			AttConfig attConfig = new AttConfig();
 			attConfig.setAttValue(labels[i]);
 			List<AttConfig>  attConfigs = new ArrayList<AttConfig>();
+			attConfigs.add(attConfig);
+			attConfig = new AttConfig();
+			attConfig.setAttValue(sorts[i]);
+			attConfigs.add(attConfig);
+			attConfig = new AttConfig();
+			attConfig.setAttValue(editFlgs[i]);
 			attConfigs.add(attConfig);
 			element.setAttConfigs(attConfigs);
 			copyTemplete(element, element.getSampleType());
