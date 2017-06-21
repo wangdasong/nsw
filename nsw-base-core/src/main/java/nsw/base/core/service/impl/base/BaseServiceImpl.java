@@ -275,7 +275,7 @@ public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseServi
 					this.getCurrDaoMapper().save(t);
 				}
 			} catch (Exception e) {
-				t.addError("�?" + index + "行数据在保存DB的过程中发生错误，请�?查数据是否存在异常！");
+				t.addError("共：" + index + "行数据在保存DB的过程中发生错误，请检查数据是否存在异常！");
 				e.printStackTrace();
 			}
 			index ++;

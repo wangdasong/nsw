@@ -55,7 +55,7 @@ angular.module('controller.webpage.container.widget.file', [])
                             if (el.val() == '') {
                                 return false;
                             }
-                            $form.attr('action', "/rest/api/uploadfile");
+                            $form.attr('action', "/rest/api/" + COMMON.getProviderCode() + "/uploadfile");
                             var submitStatus = "";
                             $form.ajaxSubmit({
                                 type: 'POST',

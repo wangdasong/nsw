@@ -222,7 +222,7 @@ public class CommonResController extends BaseController {
 			rs.setStatus(ResultString.RESULT_STATUS_FAILED);
 			return rs;
 		}
-		rs.setMsg("导入成功�?");
+		rs.setMsg("导入成功！");
 		rs.setStatus(ResultString.RESULT_STATUS_SUCCESS);
 		return rs;
 	}
