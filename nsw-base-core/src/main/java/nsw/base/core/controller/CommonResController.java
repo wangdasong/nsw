@@ -125,7 +125,7 @@ public class CommonResController extends BaseController {
 			BaseEntity baseEntity;
 			baseEntity = (BaseEntity) clazz.newInstance();
 			if(!"[]".equals(json)){
-				baseEntity = Constants.GSON_FULL.fromJson(json, clazz);
+				baseEntity = (BaseEntity)Constants.GSON_FULL.fromJson(json, clazz);
 			}
 			dataSrcEntityList = dataSrcService.getDataSrcListByCondition(baseEntity);
 		} catch (Exception e) {
@@ -155,7 +155,7 @@ public class CommonResController extends BaseController {
 			Class clazz = (Class) parameterizedType.getActualTypeArguments()[0];
 			baseEntity = (BaseEntity) clazz.newInstance();
 			if(!"\"non\"".equals(json)){
-				baseEntity = Constants.GSON_FULL.fromJson(json, clazz);
+				baseEntity = (BaseEntity)Constants.GSON_FULL.fromJson(json, clazz);
 			}
 			treeDataEntity = treeDataService.getTreeDataListByParentId(parentId, baseEntity);
 		} catch (Exception e) {
