@@ -1,4 +1,4 @@
-﻿package nsw.base.core.dao.persistence.base;
+package nsw.base.core.dao.persistence.base;
 import java.util.List;
 
 import org.springframework.dao.DataAccessException;

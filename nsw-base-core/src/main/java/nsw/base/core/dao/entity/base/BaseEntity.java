@@ -1,4 +1,4 @@
-﻿package nsw.base.core.dao.entity.base;
+package nsw.base.core.dao.entity.base;
 
 import java.io.Serializable;
 import java.util.ArrayList;

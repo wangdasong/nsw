@@ -12,9 +12,9 @@ import org.springframework.stereotype.Component;
 
 
 /**
- * @author 王大�?  创建时间2016-12-16
- * 功能�?
- * @修改�?     日期      版本      描述
+ * @author 王大嵩  创建时间2016-12-16
+ * 功能
+ * @修改     日期      版本      描述
  */
 
 @Component 
