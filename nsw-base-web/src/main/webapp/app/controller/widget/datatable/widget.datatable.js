@@ -260,16 +260,16 @@ angular.module('controller.webpage.container.widget.datatable', [])
 	             			if(currEleAttConfigType == "message"){
 	             				currModel[i].message = currEleAttConfig.attValue;
 	            			}
-	             			if(currEleAttConfigType == "require" && currEleAttConfig.attValue == "true"){
+	             			if(currEleAttConfigType == "require" && currEleAttConfig.attValue != null && currEleAttConfig.attValue == "true"){
 	             				currModel[i].require = true;
 	            			}
-	        				 if(currEleAttConfigType == "regular" && currEleAttConfig.attValue.trim() != ""){
+	        				 if(currEleAttConfigType == "regular" && currEleAttConfig.attValue != null && currEleAttConfig.attValue.trim() != ""){
 	        					 currModel[i].regular = currEleAttConfig.attValue;
 	        				 }
-	        				 if(currEleAttConfigType == "edittype"){
+	        				 if(currEleAttConfigType == "edittype" && currEleAttConfig.attValue != null && currEleAttConfig.attValue.trim() != ""){
 	        					 currModel[i].edittype = currEleAttConfig.attValue;
 	        				 }
-	        				 if(currEleAttConfigType == "editoptions"){
+	        				 if(currEleAttConfigType == "editoptions" && currEleAttConfig.attValue != null && currEleAttConfig.attValue.trim() != ""){
 	        					 var currOptions = eval('('+currEleAttConfig.attValue+')');
 	        					 if(currOptions.serviceName && currOptions.queryCondition){
 	        						 var dataUrlStr = "/rest/api/" + COMMON.getProviderCode() + "dataSrcList/" + currOptions.serviceName;
@@ -293,7 +293,7 @@ angular.module('controller.webpage.container.widget.datatable', [])
 	        						 currModel[i].editoptions = currOptions;
 	        					 }
 	        				 }
-	        				 if(currEleAttConfigType == "unformat"){
+	        				 if(currEleAttConfigType == "unformat" && currEleAttConfig.attValue != null && currEleAttConfig.attValue.trim() != ""){
 	                 			if(currEleAttConfig.attValue == "pickDate"){
 	                				datepickers[datepickersIndex] = currModel[i].name;
 	                				datepickersIndex ++;
@@ -304,7 +304,7 @@ angular.module('controller.webpage.container.widget.datatable', [])
 	                			}
 	        					 currModel[i].unformat = eval(currEleAttConfig.attValue);
 	        				 }
-	        				 if(currEleAttConfigType == "formatter"){
+	        				 if(currEleAttConfigType == "formatter" && currEleAttConfig.attValue != null && currEleAttConfig.attValue.trim() != ""){
         						 if(currModel[i].formatter == null || !(typeof currModel[i].formatter === 'function')){
     	        					 if(currEleAttConfig.attValue == "reRender"){
     	        						 currModel[i].unformat = unRender;
@@ -317,8 +317,8 @@ angular.module('controller.webpage.container.widget.datatable', [])
     	        					 }
         						 }
 	        				 }
-	        				 if(currEleAttConfigType == "formatoptions"){
-	        					 if(currEleAttConfig.attValue && eval('('+currEleAttConfig.attValue+')').queryCondition){
+	        				 if(currEleAttConfigType == "formatoptions" && currEleAttConfig.attValue != null && currEleAttConfig.attValue.trim() != ""){
+	        					 if(eval('('+currEleAttConfig.attValue+')').queryCondition){
 	        						var queryCondition = eval('('+currEleAttConfig.attValue+')').queryCondition;
 	        						var dataUrl = JSON.stringify(queryCondition)
       								var r = /\[(.+?)\]/g;
