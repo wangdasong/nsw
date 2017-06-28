@@ -356,6 +356,10 @@ angular.module('controller.webpage.container.widget.datatable', [])
 	        						        	myFormatoptions = eval(myFormatoptionsStr);
 	        						        }
 	        						    });
+		        						 if(currModel[i].formatter != null && currModel[i].formatter == "select" 
+		        							 && (currModel[i].editoptions == null || currModel[i].editoptions == "")){
+		        							 currModel[i].editoptions = myFormatoptions;
+		        						 }
 		        						 currModel[i].formatoptions = myFormatoptions;      									
       								}
 	        					 //匹配上中括号里面英文或数字
