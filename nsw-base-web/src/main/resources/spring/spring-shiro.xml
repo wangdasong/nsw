@@ -152,6 +152,7 @@
                 /rest/forward/4042 = anon
                 /rest/forward/401 = anon
                 /rest/forward/500 = anon
+                /rest/forward/errorJson = anon
                 <!-- 用户登录 -->
                 /views/login.html = anon
                 <!-- 登录状态检查 -->
