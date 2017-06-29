@@ -10,11 +10,13 @@ angular.module('controller.webpage.container.widget.select', [])
             	var currWidgetId = attrs.id;
             	DataService.getWidgetDetailById(currWidgetId).then(function (response) {
             		var data = response.plain();
+            		scope.labelValue = "";
             		scope.attConfigs = data.attConfigs;
             		scope.elements = data.elements;
             		scope.id = currWidgetId;
             		scope.initvalue = attrs.initvalue;
         			scope.queryCondition = {};
+        			scope.cascadeFuc = null;
             		for(index1 in data.attConfigs){
                 		var currAttConfig = data.attConfigs[index1];
             			var currAttConfigType = currAttConfig.type;
@@ -42,7 +44,7 @@ angular.module('controller.webpage.container.widget.select', [])
             			if(currAttConfigType == "cascade"){
             				if(currAttConfig.attValue){
             					scope.cascade = eval('('+currAttConfig.attValue+')');
-                        		scope.changeValue = function(){
+                        		scope.cascadeFuc = function(){
                         			var currValue = $("#select" + currWidgetId).val();
                         			var dataStr = "{id:'" + scope.cascade.id + "',queryCondition:{" + scope.cascade.queryKey + ":'" +currValue+ "'}}";
                         			var dataObj = eval('(' + dataStr + ')');
@@ -56,6 +58,15 @@ angular.module('controller.webpage.container.widget.select', [])
             				}
             			}
             		}
+        			scope.changeValue = function(){
+        				var selectOption = $("#select" + currWidgetId + ">option:selected");
+        				if(selectOption){
+                			$("#selectLabel" + currWidgetId).val(selectOption.text().replace("请选择","").trim());
+        				}
+            			if(scope.cascadeFuc){
+            				scope.cascadeFuc();
+            			}
+        			}
             		//有数据源的控件，根据数据源读取选项信息
             		if(scope.serviceName != null){
             			var reloadOptions = function(queryCondition){
@@ -63,8 +74,8 @@ angular.module('controller.webpage.container.widget.select', [])
                   					var maxElementLength = 10;
                     				DataService.findDataSrcList(scope.serviceName, queryCondition).then(function (response){
                     					$("#select" + currWidgetId).selectpicker({
-            					　　　　　　dropuAuto : false
-            					　　　　});
+                    						dropuAuto : false
+                    					});
                       					var optionList = response.plain();
                       					$("#div" + currWidgetId).find(".bootstrap-select").css("padding-left","0");
                       					$("#div" + currWidgetId).find(".bootstrap-select").css("padding-right","0");
