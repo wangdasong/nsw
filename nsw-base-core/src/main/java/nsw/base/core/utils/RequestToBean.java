@@ -88,9 +88,11 @@ public class RequestToBean {
             Field field =  clazz.getDeclaredField(propertyName);              
             if(null != field){  
                 retValue = true;  
-            }  
-        } catch (NoSuchFieldException e) {            
-            System.out.println("�?: " + clazz.getSimpleName()+",不存在属性名: "+propertyName+" ,详细错误信息: "+e.getMessage());          
+            }
+        } catch (NoSuchFieldException e) {
+        	if (isCheckBeanExitsPropertyName(clazz.getSuperclass(), propertyName)){
+                retValue = true;  
+            }
         }  
         return retValue;  
           
