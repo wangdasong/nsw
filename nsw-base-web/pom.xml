@@ -32,7 +32,7 @@
           <properties>
               <redisIp>192.168.1.227</redisIp>
               <file_path>/opt/apache-tomcat-7.0.57_nsw/upload/</file_path>
-              <jdbc_url>jdbc:oracle:thin:@192.168.2.111:1521:oms</jdbc_url>
+              <jdbc_url>jdbc:oracle:thin:@10.10.10.81:1521:oms</jdbc_url>
               <jdbc_username>framework</jdbc_username>
               <jdbc_password>framework</jdbc_password>
           </properties>
