@@ -524,6 +524,10 @@ public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseServi
 		return this.getCurrDaoMapper().getById(id);
 	}
 	@Override
+	public T getEntityDetailById(String id){
+		return this.getCurrDaoMapper().getDetailById(id);
+	}
+	@Override
 	public T delEntity(String id) {
 		//获取删除前的Entity
 		T t = this.getCurrDaoMapper().getById(id);
