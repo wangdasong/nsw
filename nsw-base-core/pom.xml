@@ -318,6 +318,13 @@
             <version>1.7.2</version>
         </dependency>
         <!-- 网络爬虫相关 结束-->
+        <!-- 数学计算公司 开始 -->
+        <dependency>
+		    <groupId>net.sourceforge.jeval</groupId>
+		    <artifactId>jeval</artifactId>
+		    <version>0.9.4</version>
+		</dependency>
+        <!-- 数学计算公司 结束 -->
     </dependencies>
     <distributionManagement>
         <repository>

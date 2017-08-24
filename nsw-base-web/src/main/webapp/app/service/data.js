@@ -15,12 +15,21 @@ angular.module('service.data', ['ngResource', 'restangular'])
 	    getFuncBaseUrl: function () {
 	        return this.getRootUrl() + 'func/api/';
 	    },
-	    getPreBaseUrl: function () {
+	    getPreBaseUrl: function (url) {
     		var providerCode = "";
+    		//以下几种请求不增加前缀
+        	if(url.indexOf("element/")>=0
+        		|| url.indexOf("page/")>=0
+        		|| url.indexOf("container/")>=0
+        		|| url.indexOf("widget/")>=0
+        		|| url.indexOf("attribute/")>=0
+        		){
+        		return url;
+        	}
     		if($("#providerCode").length > 0 && $("#providerCode").val() != ""){
     			providerCode = "providerCode_" + $("#providerCode").val() + "_";
     		}
-    		return providerCode;
+    		return providerCode + url;
 	    }
 	})
 	.config(['URL_CONFIG', 'RestangularProvider',
@@ -129,28 +138,28 @@ angular.module('service.data', ['ngResource', 'restangular'])
                 	return resultData;
                 },
                 getWidgetDetailById: function(widgetId){
-                	var resultData = Restangular.service("widgetDetail").one(widgetId).get();
+                	var resultData = Restangular.service(URL_CONFIG.getPreBaseUrl("widgetDetail")).one(widgetId).get();
                 	return resultData;
                 },
                 getAttConfigsByBelongId: function(belongId){
-                	var resultData = Restangular.service("attConfigs").one(belongId).get();
+                	var resultData = Restangular.service(URL_CONFIG.getPreBaseUrl("attConfigs")).one(belongId).get();
                 	return resultData;
                 },
                 findDataSrcList: function(serviceName, queryCondition){
-                    return Restangular.service(URL_CONFIG.getPreBaseUrl() + "dataSrcList").one(serviceName).post('', {}, {json:JSON.stringify(queryCondition)}, {});
+                    return Restangular.service(URL_CONFIG.getPreBaseUrl("dataSrcList")).one(serviceName).post('', {}, {json:JSON.stringify(queryCondition)}, {});
                 },
                 findTreeDataList: function(serviceName, parentId, queryCondition){
-                    return Restangular.service(URL_CONFIG.getPreBaseUrl() + "treeDataList").one(serviceName).one(parentId).post('', {}, {json:JSON.stringify(queryCondition)}, {});
+                    return Restangular.service(URL_CONFIG.getPreBaseUrl("treeDataList")).one(serviceName).one(parentId).post('', {}, {json:JSON.stringify(queryCondition)}, {});
                 },
                 saveData: function(url, object){
-                	var urlList = (URL_CONFIG.getPreBaseUrl() + url).split("/");
+                	var urlList = (URL_CONFIG.getPreBaseUrl(url)).split("/");
                 	if(urlList == null || urlList.length < 2){
                 		return null;
                 	}
                     return Restangular.service(urlList[0]).one(urlList[1]).post('', {}, object, {});
                 },
                 findPageData: function(url, queryCondition){
-                	var urlList = (URL_CONFIG.getPreBaseUrl() + url).split("/");
+                	var urlList = (URL_CONFIG.getPreBaseUrl(url)).split("/");
                 	if(urlList == null || urlList.length < 2){
                 		return null;
                 	}

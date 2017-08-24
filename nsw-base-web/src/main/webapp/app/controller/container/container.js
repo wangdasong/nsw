@@ -4,12 +4,20 @@ angular.module('controller.webpage.container', [])
         return {
             restrict: 'EA',
             templateUrl: '/app/controller/container/container.tpl.html',
+//            require:'^editTools',
             replace: false,
             scope: {
             	id : "@",
-            	pageid : "@",
+            	pageid : "@"
             },
             controller:function($scope,$element,$attrs){
+            	$scope.toolsButton = function(){
+            		if($("#editTools").is(":hidden")){
+            			$("#editTools").show();
+            		}else{
+                		$("#editTools").hide();
+            		}
+            	};
 	        },
             link: function (scope, element, attrs) {
             	var currContainerId = attrs.id;
@@ -98,7 +106,7 @@ angular.module('controller.webpage.container', [])
                     		for(var j = 0; j < currWidgets.length; j++ ){
                     			var currWidget = currWidgets[j];
                     			if(getQueryString(currWidget.code)){
-                    				currWidget.initvalue = getQueryString(currWidget.code);
+                    				currWidget.initvalue = decodeURIComponent(getQueryString(currWidget.code));
                     			}
                 			}
                 		}
@@ -113,7 +121,7 @@ angular.module('controller.webpage.container', [])
                     		scope.$emit('setTempObjectDataMap', {id:currContainerId, d:data});
                 			scope.$apply();
                 			// Portlets (boxes)
-            			    $('.widget-container-span').sortable({
+            			    $('.widget-main').sortable({
             			        connectWith: '.widget-container-span',
             					items:'> .widget-box',
             					handle:'.widget-header',
@@ -160,7 +168,6 @@ angular.module('controller.webpage.container', [])
             			}
             		}
             	});
-
                 var timeCount = 0;
             	var timer = setInterval(function(){
             		//取得用户信息后渲染用户信息显示标签

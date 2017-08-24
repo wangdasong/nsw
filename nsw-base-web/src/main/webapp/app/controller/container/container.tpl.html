@@ -17,7 +17,7 @@
 					<i class="icon-group"></i>
 				</button>
 	
-				<button class="btn btn-danger">
+				<button class="btn btn-danger" ng-click="toolsButton()">
 					<i class="icon-cogs"></i>
 				</button>
 			</div>
@@ -42,7 +42,7 @@
 		</script>
 	</div>
 </div>
-<div ng-if="id !='systemmenu'" class="col-xs-12" parentContainerId="{{id}}" pageId="{{pageId}}" canEditFlag="containerAddElement">
+<div ng-if="id !='systemmenu'" class="col-xs-12 pageTopContainer" parentContainerId="{{id}}" pageId="{{pageId}}" canEditFlag="containerAddElement">
 	<div ng-repeat="container in containers" ng-if="container.type=='3'" class="col-xs-{{container.width}} col-sm-{{container.width}} widget-container-span" style="padding-bottom:30px">
 		<div class="widget-box">
 			<div class="widget-header widget-header-small">
@@ -57,7 +57,7 @@
 				</div>
 			</div>
 			<div class="widget-container-span widget-body" containerId="{{container.id}}" canEditFlag="containerEditElement">
-				<div class="widget-main panel-body" parentContainerId="{{id}}" id="container{{container.id}}">
+				<div class="widget-main panel-body column" style="min-height:100px;" parentContainerId="{{id}}" id="container{{container.id}}">
 					<div ng-repeat="widget in container.widgets" >
 						<widget-text ng-if="widget.type == 'text'"  id="{{widget.id}}" initvalue="{{widget.initvalue}}"></widget-text>
 						<widget-file ng-if="widget.type == 'file'"  id="{{widget.id}}" initvalue="{{widget.initvalue}}"></widget-file>

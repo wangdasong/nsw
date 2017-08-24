@@ -146,6 +146,7 @@ VISUALEDIT.delContainer = function (id, containerName) {
             success: function (e) {
                 alert("删除成功");
                 COMMON.removeAllIng();
+                $("div[containerId='" + id + "']").parent().parent().remove();
             }
         })
     }

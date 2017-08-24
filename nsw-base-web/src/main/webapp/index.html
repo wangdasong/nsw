@@ -19,7 +19,6 @@
 	<link rel="stylesheet" href="thirdparty/bootstrap/css/bootstrap-select.min.css" />
     <link rel="stylesheet" href="thirdparty/bootstrap/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="thirdparty/font-awesome/css/font-awesome.css"/>
-
     <!-- jquery ui -->
     <link rel="stylesheet" href="thirdparty/jquery/css/jquery-ui.css"/>
     <link rel="stylesheet" href="thirdparty/jquery/css/chosen.css"/>
@@ -38,6 +37,7 @@
 	<link rel="stylesheet" href="thirdparty/assets/css/ace.min.css" />
 	<link rel="stylesheet" href="thirdparty/assets/css/ace-rtl.min.css" />
 	<link rel="stylesheet" href="thirdparty/assets/css/ace-skins.min.css" />
+    <link rel="stylesheet" href="thirdparty/web-code-generate/css/layoutit.css"/>
 
 	<!-- inline styles related to this page -->
 
@@ -124,6 +124,8 @@
 <script src="thirdparty/assets/js/jqGrid/i18n/grid.locale-cn.js"></script>
 <script src="thirdparty/assets/js/fuelux/fuelux.tree.min.js"></script>
 <script src="thirdparty/assets/js/jquery.nestable.min.js"></script>
+<script type="text/javascript" src="thirdparty/web-code-generate/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="thirdparty/web-code-generate/ckeditor/config.js"></script>
 <script id="reloadAceElement" src="thirdparty/assets/js/ace-elements.min.js"></script>
 <script id="reloadAce" src="thirdparty/assets/js/ace.min.js"></script>
 
@@ -155,6 +157,7 @@
 <script src="app/controller/widget/datatable/widget.datatable.js"></script>
 <script src="app/controller/widget/button/widget.button.js"></script>
 <script src="app/controller/widget/menu/widget.menu.js"></script>
+<script src="app/controller/edit/edit.page.tools.js"></script>
 <script src="app/controller/widget/daocreator/widget.dao.creator.js"></script>
 
 <script src="app/service/data.js"></script>
@@ -243,7 +246,7 @@
 		</div><!-- /.container -->
 	</div>
 
-	<div class="main-container" id="main-container">
+	<div class="main-container demo ui-sortable" style="min-height: 300px;" id="main-container">
 		<script type="text/javascript">
 			try{ace.settings.check('main-container' , 'fixed')}catch(e){}
 		</script>
@@ -304,12 +307,17 @@
 				</div>
 			</div>
 			<!-- /#ace-settings-container -->
+			
 		</div><!-- /.main-container-inner -->
 
 		<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
 			<i class="icon-double-angle-up icon-only bigger-110"></i>
 		</a>
 	</div>
+	
+<!-- ##############################################从这里开始是编辑工具栏################################################ -->
+<div edit-tools class="row-fluid dialog" id="editTools" style="display:none;"></div>
+<!-- ################################################编辑工具栏到此结束################################################## -->
 </div>
 </body>
 <script type="text/javascript">

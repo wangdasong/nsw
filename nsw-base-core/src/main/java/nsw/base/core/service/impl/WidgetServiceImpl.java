@@ -15,10 +15,12 @@ import nsw.base.core.dao.entity.base.DataSrcEntity;
 import nsw.base.core.dao.persistence.WidgetMapper;
 import nsw.base.core.service.AttConfigService;
 import nsw.base.core.service.ContainerService;
+import nsw.base.core.service.DynamicElementsService;
 import nsw.base.core.service.ElementService;
 import nsw.base.core.service.WidgetService;
 import nsw.base.core.service.base.DataSrcService;
 import nsw.base.core.utils.ThreadVariable;
+import nsw.base.core.utils.WebContextFactoryUtil;
 import nsw.base.core.utils.paging.Pagination;
 import nsw.base.core.utils.paging.TablePagingService;
 
@@ -96,6 +98,22 @@ public class WidgetServiceImpl implements DataSrcService<Widget>, WidgetService 
 	@Override
 	public Widget getWidgetDetailById(String widgetId) {
 		Widget widget = widgetMapper.getDetailById(widgetId);
+		for(AttConfig currAttConfig : widget.getAttConfigs()){
+			if("dynamicElement".equals(currAttConfig.getType())){
+				String currAttConfigValue = currAttConfig.getAttValue();
+				String dynamicElementsServiceName = currAttConfigValue.split(":")[0];
+				String newWidgetId = widget.getId();
+				if(currAttConfigValue.split(":").length > 1){
+					newWidgetId = currAttConfigValue.split(":")[1];
+				}
+				DynamicElementsService dynamicElementsService = (DynamicElementsService)WebContextFactoryUtil.getBean(dynamicElementsServiceName);
+				List<Element> elements = dynamicElementsService.getElementsByWidgetId(newWidgetId);
+				for(Element element : elements){
+					element.setId("dynamicElement_" + dynamicElementsServiceName + "_" + element.getId());
+				}
+				widget.setElements(elements);
+			}
+		}
 		if(SecurityUtils.getSubject().getPrincipal() == null || SecurityUtils.getSubject().hasRole("sysadmin") || ThreadVariable.getPopupWidgetVariable() != null){
 			return widget;
 		}

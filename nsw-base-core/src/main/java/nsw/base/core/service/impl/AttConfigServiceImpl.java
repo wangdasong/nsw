@@ -5,6 +5,8 @@ import java.util.List;
 import nsw.base.core.dao.entity.AttConfig;
 import nsw.base.core.dao.persistence.AttConfigMapper;
 import nsw.base.core.service.AttConfigService;
+import nsw.base.core.service.DynamicElementsService;
+import nsw.base.core.utils.WebContextFactoryUtil;
 import nsw.base.core.utils.paging.Pagination;
 import nsw.base.core.utils.paging.TablePagingService;
 
@@ -18,6 +20,13 @@ public class AttConfigServiceImpl implements TablePagingService, AttConfigServic
 
 	@Override
 	public List<AttConfig> getAttConfigsByBelongId(String belongId) {
+		if(belongId.contains("dynamicElement_")){
+			String realBelongId = belongId.split("_")[2];
+			String dynamicElementsServiceName = belongId.split("_")[1];
+			DynamicElementsService dynamicElementsService = (DynamicElementsService)WebContextFactoryUtil.getBean(dynamicElementsServiceName);
+			List<AttConfig> attConfigs = dynamicElementsService.getAttConfigsByElementId(realBelongId);
+			return attConfigs;
+		}
 		return attConfigMapper.getByBelongId(belongId);
 	}
 

@@ -23,6 +23,7 @@ angular.module('app', [
     'controller.webpage.container.widget.button',
     'controller.webpage.container.widget.menu',
     'controller.webpage.container.widget.daocreator',
+    'controller.webpage.edit.tools',
 /*
     'components.menu',
     'components.list',

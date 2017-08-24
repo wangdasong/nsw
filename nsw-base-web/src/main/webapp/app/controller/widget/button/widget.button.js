@@ -221,12 +221,15 @@ angular.module('controller.webpage.container.widget.button', [])
                 			if(actionList[0] == "initData"){
                 				//初始化数据映射popup页面的控件
                 				if(actionList.length > 1){
-                					if(actionList[1].substr(1,1) == "{"){
-                    					var mappingObj = eval('('+ action.substring(9) + ')');             					
-                    					for(var item in inputData){
+                					if(actionList[1].substr(0,1) == "{"){
+                    					var mappingObj = eval('('+ action.substring(9) + ')');
+                    					var grid_selector = "#table" + inputId;
+                    					var rowid= jQuery(grid_selector).jqGrid('getGridParam','selrow');
+                    					var rowObject = jQuery(grid_selector).jqGrid('getRowData', rowid);
+                    					for(var item in rowObject){
                     						var currWidgetCode = mappingObj[item];
                     						if(currWidgetCode){
-                    							popupData = popupData + "&" + currWidgetCode + "=" + inputData[item];
+                    							popupData = popupData + "&" + currWidgetCode + "=" + rowObject[item];
                     						}
                 						}
                 					}else{

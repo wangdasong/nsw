@@ -60,6 +60,7 @@ public class Constants {
 	public static final String REST_CONTAINER_PREFIX = "/api/container";
 	public static final String REST_CONTAINER_LIST = "/list";
 	public static final String REST_CONTAINER_SOU = "/saveorupdate";
+	public static final String REST_CONTAINER_SOU_TPL = "/saveorupdatefortpl";
 	public static final String REST_CONTAINER_COPY_TEMPLETE = "/copytemplete";
 	public static final String REST_CONTAINER_EDIT = "/edit";
 	public static final String REST_CONTAINER_ADD = "/add";
