@@ -706,7 +706,7 @@ VISUALEDIT.addModuleLayer = function (objModule, tmpId, editLayerJson) {
                         div.css("left", obj.offset().left);
                     } else {
                         div.css("left", obj.offset().left + objWidth
-								- div.width());
+								- div.outerWidth());
                     }
                 }
             }
