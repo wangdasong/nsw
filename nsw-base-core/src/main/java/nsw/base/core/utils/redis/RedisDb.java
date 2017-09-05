@@ -28,12 +28,12 @@ public class RedisDb {
     // 计数器的过期时间默认2天
     private static int countExpireTime = 2*24*3600; 
     private static String password = null;
-    private static String redisIp = PropertyUtils.getPropertyValue("redisIp");
-    private static int redisPort = Integer.parseInt(PropertyUtils.getPropertyValue("redisPort"));
-    private static int timeOut = Integer.parseInt(PropertyUtils.getPropertyValue("timeOut"));
-    private static int maxActive = Integer.parseInt(PropertyUtils.getPropertyValue("maxActive"));
-    private static int maxIdle = Integer.parseInt(PropertyUtils.getPropertyValue("maxIdle"));
-    private static long maxWait = Integer.parseInt(PropertyUtils.getPropertyValue("maxWait"));
+    private static String redisIp = PropertyUtils.getPropertyValue("core.redisIp");
+    private static int redisPort = Integer.parseInt(PropertyUtils.getPropertyValue("core.redisPort"));
+    private static int timeOut = Integer.parseInt(PropertyUtils.getPropertyValue("core.timeOut"));
+    private static int maxActive = Integer.parseInt(PropertyUtils.getPropertyValue("core.maxActive"));
+    private static int maxIdle = Integer.parseInt(PropertyUtils.getPropertyValue("core.maxIdle"));
+    private static long maxWait = Integer.parseInt(PropertyUtils.getPropertyValue("core.maxWait"));
     private static Logger logger = Logger.getLogger(RedisDb.class);
 
     static {

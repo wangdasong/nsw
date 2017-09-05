@@ -153,17 +153,30 @@
     </sql>
 
     <select id="findPageData" parameterType="nsw.base.core.utils.paging.Pagination" resultMap="BaseResultMap">
-        <include refid="oraclesplit_prefix" />
+        <if test="@nsw.base.core.dao.entity.SubsysConfig@dbDialog=='oracle'">
+        	<include refid="oraclesplit_prefix" />
+        </if>
+	    <if test="@nsw.base.core.dao.entity.SubsysConfig@dbDialog=='mysql'">
+        	select
+        </if>
         <include refid="Base_Column_List" />
         <include refid="Find_Page_Base_Sql" />
-        <include refid="Sort_Page_Base_Sql" />
-        <include refid="oraclesplit_suffix" />
+		<include refid="Sort_Page_Base_Sql" />
+		<if test="@nsw.base.core.dao.entity.SubsysConfig@dbDialog=='oracle'">
+        	<include refid="oraclesplit_suffix" />
+        </if>
+		<if test="@nsw.base.core.dao.entity.SubsysConfig@dbDialog=='mysql'">
+        	<include refid="mysqlsplit_suffix" />
+        </if>
     </select>
-    <sql id="oraclesplit_prefix" > 
+    <sql id="oraclesplit_prefix">
         select * from ( select row_.*, rownum rownum_ from (select 
     </sql>
     <sql id="oraclesplit_suffix">
         )row_ where rownum &lt;= #{oracle_maxrow}) where rownum_ > #{oracle_minrow}
+    </sql>
+    <sql id="mysqlsplit_suffix">
+    	limit #{oracle_minrow}, #{pageSize}
     </sql>
     <select id="getCount" parameterType="nsw.base.core.utils.paging.Pagination" resultType="int">
         select count(*) 

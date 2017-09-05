@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 import nsw.base.core.dao.entity.base.BaseEntity;
+import nsw.base.core.dao.entity.base.FrameworkDbDialogConfig;
 
 public class Page extends BaseEntity {
 

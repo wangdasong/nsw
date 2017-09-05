@@ -5,8 +5,9 @@
  ********************************************************************/
 package nsw.base.core.dao.entity;
 import nsw.base.core.dao.entity.base.BaseEntity;
+import nsw.base.core.dao.entity.base.FrameworkDbDialogConfig;
 
-public class Resource extends BaseEntity {
+public class Resource extends BaseEntity implements FrameworkDbDialogConfig {
 
 	public static final String RESOURCE_TYPE_MENU = "1";
 	public static final String RESOURCE_TYPE_CONTAINER = "2";

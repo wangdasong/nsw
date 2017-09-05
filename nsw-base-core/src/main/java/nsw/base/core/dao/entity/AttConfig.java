@@ -7,9 +7,13 @@ package nsw.base.core.dao.entity;
 import java.util.Date;
 
 import nsw.base.core.dao.entity.base.BaseEntity;
+import nsw.base.core.dao.entity.base.FrameworkDbDialogConfig;
 
-public class AttConfig extends BaseEntity {
-    private String code;
+public class AttConfig extends BaseEntity implements FrameworkDbDialogConfig {
+
+	private static final long serialVersionUID = 985972471391063282L;
+
+	private String code;
     private String name;
     private String type;
     private String attValue;
@@ -133,7 +137,6 @@ public class AttConfig extends BaseEntity {
     public void setUpdateUserId(String updateUserId) {
         this.updateUserId = updateUserId;
     }
-
 
 
 }

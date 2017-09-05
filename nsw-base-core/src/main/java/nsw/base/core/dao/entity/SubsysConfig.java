@@ -5,8 +5,9 @@
  ********************************************************************/
 package nsw.base.core.dao.entity;
 import nsw.base.core.dao.entity.base.BaseEntity;
+import nsw.base.core.dao.entity.base.FrameworkDbDialogConfig;
 
-public class SubsysConfig extends BaseEntity {
+public class SubsysConfig extends BaseEntity implements FrameworkDbDialogConfig {
 
 	private static final long serialVersionUID = -718184143515718096L;
 

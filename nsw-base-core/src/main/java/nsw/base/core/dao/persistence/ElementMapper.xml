@@ -117,9 +117,9 @@
     select   <include refid="Base_Column_List" />,
     NVL(ELTSUB1.COUNT_ID, 0) as ELT_SUB_COUNT
     from SMS_ELEMENT ELT,
-    (select PARENT_ID, count(ID) AS COUNT_ID from SMS_ELEMENT group by PARENT_ID) ELTSUB1
+    LEFT JOIN (select PARENT_ID, count(ID) AS COUNT_ID from SMS_ELEMENT group by PARENT_ID) ELTSUB1
+    ON ELT.ID = ELTSUB1.PARENT_ID
     where ELT.PARENT_ID= #{parentId}
-    and   ELT.ID = ELTSUB1.PARENT_ID(+)
   </select>
 
   <delete id="deleteById" parameterType="java.lang.String" >

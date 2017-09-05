@@ -8,12 +8,13 @@ import java.util.Date;
 import java.util.List;
 
 import nsw.base.core.dao.entity.base.BaseEntity;
+import nsw.base.core.dao.entity.base.FrameworkDbDialogConfig;
 import nsw.base.core.utils.JsonDateSerializer;
 
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 
-public class User extends BaseEntity {
-
+public class User extends BaseEntity implements FrameworkDbDialogConfig {
+	private static final long serialVersionUID = -4349769851650560670L;
 	private String username;
     private String password;
     private Short state;

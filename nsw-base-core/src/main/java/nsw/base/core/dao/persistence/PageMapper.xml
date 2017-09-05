@@ -39,13 +39,10 @@
     select   <include refid="Base_Column_List" />,
     <include refid="nsw.base.core.dao.persistence.ContainerMapper.Base_Column_List" />,
     <include refid="nsw.base.core.dao.persistence.AttConfigMapper.Base_Column_List" />
-    from SMS_PAGE PG,
-    SMS_ATT_CONFIG ACG,
-    SMS_CONTAINER CTR
+    from SMS_PAGE PG
+    LEFT JOIN SMS_ATT_CONFIG ACG ON PG.ID = ACG.BELONG_ID
+    LEFT JOIN SMS_CONTAINER CTR ON PG.ID = CTR.PAGE_ID AND CTR.CONTAINER_ID = CTR.PAGE_ID
     where PG.ID= #{id}
-    and PG.ID = CTR.PAGE_ID(+)
-    and PG.ID = ACG.BELONG_ID(+)
-    and CTR.CONTAINER_ID(+) = CTR.PAGE_ID(+)
   </select>
 
   <delete id="deleteById" parameterType="java.lang.String" >
@@ -194,17 +191,30 @@
 		</if>
 	</sql>
 	<select id="findPageData" parameterType="nsw.base.core.utils.paging.Pagination" resultMap="BaseResultMap">
-        <include refid="oraclesplit_prefix" />
+        <if test="@nsw.base.core.dao.entity.Page@dbDialog=='oracle'">
+        	<include refid="oraclesplit_prefix" />
+        </if>
+	    <if test="@nsw.base.core.dao.entity.Page@dbDialog=='mysql'">
+        	select
+        </if>
         <include refid="Base_Column_List" />
         <include refid="Find_Page_Base_Sql" />
 		<include refid="Sort_Page_Base_Sql" />
-        <include refid="oraclesplit_suffix" />
+		<if test="@nsw.base.core.dao.entity.Page@dbDialog=='oracle'">
+        	<include refid="oraclesplit_suffix" />
+        </if>
+		<if test="@nsw.base.core.dao.entity.Page@dbDialog=='mysql'">
+        	<include refid="mysqlsplit_suffix" />
+        </if>
     </select>
     <sql id="oraclesplit_prefix">
         select * from ( select row_.*, rownum rownum_ from (select 
     </sql>
     <sql id="oraclesplit_suffix">
         )row_ where rownum &lt;= #{oracle_maxrow}) where rownum_ > #{oracle_minrow}
+    </sql>
+    <sql id="mysqlsplit_suffix">
+    	limit #{oracle_minrow}, #{pageSize}
     </sql>
     
     <select id="getCount" parameterType="nsw.base.core.utils.paging.Pagination" resultType="int">

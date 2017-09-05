@@ -4,6 +4,7 @@
     xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"  
     xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:mvc="http://www.springframework.org/schema/mvc"  
     xmlns:util="http://www.springframework.org/schema/util"
+    xmlns:task="http://www.springframework.org/schema/task"
     xmlns:cache="http://www.springframework.org/schema/cache"
     xmlns:p="http://www.springframework.org/schema/p" 
     xsi:schemaLocation="http://www.springframework.org/schema/beans  
@@ -20,6 +21,8 @@
                      http://www.springframework.org/schema/util/spring-util-3.2.xsd  
                      http://www.springframework.org/schema/mvc   
                      http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+					 http://www.springframework.org/schema/task
+     				 http://www.springframework.org/schema/task/spring-task-3.0.xsd
                      http://www.springframework.org/schema/cache 
 					 http://www.springframework.org/schema/cache/spring-cache-3.2.xsd"> 
                      
@@ -28,7 +31,9 @@
 		<property name="locations">
 			<list>
 			<!-- config.properties -->
+				<value>classpath:conf/core.jdbc.properties</value>
 				<value>classpath:conf/jdbc.properties</value>
+				<value>classpath:conf/config.properties</value>
 			</list>
 		</property>
 	</bean>
@@ -37,7 +42,13 @@
 	<bean id="springCacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager" p:cache-manager-ref="ehcacheManager"/>
 	<bean id="shiroCacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager" p:cache-manager-ref="ehcacheManager"/>
 	
+
+	<import resource="spring-mybatis-core.xml" />
 	<import resource="spring-mybatis.xml" />
+
+	<!-- 开启事务注解驱动 -->
+	<tx:annotation-driven/>
+	
 	<import resource="spring-webService.xml" />
 <!-- 	<import resource="spring-shiro.xml" />
 	<import resource="ehcache.xml" /> -->
@@ -49,4 +60,11 @@
 	<cache:annotation-driven cache-manager="springCacheManager"/> 
 	<bean class="nsw.base.core.utils.WebContextFactoryUtil"></bean>
 	
+	<!-- 服务提供者 -->
+    <bean id="redisProviderRouter" class="nsw.base.core.utils.redis.RedisProviderRouter">
+        <property name="providerCode" value="${serverProviderCode}"/>
+    </bean>
+	<task:executor id="executor" pool-size="5" />  
+	<task:scheduler id="scheduler" pool-size="10" />  
+	<task:annotation-driven executor="executor" scheduler="scheduler" />
 </beans>

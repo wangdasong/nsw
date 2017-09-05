@@ -76,28 +76,30 @@
     select   <include refid="Base_Column_List" />,
     <include refid="nsw.base.core.dao.persistence.WidgetMapper.Base_Column_List" />,
     <include refid="nsw.base.core.dao.persistence.AttConfigMapper.Base_Column_List" />
-    from SMS_CONTAINER CTR,
-    SMS_ATT_CONFIG ACG,
-    SMS_WIDGET WDT
+    from SMS_CONTAINER CTR 
+    LEFT JOIN SMS_ATT_CONFIG ACG ON CTR.ID = ACG.BELONG_ID
+    LEFT JOIN SMS_WIDGET WDT ON CTR.ID = WDT.CONTAINER_ID
     where CTR.ID = #{id}
-    and CTR.ID = WDT.CONTAINER_ID(+)
-    and CTR.ID = ACG.BELONG_ID(+)
     order by CTR.SORT, WDT.SORT
   </select>
   
   <select id="getListByParentId" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select   <include refid="Base_Column_List" />,
-    NVL(SCTRC.SUB_COUNT, 0) AS CTR_SUB_COUNT,
+    <if test="@nsw.base.core.dao.entity.Container@dbDialog=='oracle'">
+    NVL
+    </if>
+    <if test="@nsw.base.core.dao.entity.Container@dbDialog=='mysql'">
+    IFNULL
+    </if>
+    (SCTRC.SUB_COUNT, 0) AS CTR_SUB_COUNT,
     <include refid="nsw.base.core.dao.persistence.WidgetMapper.Base_Column_List" />
-    from SMS_CONTAINER CTR,
-    SMS_WIDGET WDT,
-	(	select count(SCTR.ID) SUB_COUNT,SCTR.CONTAINER_ID 
+    from SMS_CONTAINER CTR
+    LEFT JOIN SMS_WIDGET WDT ON CTR.ID = WDT.CONTAINER_ID
+	LEFT JOIN (select count(SCTR.ID) SUB_COUNT,SCTR.CONTAINER_ID 
 		from SMS_CONTAINER SCTR 
 		where SCTR.CONTAINER_ID != SCTR.ID 
-		group by SCTR.CONTAINER_ID) SCTRC
+		group by SCTR.CONTAINER_ID) SCTRC ON CTR.ID = SCTRC.CONTAINER_ID
     where CTR.CONTAINER_ID= #{containerId}
-    and CTR.ID = WDT.CONTAINER_ID(+)
-    and CTR.ID = SCTRC.CONTAINER_ID(+)
     order by CTR.SORT, WDT.SORT
   </select>
 

@@ -5,11 +5,14 @@
  ********************************************************************/
 package nsw.base.core.dao.entity;
 import nsw.base.core.dao.entity.base.BaseEntity;
+import nsw.base.core.dao.entity.base.FrameworkDbDialogConfig;
+
 import java.util.Date;
 
-public class ProviderConfig extends BaseEntity {
+public class ProviderConfig extends BaseEntity implements FrameworkDbDialogConfig {
 
-    private String code;
+	private static final long serialVersionUID = -8297282695329983116L;
+	private String code;
     private Integer weight;
     private String ip;
     private String port;

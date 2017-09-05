@@ -1,9 +1,12 @@
 package nsw.base.core.utils.paging;
 
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import nsw.base.core.dao.entity.base.BaseDbDialogConfig;
 import nsw.base.core.dao.entity.base.BaseEntity;
 import nsw.base.core.utils.ConvertObject;
 import nsw.base.core.utils.MapUtils;
@@ -134,5 +137,4 @@ public class Pagination extends SimplePage implements java.io.Serializable,
 	public void setTableId(String tableId) {
 		this.tableId = tableId;
 	}
-	
 }

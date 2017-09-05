@@ -102,17 +102,30 @@
     </sql>
 
     <select id="findPageData" parameterType="nsw.base.core.utils.paging.Pagination" resultMap="BaseResultMap">
-        <include refid="oraclesplit_prefix" />
+        <if test="@nsw.base.core.dao.entity.Resource@dbDialog=='oracle'">
+        	<include refid="oraclesplit_prefix" />
+        </if>
+	    <if test="@nsw.base.core.dao.entity.Resource@dbDialog=='mysql'">
+        	select
+        </if>
         <include refid="Base_Column_List" />
         <include refid="Find_Page_Base_Sql" />
-        <include refid="Sort_Page_Base_Sql" />
-        <include refid="oraclesplit_suffix" />
+		<include refid="Sort_Page_Base_Sql" />
+		<if test="@nsw.base.core.dao.entity.Resource@dbDialog=='oracle'">
+        	<include refid="oraclesplit_suffix" />
+        </if>
+		<if test="@nsw.base.core.dao.entity.Resource@dbDialog=='mysql'">
+        	<include refid="mysqlsplit_suffix" />
+        </if>
     </select>
-    <sql id="oraclesplit_prefix" > 
+    <sql id="oraclesplit_prefix">
         select * from ( select row_.*, rownum rownum_ from (select 
     </sql>
     <sql id="oraclesplit_suffix">
         )row_ where rownum &lt;= #{oracle_maxrow}) where rownum_ > #{oracle_minrow}
+    </sql>
+    <sql id="mysqlsplit_suffix">
+    	limit #{oracle_minrow}, #{pageSize}
     </sql>
     <select id="getCount" parameterType="nsw.base.core.utils.paging.Pagination" resultType="int">
         select count(*) 
@@ -120,20 +133,15 @@
     </select>
 
     <sql id="Find_List_Base_Sql" >
-        FROM VB_RESOURCE_TREE RSU,
+        FROM VB_RESOURCE_TREE RSU
 	    <if test="permissionId!=null">
-	    	(SELECT RSUS.PARENT_ID, COUNT(ID) AS SUB_COUNT
+	    	LEFT JOIN (SELECT RSUS.PARENT_ID, COUNT(ID) AS SUB_COUNT
 	    	FROM VB_RESOURCE_TREE RSUS
-	    	GROUP BY RSUS.PARENT_ID) RSUS
-	    	, SYS_PERMISSION_RESOURCE PRE
+	    	GROUP BY RSUS.PARENT_ID) RSUS ON RSU.ID = RSUS.PARENT_ID
+	    	LEFT JOIN SYS_PERMISSION_RESOURCE PRE ON RSU.ID = PRE.RESOURCE_ID AND PRE.PERMISSION_ID = '${permissionId}'
 	    </if>
         <where>
             <trim prefixOverrides="AND |OR ">
-			    <if test="permissionId!=null">
-	    			AND	RSU.ID = PRE.RESOURCE_ID(+)
-	    			AND RSU.ID = RSUS.PARENT_ID(+)
-	    			AND	PRE.PERMISSION_ID(+) = '${permissionId}'
-			    </if>
                 <if test="id!=null">
                     AND RSU.ID='${id}'
                 </if>
