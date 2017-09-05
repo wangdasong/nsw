@@ -21,12 +21,12 @@ public class JedisUtil {
         // 计数器的过期时间默认2天
         int countExpireTime = 2*24*3600; 
         String password = null;
-        String redisIp = PropertyUtils.getPropertyValue("redisIp");
-        int redisPort = Integer.parseInt(PropertyUtils.getPropertyValue("redisPort"));
-        int timeOut = Integer.parseInt(PropertyUtils.getPropertyValue("timeOut"));
-        int maxActive = Integer.parseInt(PropertyUtils.getPropertyValue("maxActive"));
-        int maxIdle = Integer.parseInt(PropertyUtils.getPropertyValue("maxIdle"));
-        long maxWait = Integer.parseInt(PropertyUtils.getPropertyValue("maxWait"));
+        String redisIp = PropertyUtils.getPropertyValue("core.redisIp");
+        int redisPort = Integer.parseInt(PropertyUtils.getPropertyValue("core.redisPort"));
+        int timeOut = Integer.parseInt(PropertyUtils.getPropertyValue("core.timeOut"));
+        int maxActive = Integer.parseInt(PropertyUtils.getPropertyValue("core.maxActive"));
+        int maxIdle = Integer.parseInt(PropertyUtils.getPropertyValue("core.maxIdle"));
+        long maxWait = Integer.parseInt(PropertyUtils.getPropertyValue("core.maxWait"));
 
         //Configuration自行写的配置文件解析类,继承自Properties
         JedisPoolConfig config=new JedisPoolConfig();

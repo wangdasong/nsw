@@ -5,8 +5,9 @@
  ********************************************************************/
 package nsw.base.core.dao.entity;
 import nsw.base.core.dao.entity.base.BaseEntity;
+import nsw.base.core.dao.entity.base.FrameworkDbDialogConfig;
 
-public class RolePermission extends BaseEntity {
+public class RolePermission extends BaseEntity implements FrameworkDbDialogConfig {
 
     private String roleId;
     private String permissionId;

@@ -14,20 +14,19 @@
     http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
     http://www.springframework.org/schema/util 
     http://www.springframework.org/schema/util/spring-util-3.2.xsd">
-	
-	
-	<bean id="dataSource" class="nsw.base.core.utils.DecryptDruidSource" init-method="init" destroy-method="close">
+
+	<bean id="dataSourceCore" class="nsw.base.core.utils.DecryptDruidSource" init-method="init" destroy-method="close">
 		<property name="driverClassName">
-			<value>${jdbc_driverClassName}</value>
+			<value>${core.jdbc_driverClassName}</value>
 		</property>
 		<property name="url">
-			<value>${jdbc_url}</value>
+			<value>${core.jdbc_url}</value>
 		</property>
 		<property name="username">
-			<value>${jdbc_username}</value>
+			<value>${core.jdbc_username}</value>
 		</property>
 		<property name="password">
-			<value>${jdbc_password}</value>
+			<value>${core.jdbc_password}</value>
 		</property>
 		
 		
@@ -82,50 +81,26 @@
 	</bean>
 
 	<!-- mybatis文件配置，扫描所有mapper文件 -->
-	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"
-		p:dataSource-ref="dataSource" p:configLocation="classpath:mybatis/mybatis-config.xml"
-		p:mapperLocations="classpath:nsw/*/*/dao/persistence/*.xml" />
+	<bean id="sqlSessionFactoryCore" class="org.mybatis.spring.SqlSessionFactoryBean"
+		p:dataSource-ref="dataSourceCore" p:configLocation="classpath:mybatis/mybatis-config-core.xml"
+		p:mapperLocations="classpath:nsw/base/core/dao/persistence/*.xml" />
 		
 
 	<!-- spring与mybatis整合配置，扫描所有dao -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"
-		p:basePackage="nsw.*.*.dao.persistence" p:sqlSessionFactoryBeanName="sqlSessionFactory" />
+		p:basePackage="nsw.base.core.dao.persistence" p:sqlSessionFactoryBeanName="sqlSessionFactoryCore" />
 
-	 
-	<!-- 开启事务注解驱动 -->
-	<tx:annotation-driven transaction-manager="transactionManager"/>
 	<!-- 对数据源进行事务管理 -->
-	<bean id="transactionManager"
+	<bean id="transactionManagerCore"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="dataSource" />
+		<property name="dataSource" ref="dataSourceCore" />
+		<qualifier value="transactionManagerCore"/>
 	</bean>
-	
-	
-	
 	<!-- 拦截dao层进行事务管理 -->
-	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+	<tx:advice id="txAdviceCore" transaction-manager="transactionManagerCore">
 		<tx:attributes>
 			<tx:method name="*" propagation="REQUIRED" />
 		</tx:attributes>
 	</tx:advice>
-	
-	<aop:config>
-		<aop:pointcut id="interceptorPointCuts" expression="execution(* nsw.*.*.service.*.*(..))" />
-		<aop:advisor advice-ref="txAdvice" pointcut-ref="interceptorPointCuts" />
-	</aop:config>
-	
-	<bean id="transactionTemplate"  
-        class="org.springframework.transaction.support.TransactionTemplate"> 
-        <!-- 事务隔离界别2(READ_COMMITED)，保证事务能够读取到最新的已提交的状态 -->
-        <property name="isolationLevel" value="2"></property>
-        <!-- 事务超时时间30秒 -->
-        <property name="timeout" value="30"/> 
-        <property name="transactionManager" ref="transactionManager"/> 
-    </bean>
-    
-    
-    
-    
-    
     
 </beans>

@@ -5,12 +5,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.codehaus.jackson.map.annotate.JsonSerialize;
-
 import nsw.base.core.utils.JsonDateSerializer;
 
+import org.codehaus.jackson.map.annotate.JsonSerialize;
 
-public abstract class BaseEntity implements Serializable {
+
+public abstract class BaseEntity implements Serializable, BaseDbDialogConfig {
 
 	private static final long serialVersionUID = 6172357500773556079L;
 
@@ -37,8 +37,6 @@ public abstract class BaseEntity implements Serializable {
 	List<String> errors;
 
 	public BaseEntity() {
-//	if (createDate == null)
-//			createDate = updateDate = new Date();
 	}
 
 	public String getId() {
@@ -177,6 +175,9 @@ public abstract class BaseEntity implements Serializable {
 	public void setDeleteDateEnd(Date deleteDateEnd) {
 		this.deleteDateEnd = deleteDateEnd;
 	}
-	
-	
+
+	@Override
+	public String getDbDialog() {
+		return dbDialog;
+	}
 }

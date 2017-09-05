@@ -170,6 +170,31 @@ public class PropertyUtils implements BeanFactoryAware {
 			InputStream fis = new FileInputStream(URLDecoder.decode(path.toString(),"utf-8")+"/conf/config.properties");
 			props.load(fis);
 			fis.close();
+			if(props.getProperty(key) == null){
+				return getCorePropertyValue(key);
+			}else{
+	            return props.getProperty(key);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	/**
+	 * 从中读取�?
+	 * @param key
+	 * @return
+	 */
+	public static String getCorePropertyValue(String key){
+		try {
+//			StringBuffer path = new StringBuffer();
+//			path.append(PropertyUtils.class.getClassLoader().getResource("").toURI().toString().replace("classes/", "").replace("file:", ""));
+//			path.append("classes");
+			Properties props = new Properties();
+//			InputStream fis = new FileInputStream(URLDecoder.decode(path.toString(),"utf-8")+"/conf/core.config.properties");
+			InputStream fis = new PropertyUtils().getClass().getResourceAsStream("/conf/core.config.properties");
+			props.load(fis);
+			fis.close();
             return props.getProperty(key);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -177,8 +202,9 @@ public class PropertyUtils implements BeanFactoryAware {
 		}
 	}
 
+
 	/**
-	 * 从中读取�?
+	 * 从中读取数据库配置
 	 * @param key
 	 * @return
 	 */
@@ -189,6 +215,27 @@ public class PropertyUtils implements BeanFactoryAware {
 			path.append("classes");
 			Properties props = new Properties();
 			InputStream fis = new FileInputStream(URLDecoder.decode(path.toString(),"utf-8")+"/conf/jdbc.properties");
+			props.load(fis);
+			fis.close();
+			if(props.getProperty(key) == null){
+				return getCoreJDBCPropertyValue(key);
+			}else{
+	            return props.getProperty(key);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	/**
+	 * 从中读取框架数据库配置
+	 * @param key
+	 * @return
+	 */
+	public static String getCoreJDBCPropertyValue(String key){
+		try {
+			Properties props = new Properties();
+			InputStream fis = new PropertyUtils().getClass().getResourceAsStream("/conf/core.jdbc.properties");
 			props.load(fis);
 			fis.close();
             return props.getProperty(key);

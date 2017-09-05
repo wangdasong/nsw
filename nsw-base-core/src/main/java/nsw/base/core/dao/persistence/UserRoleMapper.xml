@@ -119,10 +119,10 @@
     where ID = #{id}
   </update>
     <sql id="Find_Page_Base_Sql" >
-        FROM SYS_USER_ROLE UR, SYS_ROLE ROLE
+        FROM SYS_USER_ROLE UR
+        LEFT JOIN SYS_ROLE ROLE ON UR.ROLE_ID = ROLE.ID
         <where>
             <trim prefixOverrides="AND |OR ">
-            	UR.ROLE_ID = ROLE.ID(+)
                 <if test="options.id!=null">
                     AND UR.ID='${options.id}'
                 </if>
@@ -163,18 +163,30 @@
     </sql>
 
     <select id="findPageData" parameterType="nsw.base.core.utils.paging.Pagination" resultMap="BaseResultMap">
-        <include refid="oraclesplit_prefix" />
-        <include refid="Base_Column_List" />,
-        <include refid="nsw.base.core.dao.persistence.RoleMapper.Base_Column_List" />
+        <if test="@nsw.base.core.dao.entity.UserRole@dbDialog=='oracle'">
+        	<include refid="oraclesplit_prefix" />
+        </if>
+	    <if test="@nsw.base.core.dao.entity.UserRole@dbDialog=='mysql'">
+        	select
+        </if>
+        <include refid="Base_Column_List" />
         <include refid="Find_Page_Base_Sql" />
-        <include refid="Sort_Page_Base_Sql" />
-        <include refid="oraclesplit_suffix" />
+		<include refid="Sort_Page_Base_Sql" />
+		<if test="@nsw.base.core.dao.entity.UserRole@dbDialog=='oracle'">
+        	<include refid="oraclesplit_suffix" />
+        </if>
+		<if test="@nsw.base.core.dao.entity.UserRole@dbDialog=='mysql'">
+        	<include refid="mysqlsplit_suffix" />
+        </if>
     </select>
-    <sql id="oraclesplit_prefix" > 
+    <sql id="oraclesplit_prefix">
         select * from ( select row_.*, rownum rownum_ from (select 
     </sql>
     <sql id="oraclesplit_suffix">
         )row_ where rownum &lt;= #{oracle_maxrow}) where rownum_ > #{oracle_minrow}
+    </sql>
+    <sql id="mysqlsplit_suffix">
+    	limit #{oracle_minrow}, #{pageSize}
     </sql>
     <select id="getCount" parameterType="nsw.base.core.utils.paging.Pagination" resultType="int">
         select count(*) 

@@ -117,20 +117,15 @@
     </sql>
     <sql id="Find_Page_Base_Sql" >
         FROM SYS_PERMISSION PRI
-        	, (SELECT PERMISSION_ID, COUNT(PRE.ID) RESOURCE_COUNT
+        	LEFT JOIN (SELECT PERMISSION_ID, COUNT(PRE.ID) RESOURCE_COUNT
         	FROM SYS_PERMISSION_RESOURCE PRE
         	GROUP BY PRE.PERMISSION_ID
-        	)PRE
+        	)PRE ON PRI.ID = PRE.PERMISSION_ID
            <if test="options.roleId!=null">
-           , SYS_ROLE_PERMISSION RP
+           LEFT JOIN SYS_ROLE_PERMISSION RP ON PRI.ID = RP.PERMISSION_ID AND RP.ROLE_ID = '${options.roleId}'
            </if>
         <where>
             <trim prefixOverrides="AND |OR ">
-            	PRI.ID = PRE.PERMISSION_ID(+)
-                <if test="options.roleId!=null">
-                	AND PRI.ID = RP.PERMISSION_ID(+)
-                    AND RP.ROLE_ID(+) = '${options.roleId}'
-                </if>
                 <if test="options.id!=null">
                     AND PRI.ID='${options.id}'
                 </if>
@@ -187,20 +182,33 @@
             </foreach>
         </if>
     </sql>
-
     <select id="findPageData" parameterType="nsw.base.core.utils.paging.Pagination" resultMap="BaseResultMap">
-        <include refid="oraclesplit_prefix" />
+        <if test="@nsw.base.core.dao.entity.Permission@dbDialog=='oracle'">
+        	<include refid="oraclesplit_prefix" />
+        </if>
+	    <if test="@nsw.base.core.dao.entity.Permission@dbDialog=='mysql'">
+        	select
+        </if>
         <include refid="Base_Column_List" />, TO_CHAR(NVL(PRE.RESOURCE_COUNT, 0)) AS PRI_RESOURCE_COUNT
         <include refid="Find_Page_Base_Sql" />
-        <include refid="Sort_Page_Base_Sql" />
-        <include refid="oraclesplit_suffix" />
+		<include refid="Sort_Page_Base_Sql" />
+		<if test="@nsw.base.core.dao.entity.Permission@dbDialog=='oracle'">
+        	<include refid="oraclesplit_suffix" />
+        </if>
+		<if test="@nsw.base.core.dao.entity.Permission@dbDialog=='mysql'">
+        	<include refid="mysqlsplit_suffix" />
+        </if>
     </select>
-    <sql id="oraclesplit_prefix" > 
+    <sql id="oraclesplit_prefix">
         select * from ( select row_.*, rownum rownum_ from (select 
     </sql>
     <sql id="oraclesplit_suffix">
         )row_ where rownum &lt;= #{oracle_maxrow}) where rownum_ > #{oracle_minrow}
     </sql>
+    <sql id="mysqlsplit_suffix">
+    	limit #{oracle_minrow}, #{pageSize}
+    </sql>
+    
     <select id="getCount" parameterType="nsw.base.core.utils.paging.Pagination" resultType="int">
         select count(*) 
         <include refid="Find_Page_Base_Sql" />

@@ -15,6 +15,10 @@ public class ThreadVariable {
 	 */
 	private static ThreadLocal<String> currMenuVariable = new ThreadLocal<String>();
 	/**
+	 * 当前数据库类型
+	 */
+	private static ThreadLocal<String> dbDialogVariable = new ThreadLocal<String>();
+	/**
 	 * 当前弹出控件ID线程变量
 	 */
 	private static ThreadLocal<String> popupWidgetVariable = new ThreadLocal<String>();
@@ -208,6 +212,25 @@ public class ThreadVariable {
 		elementPermissionSetVariable.set(permissionSet);
 	}
 
+
+	/**
+	 * 获得数据库语言环境
+	 * 
+	 * @return
+	 */
+	public static String getDbDialogVariable() {
+		return dbDialogVariable.get();
+	}
+	/**
+	 * 设置数据库语言环境
+	 * 
+	 * @param user
+	 */
+	public static void setDbDialogVariable(String dbDialog) {
+		dbDialogVariable.set(dbDialog);
+	}
+	
+	
 	/**
 	 * 获得当前用户表单元素权限
 	 * 

@@ -7,8 +7,9 @@ package nsw.base.core.dao.entity;
 import java.util.List;
 
 import nsw.base.core.dao.entity.base.BaseEntity;
+import nsw.base.core.dao.entity.base.FrameworkDbDialogConfig;
 
-public class Element extends BaseEntity {
+public class Element extends BaseEntity implements FrameworkDbDialogConfig {
 
     private String name;
     private String parentId;

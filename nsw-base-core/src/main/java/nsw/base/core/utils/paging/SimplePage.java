@@ -201,4 +201,5 @@ public class SimplePage extends BaseEntity implements Paginable {
 			this.pageNumber = pageNumber;
 		}
 	}
+
 }

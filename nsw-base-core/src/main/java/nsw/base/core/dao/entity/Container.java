@@ -8,8 +8,9 @@ import java.util.Date;
 import java.util.List;
 
 import nsw.base.core.dao.entity.base.BaseEntity;
+import nsw.base.core.dao.entity.base.FrameworkDbDialogConfig;
 
-public class Container extends BaseEntity {
+public class Container extends BaseEntity implements FrameworkDbDialogConfig {
 
     private String code;
     private String name;

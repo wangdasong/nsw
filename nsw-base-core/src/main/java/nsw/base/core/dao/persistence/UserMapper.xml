@@ -335,17 +335,30 @@
 		</if>
 	</sql>
 	<select id="findPageData" parameterType="nsw.base.core.utils.paging.Pagination" resultMap="BaseResultMap">
-        <include refid="oraclesplit_prefix" />
+        <if test="@nsw.base.core.dao.entity.User@dbDialog=='oracle'">
+        	<include refid="oraclesplit_prefix" />
+        </if>
+	    <if test="@nsw.base.core.dao.entity.User@dbDialog=='mysql'">
+        	select
+        </if>
         <include refid="Base_Column_List" />
         <include refid="Find_Page_Base_Sql" />
 		<include refid="Sort_Page_Base_Sql" />
-        <include refid="oraclesplit_suffix" />
+		<if test="@nsw.base.core.dao.entity.User@dbDialog=='oracle'">
+        	<include refid="oraclesplit_suffix" />
+        </if>
+		<if test="@nsw.base.core.dao.entity.User@dbDialog=='mysql'">
+        	<include refid="mysqlsplit_suffix" />
+        </if>
     </select>
     <sql id="oraclesplit_prefix">
         select * from ( select row_.*, rownum rownum_ from (select 
     </sql>
     <sql id="oraclesplit_suffix">
         )row_ where rownum &lt;= #{oracle_maxrow}) where rownum_ > #{oracle_minrow}
+    </sql>
+    <sql id="mysqlsplit_suffix">
+    	limit #{oracle_minrow}, #{pageSize}
     </sql>
     
     <select id="getCount" parameterType="nsw.base.core.utils.paging.Pagination" resultType="int">
