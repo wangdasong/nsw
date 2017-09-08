@@ -67,13 +67,13 @@
                       </li>
                       <li style="display: none;" class="boxes" id="elmBase">
                           <!-- 文本框 -->
-                          <div class="box box-element ui-draggable">
+                          <div class="col-lg-6 col-md-6 col-sm-6 box box-element ui-draggable">
                               <div class="configuration">
 	                          	<span class="drag label"><i class="icon-move"></i>拖动</span>
 	                              <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a>
-                                  <button type="button" class="btn btn-minier" data-target="#editorModal" role="button" data-toggle="modal">编辑</button>
+                                  <button type="button" class="btn btn-minier" data-target="#editorModal" role="button" data-toggle="modal">存档</button>
                                   <span class="btn-group">
-                                      <a class="btn btn-minier dropdown-toggle" data-toggle="dropdown" href="#">对齐 <span class="caret"></span></a>
+                                      <a class="btn btn-minier dropdown-toggle" data-toggle="dropdown">属性 <span class="caret"></span></a>
                                       <ul class="dropdown-menu">
                                           <li class="active"><a href="#" rel="">默认</a></li>
                                           <li class=""><a href="#" rel="text-left">靠左</a></li>
@@ -84,27 +84,27 @@
                               </div>
                               <div class="preview">文本框 <span class="drag label"><i class="icon-move"></i>拖动</span></div>
                               <div class="view" style="padding-top:0px;">
-                              <div ng-hide="isHidden" class="form-horizontal form-group col-lg-6 col-md-6 col-sm-6" widgetid="487A1E2F2E1C0A92E0530100007FC8F5" caneditflag="widgetEditElement">
+                              <div ng-hide="isHidden" class="form-horizontal form-group" widgetid="487A1E2F2E1C0A92E0530100007FC8F5" caneditflag="widgetEditElement">
 									<label id="" class="control-label input-sm col-lg-4 col-md-4 col-sm-4 field-title no-padding-right blue ng-binding" for="">
-										默认文本框
+										<input class="widget-label-edit" name="a" value="默认文本框"/>
 									</label>
 									<div class="input-group col-lg-8 col-md-8 col-sm-8 field-input" style="padding-left:15px;padding-right:15px">
 										<input id="" name="nameChar" value="" ng-readonly="isReadonly" placeholder="请输入正确的XXXX！" class="col-xs-12" onfocus="this.select()" type="text">
 										<span id="" class="input-group-addon" ng-click="" style="cursor:pointer" title="请输入正确的XXXX！">
 											<i id="" class="icon-info-sign"></i>
 										</span>
-								           </div>
+								    </div>
 								</div>
                               </div>
                           </div>
                           <!-- 单选框  -->
-                          <div class="box box-element ui-draggable">
+                          <div class="col-lg-6 col-md-6 col-sm-6 box box-element ui-draggable">
                               <div class="configuration">
 	                          	<span class="drag label"><i class="icon-move"></i>拖动</span>
 	                              <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a>
-                                  <button type="button" class="btn btn-minier" data-target="#editorModal" role="button" data-toggle="modal">编辑</button>
+                                  <button type="button" class="btn btn-minier" data-target="#editorModal" role="button" data-toggle="modal">存档</button>
                                   <span class="btn-group">
-                                      <a class="btn btn-minier dropdown-toggle" data-toggle="dropdown" href="#">对齐 <span class="caret"></span></a>
+                                      <a class="btn btn-minier dropdown-toggle" data-toggle="dropdown">属性 <span class="caret"></span></a>
                                       <ul class="dropdown-menu">
                                           <li class="active"><a href="#" rel="">默认</a></li>
                                           <li class=""><a href="#" rel="text-left">靠左</a></li>
@@ -115,40 +115,41 @@
                               </div>
                               <div class="preview">单选框 <span class="drag label"><i class="icon-move"></i>拖动</span></div>
                               <div class="view" style="padding-top:0px;">
-	                              <div ng-hide="isHidden" class="form-horizontal form-group col-lg-6 col-md-6 col-sm-6" widgetid="43C2964E5459760EE0530100007FFF6B" addelement="true" caneditflag="widgetEditElement">
-									<label class="control-label input-sm col-lg-4 col-md-4 col-sm-4 field-title no-padding-right blue ng-binding">模板-单选框</label>
-									<div class="col-lg-8 col-md-8 col-sm-8 field-input">
-										<!-- ngRepeat: element in elements -->
-											<label  class="ng-scope">
+	                              <div ng-hide="isHidden" class="form-horizontal form-group" widgetid="43C2964E5459760EE0530100007FFF6B" addelement="true" caneditflag="widgetEditElement">
+									<label class="control-label input-sm col-lg-4 col-md-4 col-sm-4 field-title no-padding-right blue ng-binding">
+										<input class="widget-label-edit" name="a" value="默认单选框"/>
+									</label>
+									<div class="input-group col-lg-8 col-md-8 col-sm-8 field-input" style="padding-left:15px;padding-right:15px">
+										<label  class="ng-scope">
 											<div class="radio" style="padding-top:0px;">
 												<label>
 													<input id="input43C2C1AFEBA5798FE0530100007F0762" name="gender" ng-checked="element.checked" value="1" class="ace" ng-click="changeValue(element.id)" type="radio">
-													<span class="lbl ng-binding" id="span43C2C1AFEBA5798FE0530100007F0762">选项1</span>
+													<span class="lbl ng-binding" id="span43C2C1AFEBA5798FE0530100007F0762">
+													<input class="widget-label-edit" value="选项1"/>
+													</span>
 												</label>
 											</div>
-											</label>
-											<!-- end ngRepeat: element in elements -->
-											<label class="ng-scope">
+										</label>
+										<label class="ng-scope">
 											<div class="radio" style="padding-top:0px;">
 												<label>
 													<input id="input43C2C1AFEBA6798FE0530100007F0762" name="gender" ng-checked="element.checked" value="0" class="ace" ng-click="changeValue(element.id)" type="radio">
-													<span class="lbl ng-binding" id="span43C2C1AFEBA6798FE0530100007F0762">选项2</span>
+													<span class="lbl ng-binding" id="span43C2C1AFEBA6798FE0530100007F0762"><input class="widget-label-edit" value="选项2"/></span>
 												</label>
 											</div>
-											</label>
-											<!-- end ngRepeat: element in elements -->
+										</label>
 									</div>
 								  </div>
                               </div>
                           </div>
                           <!-- 日期范围框  -->
-                          <div class="box box-element ui-draggable">
+                          <div class="col-lg-6 col-md-6 col-sm-6 box box-element ui-draggable">
                               <div class="configuration">
 	                          	<span class="drag label"><i class="icon-move"></i>拖动</span>
 	                              <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a>
-                                  <button type="button" class="btn btn-minier" data-target="#editorModal" role="button" data-toggle="modal">编辑</button>
+                                  <button type="button" class="btn btn-minier" data-target="#editorModal" role="button" data-toggle="modal">存档</button>
                                   <span class="btn-group">
-                                      <a class="btn btn-minier dropdown-toggle" data-toggle="dropdown" href="#">对齐 <span class="caret"></span></a>
+                                      <a class="btn btn-minier dropdown-toggle" data-toggle="dropdown">属性 <span class="caret"></span></a>
                                       <ul class="dropdown-menu">
                                           <li class="active"><a href="#" rel="">默认</a></li>
                                           <li class=""><a href="#" rel="text-left">靠左</a></li>
@@ -159,8 +160,10 @@
                               </div>
                               <div class="preview">日期范围 <span class="drag label"><i class="icon-move"></i>拖动</span></div>
                               <div class="view" style="padding-top:0px;">
-	                              <div ng-hide="isHidden" class="form-horizontal form-group col-lg-6 col-md-6 col-sm-6" widgetid="43C2964E5459760EE0530100007FFF6B" addelement="true" caneditflag="widgetEditElement">
-									<label class="control-label input-sm col-lg-4 col-md-4 col-sm-4 field-title no-padding-right blue ng-binding">模板-日期范围</label>
+	                              <div ng-hide="isHidden" class="form-horizontal form-group" widgetid="43C2964E5459760EE0530100007FFF6B" addelement="true" caneditflag="widgetEditElement">
+									<label class="control-label input-sm col-lg-4 col-md-4 col-sm-4 field-title no-padding-right blue ng-binding">
+										<input class="widget-label-edit" name="a" value="模板-日期范围"/>
+									</label>
 									<div class="input-group col-lg-8 col-md-8 col-sm-8 field-input" style="padding-left:15px;padding-right:15px">
 										<input id="inputDataRangeSample" class="date-picker col-xs-12" data-date-format="YYYY-MM-DD HH:mm:ss" value="" type="text">
 										<input id="inputDataRangeSampleStart" value="" name="trainDateStart" type="hidden">

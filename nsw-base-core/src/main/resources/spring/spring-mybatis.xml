@@ -18,7 +18,7 @@
 	
 	<bean id="dataSource" class="nsw.base.core.utils.DecryptDruidSource" init-method="init" destroy-method="close">
 		<property name="driverClassName">
-			<value>${jdbc_driver}</value>
+			<value>${jdbc_driverClassName}</value>
 		</property>
 		<property name="url">
 			<value>${jdbc_url}</value>
