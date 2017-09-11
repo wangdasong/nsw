@@ -9,7 +9,7 @@
 	<dependency>
 	  <groupId>nsw</groupId>
 	  <artifactId>nsw-base-core</artifactId>
-	  <version>0.0.1-SNAPSHOT</version>
+	  <version>0.0.1-20170911.052935-13</version>
 	</dependency>
   </dependencies>
   
