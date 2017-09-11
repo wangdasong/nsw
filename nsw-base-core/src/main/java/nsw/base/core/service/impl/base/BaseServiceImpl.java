@@ -70,7 +70,7 @@ public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseServi
     @SuppressWarnings("unchecked")  
     public static Class getSuperClassGenricType(final Class clazz, final int index) {  
           
-        //返回表示�? Class �?表示的实体（类�?�接口�?�基本类型或 void）的直接超类�? Type�?  
+        //返回表示Class �?表示的实体（类接口基本类型或 void）的直接超类�? Type�?  
         Type genType = clazz.getGenericSuperclass();  
   
         if (!(genType instanceof ParameterizedType)) {  
@@ -96,19 +96,19 @@ public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseServi
 		this.persistentClass = (Class<T>)getSuperClassGenricType(getClass(), 0);
 		Map<String,HashMap<String,Object>> dataConverMap = new HashMap<String, HashMap<String,Object>>();
 		List<T> resultList = new ArrayList<T>();
-		//构�?�导入用Mapper数据结构请参�?
+		//构造导入用Mapper数据结构请参考
 		/**
-		 * 1、�?�labelNameMap】表格元素标签名称对照表
-		 *    1-1、Key：元素标�?
-		 *    1-2、Value：元素name属�??
+		 * 1、【labelNameMap】表格元素标签名称对照表
+		 *    1-1、Key：元素标签
+		 *    1-2、Value：元素name属性
 		 *    1-3、作用：取得excel中的数据时，
 		 *    能够方便的找到当前数据映射到entity对象的那个属性中
 		 * 2、�?�dataConverMap】数据转换对照表
-		 *    2-1、Key：元素name属�??
-		 *    2-2、Value：当前元素存储�?�与表现值的对应Map
-		 *         2-2-1、Key：数据存储�??
-		 *         2-2-2、Value：数据表现�??
-		 *    2-3、作用：将导入数据的表现值，转化为存储�?�放入对象属性中
+		 *    2-1、Key：元素name属性
+		 *    2-2、Value：当前元素存储与表现值的对应Map
+		 *         2-2-1、Key：数据存储值
+		 *         2-2-2、Value：数据表现值
+		 *    2-3、作用：将导入数据的表现值，转化为存储值放入对象属性中
 		 */
 		try {
 			for(Element element : tableWidget.getElements()){
@@ -150,7 +150,7 @@ public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseServi
 						value = json.get("value").getAsJsonObject();
 					}
 					if(serviceName != null){
-						//根据json参数取得数据源Map（参数为动�?�的时�?�把json放入Map�?
+						//根据json参数取得数据源Map（参数为动态的时候把json放入Map?
 						dataSrcMapper = this.getDataSrcFromJson(json, false);
 					}else if(value != null){
 						HashMap<String,String> dataSrcCovMapper = Constants.GSON_FULL.fromJson(value.toString(), new TypeToken<HashMap<String, String>>() {}.getType());
@@ -225,7 +225,7 @@ public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseServi
 									}
 									PropertyUtils.setProperty(t, currName, currValue);
 								}catch(Exception e){
-									t.addError("属�?�：" + currLabel + "的第"+ index +"行数据在加载数据时发生异常！");
+									t.addError("属性：" + currLabel + "的第"+ index +"行数据在加载数据时发生异常！");
 								}
 							}
 						}
@@ -243,7 +243,7 @@ public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseServi
 							try{
 								resetEntityValue(t, currName, dataConverMap);
 							}catch(Exception e){
-								t.addError("属�?�：" + currLabel + "的第"+ index +"行数据在加载数据时发生异常！");
+								t.addError("属性：" + currLabel + "的第"+ index +"行数据在加载数据时发生异常！");
 							}
 						}
 						colIndex ++;
@@ -349,6 +349,7 @@ public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseServi
 		}
 		return dataSrcMapper;
 	}
+
 	public HSSFWorkbook exportData(List<T> dataList, String tableId){
 		Widget tableWidget = widgetService.getWidgetDetailById(tableId);
 		Map<String, String> nameLabelMap = new HashMap<String, String>();
