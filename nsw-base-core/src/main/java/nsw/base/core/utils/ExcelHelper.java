@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -91,7 +92,10 @@ public abstract class ExcelHelper {
         	return null;
         }
         if(cellValue.getCellType() == Cell.CELL_TYPE_NUMERIC){
-        	return String.valueOf(cellValue.getNumberValue());
+        	double d = cellValue.getNumberValue();
+            DecimalFormat df = new DecimalFormat("#");
+            System.out.println(df.format(d));
+        	return df.format(d);
         }
         if(cellValue.getCellType() == Cell.CELL_TYPE_BOOLEAN){
         	return cellValue.getBooleanValue() + "";
