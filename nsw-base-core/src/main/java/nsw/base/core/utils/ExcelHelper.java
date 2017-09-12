@@ -90,12 +90,12 @@ public abstract class ExcelHelper {
         if(cellValue == null){
         	return null;
         }
-        if(cellValue.getCellType() == Cell.CELL_TYPE_NUMERIC){
-        	return cellValue.getNumberValue() + "";
-        }
-        if(cellValue.getCellType() == Cell.CELL_TYPE_BOOLEAN){
-        	return cellValue.getBooleanValue() + "";
-        }
+//        if(cellValue.getCellType() == Cell.CELL_TYPE_NUMERIC){
+//        	return String.valueOf(cellValue.getNumberValue());
+//        }
+//        if(cellValue.getCellType() == Cell.CELL_TYPE_BOOLEAN){
+//        	return cellValue.getBooleanValue() + "";
+//        }
         return cellValue.getStringValue();    	
     }
 
