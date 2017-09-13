@@ -146,8 +146,11 @@ public class BeansUtils
 	try {
 		reClazz = clzz.getDeclaredField(propertyName).getType();
 	} catch (NoSuchFieldException e) {
-		reClazz = getPropertyTypeFromClass(clzz.getSuperclass(),propertyName);
-		e.printStackTrace();
+		if(clzz.getSuperclass() != null){
+			reClazz = getPropertyTypeFromClass(clzz.getSuperclass(),propertyName);
+		}else {
+			e.printStackTrace();
+		}
 	} catch (SecurityException e) {
 		e.printStackTrace();
 	}

@@ -261,7 +261,7 @@ public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseServi
 		BaseEntity user = ThreadVariable.getUser();
 		for(T t : resultList){			
 			try {
-				//取得接口传入数据作为导入的�?�用数据
+				//取得接口传入数据作为导入的通用数据
 				Object commBean = RequestToBean.getBeanToRequest(request, persistentClass);
 				BeansUtils.merge(t, commBean);
 				if(t.getCreateDate() == null){
@@ -272,7 +272,7 @@ public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseServi
 				}
 				//没有发生错误的数据才可以保存数据�?
 				if(!t.getHasError()){
-					this.getCurrDaoMapper().save(t);
+					this.addEntity(t);
 				}
 			} catch (Exception e) {
 				t.addError("共：" + index + "行数据在保存DB的过程中发生错误，请检查数据是否存在异常！");
