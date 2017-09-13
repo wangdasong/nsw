@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration 
+	PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 延迟加载 -->
+	<settings>
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <setting name="aggressiveLazyLoading" value="false"/>
+        <!-- 打印查询语句 
+        <setting name="logImpl" value="STDOUT_LOGGING" />-->
+    </settings>
+
+    <!-- 命名空间 -->
+    <typeAliases>
+    </typeAliases>
+
+    <!-- 映射map 
+    <mappers>
+    </mappers>
+    -->
+</configuration>
+
+
