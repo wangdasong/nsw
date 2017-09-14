@@ -9,13 +9,30 @@
 	<dependency>
 	  <groupId>nsw</groupId>
 	  <artifactId>nsw-base-core</artifactId>
-	  <version>0.0.1-20170911.052935-13</version>
+	  <version>0.0.1-20170914.033544-20</version>
 	</dependency>
   </dependencies>
   
-  <profiles>  
+  <profiles>
       <profile>
-          <id>dev</id>
+          <id>dev-mysql</id>
+          <properties>
+              <serverType>customer</serverType>
+              <serverProviderCode>common</serverProviderCode>
+              <redisIp>192.168.1.227</redisIp>
+              <file_path>d:/upload/</file_path>
+              <jdbc_dbDialog>mysql</jdbc_dbDialog>
+              <jdbc_driver>com.mysql.jdbc.Driver</jdbc_driver>
+              <jdbc_url>jdbc:mysql://111.200.216.160:3306/framework?zeroDateTimeBehavior=convertToNull</jdbc_url>
+              <jdbc_username>root</jdbc_username>
+              <jdbc_password>wds830801</jdbc_password>
+          </properties>
+          <activation>
+              <activeByDefault>false</activeByDefault>
+          </activation>
+      </profile>
+      <profile>
+          <id>dev-oracle</id>
           <properties>
           	  <serverType>customer</serverType>
           	  <serverProviderCode>common</serverProviderCode>
@@ -28,7 +45,7 @@
               <jdbc_password>framework</jdbc_password>
           </properties>
           <activation>
-              <activeByDefault>true</activeByDefault>  
+              <activeByDefault>true</activeByDefault>
           </activation>
       </profile>
       <profile>
