@@ -333,6 +333,7 @@ public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseServi
 			Class clazz = (Class) parameterizedType.getActualTypeArguments()[0];
 			BaseEntity baseEntity;
 			baseEntity = (BaseEntity) clazz.newInstance();
+			//这里强制转换
 			baseEntity = (BaseEntity)Constants.GSON_FULL.fromJson(queryCondition, clazz);
 			List<DataSrcEntity> dataSrcEntityList = null;
 			dataSrcEntityList = dataSrcService.getDataSrcListByCondition(baseEntity);
