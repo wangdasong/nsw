@@ -310,12 +310,12 @@
             <artifactId>ojdbc6</artifactId>
             <version>12.1.0.2</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 		<dependency>
 		    <groupId>mysql</groupId>
 		    <artifactId>mysql-connector-java</artifactId>
 		    <version>5.1.18</version>
-		</dependency> -->
+		</dependency>
         <!-- 数据库操作 结束-->
         <!-- 网络爬虫相关 开始-->
         <dependency>
