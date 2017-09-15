@@ -79,23 +79,24 @@ public class RedisProviderRouter {
 	}
 	public RedisProviderRouter(){
 		String serverType = PropertyUtils.getPropertyValue("serverType");
+		registProvider();
 		if("customer".equals(serverType)){
 			this.providerConfigMap = getAllProvider();
-			Iterator<String> iter = this.providerConfigMap.keySet().iterator();
-			while (iter.hasNext()) {
-				String currProviderCode = iter.next();
-				List<ProviderConfig> providerConfigList = this.providerConfigMap.get(currProviderCode);
-				List<String> providerConfigRandomIdList = new ArrayList<String>();
-				for(ProviderConfig providerConfig : providerConfigList){
-					providerConfigAllMap.put(providerConfig.getId(), providerConfig);
-					for(int i = 0; i < providerConfig.getWeight(); i ++ ){
-						providerConfigRandomIdList.add(providerConfig.getId());
-					}					
+			if (this.providerConfigMap != null){
+				Iterator<String> iter = this.providerConfigMap.keySet().iterator();
+				while (iter.hasNext()) {
+					String currProviderCode = iter.next();
+					List<ProviderConfig> providerConfigList = this.providerConfigMap.get(currProviderCode);
+					List<String> providerConfigRandomIdList = new ArrayList<String>();
+					for(ProviderConfig providerConfig : providerConfigList){
+						providerConfigAllMap.put(providerConfig.getId(), providerConfig);
+						for(int i = 0; i < providerConfig.getWeight(); i ++ ){
+							providerConfigRandomIdList.add(providerConfig.getId());
+						}
+					}
+					providerConfigRandomIdMap.put(currProviderCode, providerConfigRandomIdList);
 				}
-				providerConfigRandomIdMap.put(currProviderCode, providerConfigRandomIdList);
 			}
-		}else{
-			registProvider();
 		}
 	}
 	/**

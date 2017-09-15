@@ -9,7 +9,7 @@
 	<dependency>
 	  <groupId>nsw</groupId>
 	  <artifactId>nsw-base-core</artifactId>
-	  <version>0.0.1-20170914.033544-20</version>
+	  <version>0.0.1-SNAPSHOT</version>
 	</dependency>
   </dependencies>
   
@@ -19,7 +19,7 @@
           <properties>
               <serverType>customer</serverType>
               <serverProviderCode>common</serverProviderCode>
-              <redisIp>192.168.1.227</redisIp>
+              <redisIp>111.200.216.160</redisIp>
               <file_path>d:/upload/</file_path>
               <jdbc_dbDialog>mysql</jdbc_dbDialog>
               <jdbc_driver>com.mysql.jdbc.Driver</jdbc_driver>
