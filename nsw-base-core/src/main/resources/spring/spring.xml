@@ -48,10 +48,10 @@
 
 	<!-- 开启事务注解驱动 -->
 	<tx:annotation-driven/>
-	
-	<import resource="spring-webService.xml" />
-<!-- 	<import resource="spring-shiro.xml" />
-	<import resource="ehcache.xml" /> -->
+	<!--
+        <import resource="spring-webService.xml" />
+         <import resource="spring-shiro.xml" />
+        <import resource="ehcache.xml" /> -->
 	<!-- 引入jdbc配置文件
 	<context:property-placeholder location="classpath:conf/jdbc.properties" />   -->
 	<!-- 扫描文件（自动将servicec层注入） -->
