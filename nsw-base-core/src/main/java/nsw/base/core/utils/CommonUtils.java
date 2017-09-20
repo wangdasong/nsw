@@ -23,7 +23,7 @@ import net.sf.json.JSONObject;
  * *********************************<br>
  * <P>类描述：主要作用是转换毫秒为标准日期类型，因为alibaba的fastjson有bug，在传输日期类时会将Date类型的标志位去掉，只取其中的fasttime�?
  * 另一种方法是通过注解�?
- * @JSONField (format="yyyy-MM-dd HH:mm:ss")    
+ * JSONField (format="yyyy-MM-dd HH:mm:ss")
  * public Date birthday;
  * 
  * 其他乱码问题后续再在此类中追加�??
@@ -42,11 +42,9 @@ public class CommonUtils {
 	/**
 	 * 把毫秒转化成日期
 	 * 
-	 * @param dateFormat
-	 *            (日期格式，例如：MM/ dd/yyyy HH:mm:ss)
 	 * @param millSec
-	 *            (毫秒�?)
-	 * @return
+	 *            (日期格式，例如：MM/ dd/yyyy HH:mm:ss)
+	 * @return millSec
 	 */
 	public static String transferLongToDate(String millSec) {
 		SimpleDateFormat sdf = new SimpleDateFormat(dateFormat);
@@ -87,8 +85,8 @@ public class CommonUtils {
 	/**
      * 对象转byte[]
      * @param obj
-     * @return
-     * @throws IOException
+     * @return byte[]
+	 * @throws IOException
      */
     public static byte[] object2Bytes(Object obj) throws IOException{
         ByteArrayOutputStream bo=new ByteArrayOutputStream();

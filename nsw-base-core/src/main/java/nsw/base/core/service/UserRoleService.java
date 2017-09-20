@@ -14,10 +14,10 @@ public interface UserRoleService extends ImportService<UserRole>, ExportService<
 	/** 
 	 * 获取用户-角色桥表列表
 	 * @param pageNo 页数
-	 * @param size 每页多少条记录 
-	 * @param t 查询条件
+	 * @param size 每页多少条记录
+	 * @param sort 排序条件
+	 * @param userRole 查询条件
 	 * @return Pagination
-	 * @throws ServiceException 
 	 */
 	public Pagination getUserRolePage(int pageNo, int size, String sort, UserRole userRole);
 	public void editUserRole(UserRole userRole);
@@ -29,8 +29,8 @@ public interface UserRoleService extends ImportService<UserRole>, ExportService<
 	/**
 	 * <p>方法描述: 创建新 用户-角色桥表 关联</p>
 	 * <p>方法备注: </p>
-	 * @param user
-	 * @return
+	 * @param userRole
+	 * @return int
 	 */
 	public int create(UserRole userRole);
 	
@@ -43,7 +43,7 @@ public interface UserRoleService extends ImportService<UserRole>, ExportService<
 	 * <p>方法描述: </p>
 	 * <p>方法备注: </p>
 	 * @param user
-	 * @return
+	 * @return List
 	 * <p>创建人：wenjie.zhu</p>
 	 * <p>创建时间：2017年3月8日 上午10:31:45</p>
 	 */
@@ -61,7 +61,7 @@ public interface UserRoleService extends ImportService<UserRole>, ExportService<
 	 * <p>方法描述: </p>
 	 * <p>方法备注: </p>
 	 * @param username
-	 * @return
+	 * @return List
 	 * <p>创建人：wenjie.zhu</p>
 	 * <p>创建时间：2017年3月8日 上午11:08:07</p>
 	 */

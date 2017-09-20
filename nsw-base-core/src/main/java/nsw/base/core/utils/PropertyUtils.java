@@ -298,8 +298,7 @@ public class PropertyUtils implements BeanFactoryAware {
 	 * 
 	 * @param stringIn
 	 * @param startIn
-	 * @param lenIn
-	 * @return
+	 * @return midString
 	 */
 	public static String getMidW(String stringIn, int startIn) {
 		StringBuffer midString;

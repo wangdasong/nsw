@@ -11,9 +11,9 @@ public interface ElementService {
 	 * 获取自己属性列表
 	 * @param pageNo 页数
 	 * @param size 每页多少条记录 
-	 * @param t 查询条件
+	 * @param sort 拍序条件
+	 * @param element 查询条件
 	 * @return Pagination
-	 * @throws ServiceException 
 	 */
 	public Pagination getMyAttrConfigPage(int pageNo, int size, String sort, Element element);
 	public List<AttConfig> getMyAttConfigList(Element element);

@@ -11,9 +11,9 @@ public interface UserService extends ImportService<User>, ExportService<User>{
 	 * 获取用户列表
 	 * @param pageNo 页数
 	 * @param size 每页多少条记录 
-	 * @param t 查询条件
+	 * @param sort 排序条件
+	 * @param user 查询条件
 	 * @return Pagination
-	 * @throws ServiceException 
 	 */
 	public Pagination getUserPage(int pageNo, int size, String sort, User user);
 	public void editUser(User user);

@@ -14,10 +14,10 @@ public interface PermissionResourceService extends ImportService<PermissionResou
 	/** 
 	 * 获取用户-角色桥表列表
 	 * @param pageNo 页数
-	 * @param size 每页多少条记录 
-	 * @param t 查询条件
+	 * @param size 每页多少条记录
+	 * @param sort 排序条件
+	 * @param pres 查询条件
 	 * @return Pagination
-	 * @throws ServiceException 
 	 */
 	public Pagination getPermissionResourcePage(int pageNo, int size, String sort, PermissionResource pres);
 	public void edit(PermissionResource pres);
@@ -30,7 +30,7 @@ public interface PermissionResourceService extends ImportService<PermissionResou
 	/**
 	 * <p>方法描述: 创建新 用户-角色桥表 关联</p>
 	 * <p>方法备注: </p>
-	 * @param user
+	 * @param pres
 	 * @return
 	 */
 	public int create(PermissionResource pres);

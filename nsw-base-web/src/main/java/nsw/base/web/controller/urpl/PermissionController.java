@@ -56,7 +56,7 @@ public class PermissionController  extends BaseController{
      * <p>方法描述: 获取某一角色的权限列�?</p>
      * <p>方法备注: 修改/删除某一角色的权限时，一定会在页面显示出权限的ID�?
      * 					�?以直接调用本类中的修�?/删除方法即可</p>
-     * @param user
+     * @param roleId
      * @return
      */
 	@RequestMapping(value = "/getPermissionByRoleId")
@@ -100,8 +100,8 @@ public class PermissionController  extends BaseController{
 	 * 桥表
 	 * <p>方法描述: 角色与权限之间桥表的新增，创�?</p>
 	 * <p>方法备注: 即创建一个角色权限之间的关系</p>
-	 * @param roleId
-	 * @param pid
+	 * @param roleIds
+	 * @param ids
 	 * @return
 	 * <p>创建人：wenjie.zhu</p>
 	 * <p>创建时间�?2017�?3�?3�? 上午11:26:06</p>
@@ -292,7 +292,7 @@ public class PermissionController  extends BaseController{
      * 
      * <p>方法描述: 权限创建，新增权�?</p>
      * <p>方法备注: </p>
-     * @param role
+     * @param permission
      * @return
      */
     @RequiresPermissions("permission:create")
@@ -317,7 +317,7 @@ public class PermissionController  extends BaseController{
     /**
      * <p>方法描述: 新增权限   方法�?</p>
      * <p>方法备注: 大嵩版前台页面所�?新增权限方法</p>
-     * @param role
+     * @param permission
      * @return
      */
     @RequestMapping(value = "/add")
@@ -339,7 +339,7 @@ public class PermissionController  extends BaseController{
      * 
      * <p>方法描述: 权限更新，编辑权�?</p>
      * <p>方法备注: </p>
-     * @param role
+     * @param permission
      * @return
      */
     @RequiresPermissions("permission:update")
@@ -361,7 +361,7 @@ public class PermissionController  extends BaseController{
     /**
      * <p>方法描述: 编辑权限   方法�?</p>
      * <p>方法备注: 大嵩版前台页面所�?编辑权限方法</p>
-     * @param role
+     * @param permission
      * @return
      */
     @RequestMapping(value = "/edit")
@@ -404,8 +404,8 @@ public class PermissionController  extends BaseController{
     /**
      * <p>方法描述: 删除权限   物理删除  方式�?</p>
      * <p>方法备注: 大嵩版前台页面所�?删除权限方法</p>
-     * @param role
-     * @return
+     * @param permission
+     * @return permission
      */
     @RequiresPermissions("permission:delete")
     @RequestMapping(value = "/del")

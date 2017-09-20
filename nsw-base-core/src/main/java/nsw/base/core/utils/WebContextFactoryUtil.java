@@ -35,7 +35,7 @@ public class WebContextFactoryUtil implements ApplicationContextAware {
     /** 
      * 获取对象 
      *  
-     * @param name 
+     * @param beanName
      * @return Object bean的实�? 
      * @throws BeansException 
      */  

@@ -33,7 +33,7 @@ public class UUIDGenerator {
 
 	
 
-	/**
+	/*
 	 * Unique across JVMs on this machine (unless they load this class in the
 	 * same quater second - very unlikely)
 	 */
@@ -41,7 +41,7 @@ public class UUIDGenerator {
 		return JVM;
 	}
 
-	/**
+	/*
 	 * Unique in a millisecond for this JVM instance (unless there are >
 	 * Short.MAX_VALUE instances created in a millisecond)
 	 */

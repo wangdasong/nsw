@@ -13,7 +13,7 @@ public class SimplePage extends BaseEntity implements Paginable {
 	 * �??��页码 checkPageNumber
 	 * 
 	 * @param pageNumber
-	 * @return if pageNumber==null or pageNumber<1 then return 1 else return pageNumber
+	 * @return intData
 	 */
 	public static int cpn(Integer pageNumber) {
 		return (pageNumber == null || pageNumber < 1) ? 1 : pageNumber;
@@ -163,7 +163,7 @@ public class SimplePage extends BaseEntity implements Paginable {
 		this.pageTotal = pageTotal;
 	}
 
-	/**
+	/*
 	 * if totalCount<0 then totalCount=0
 	 * 
 	 * @param totalCount
@@ -176,7 +176,7 @@ public class SimplePage extends BaseEntity implements Paginable {
 		}
 	}
 
-	/**
+	/*
 	 * if pageSize< 1 then pageSize=DEF_COUNT
 	 * 
 	 * @param pageSize
@@ -189,7 +189,7 @@ public class SimplePage extends BaseEntity implements Paginable {
 		}
 	}
 
-	/**
+	/*
 	 * if pageNumber < 1 then pageNumber=1
 	 * 
 	 * @param pageNumber

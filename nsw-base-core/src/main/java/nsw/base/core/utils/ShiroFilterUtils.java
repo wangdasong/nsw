@@ -27,9 +27,8 @@ public class ShiroFilterUtils {
     }
     /**
      *  使用	response 输出JSON
-     * @param hresponse
-     * @param resultMap
-     * @throws IOException
+     * @param response
+     * @param resultObj
      */
     public static void out(ServletResponse response, Object resultObj){
     	PrintWriter out = null;

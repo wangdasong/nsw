@@ -92,7 +92,7 @@ public class ThreadVariable {
 	/**
 	 * 设置当前用户拥有资源
 	 * 
-	 * @param user
+	 * @param permissionSet
 	 */
 	public static void setResourceSetVariable(Set<BaseEntity> permissionSet) {
 		resourceSetVariable.set(permissionSet);
@@ -110,7 +110,7 @@ public class ThreadVariable {
 	/**
 	 * 设置当前用户菜单权限
 	 * 
-	 * @param user
+	 * @param permissionSet
 	 */
 	public static void setMenuPermissionSetVariable(Set<String> permissionSet) {
 		menuPermissionSetVariable.set(permissionSet);
@@ -128,7 +128,7 @@ public class ThreadVariable {
 	/**
 	 * 设置当前用户容器权限
 	 * 
-	 * @param user
+	 * @param permissionSet
 	 */
 	public static void setContainerPermissionSetVariable(Set<String> permissionSet) {
 		containerPermissionSetVariable.set(permissionSet);
@@ -146,7 +146,7 @@ public class ThreadVariable {
 	/**
 	 * 设置当前用户控件权限
 	 * 
-	 * @param user
+	 * @param permissionSet
 	 */
 	public static void setWidgetPermissionSetVariable(Set<String> permissionSet) {
 		widgetPermissionSetVariable.set(permissionSet);
@@ -172,7 +172,7 @@ public class ThreadVariable {
 	/**
 	 * 设置当前用户弹出页面容器权限
 	 * 
-	 * @param user
+	 * @param permissionSet
 	 */
 	public static void setPcPermissionSetVariable(Set<String> permissionSet) {
 		pcPermissionSetVariable.set(permissionSet);
@@ -189,7 +189,7 @@ public class ThreadVariable {
 	/**
 	 * 设置当前用户弹出页面控件权限
 	 * 
-	 * @param user
+	 * @param permissionSet
 	 */
 	public static void setPwPermissionSetVariable(Set<String> permissionSet) {
 		pwPermissionSetVariable.set(permissionSet);
@@ -206,7 +206,7 @@ public class ThreadVariable {
 	/**
 	 * 设置当前用户表单元素权限
 	 * 
-	 * @param user
+	 * @param permissionSet
 	 */
 	public static void setElementPermissionSetVariable(Set<String> permissionSet) {
 		elementPermissionSetVariable.set(permissionSet);
@@ -224,7 +224,7 @@ public class ThreadVariable {
 	/**
 	 * 设置数据库语言环境
 	 * 
-	 * @param user
+	 * @param dbDialog
 	 */
 	public static void setDbDialogVariable(String dbDialog) {
 		dbDialogVariable.set(dbDialog);
@@ -242,7 +242,7 @@ public class ThreadVariable {
 	/**
 	 * 设置当前用户表单元素权限
 	 * 
-	 * @param user
+	 * @param permissionSet
 	 */
 	public static void setCurrMenuVariable(String permissionSet) {
 		currMenuVariable.set(permissionSet);
@@ -259,7 +259,7 @@ public class ThreadVariable {
 	/**
 	 * 设置当前弹出页面控件
 	 * 
-	 * @param user
+	 * @param widgetId
 	 */
 	public static void setPopupWidgetVariable(String widgetId) {
 		popupWidgetVariable.set(widgetId);
@@ -276,7 +276,7 @@ public class ThreadVariable {
 	/**
 	 * 设置当前RedisMsgPubSubListener
 	 * 
-	 * @param user
+	 * @param redisMsgPubSubListener
 	 */
 	public static void setRedisMsgPubSubListenerVariable(RedisMsgPubSubListener redisMsgPubSubListener) {
 		redisMsgPubSubListenerVariable.set(redisMsgPubSubListener);

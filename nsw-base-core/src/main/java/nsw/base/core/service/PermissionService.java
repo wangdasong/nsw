@@ -28,7 +28,7 @@ public interface PermissionService extends ImportService<Permission>, ExportServ
 	/**
 	 * <p>方法描述: </p>
 	 * <p>方法备注: </p>
-	 * @param rid
+	 * @param id
 	 * @return
 	 * <p>创建人：wenjie.zhu</p>
 	 * <p>创建时间：2017年2月23日 下午4:44:43</p>

@@ -37,7 +37,7 @@ public class RequestToBean {
       
     /** 
      * @param request 请求对象 
-     * @param obj     要设置Bean的类�?,传入试为: Bean.class 
+     * @param clazz     要设置Bean的类�?,传入试为: Bean.class
      * @return 
      */  
     @SuppressWarnings("unchecked")    
@@ -100,11 +100,10 @@ public class RequestToBean {
       
      /**   
      * 设置字段�?       
-     * @param obj          实例对象   
+     * @param object          实例对象
      * @param propertyName 属�?�名   
-     * @param value        新的字段�?   
-     * @return             
-     */     
+     * @param value        新的字段�?
+     */
     public static void setProperties(Object object, String propertyName,Object value) throws IntrospectionException,     
             IllegalAccessException, InvocationTargetException {     
         PropertyDescriptor pd = new PropertyDescriptor(propertyName,object.getClass());

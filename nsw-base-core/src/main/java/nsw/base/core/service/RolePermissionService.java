@@ -14,10 +14,10 @@ public interface RolePermissionService extends ImportService<RolePermission>, Ex
 	/** 
 	 * 获取用户-角色桥表列表
 	 * @param pageNo 页数
-	 * @param size 每页多少条记录 
-	 * @param t 查询条件
+	 * @param size 每页多少条记录
+	 * @param sort 排序条件
+	 * @param rp 查询条件
 	 * @return Pagination
-	 * @throws ServiceException 
 	 */
 	public Pagination getRolePermissionPage(int pageNo, int size, String sort, RolePermission rp);
 	public void edit(RolePermission rp);
@@ -29,8 +29,8 @@ public interface RolePermissionService extends ImportService<RolePermission>, Ex
 	/**
 	 * <p>方法描述: 创建新 用户-角色桥表 关联</p>
 	 * <p>方法备注: </p>
-	 * @param user
-	 * @return
+	 * @param rp
+	 * @return int
 	 */
 	public int create(RolePermission rp);
 	
