@@ -1,15 +1,12 @@
-package nsw.base.web.controller.urpl;
-
-import javax.servlet.http.HttpServletRequest;
+package nsw.base.core.controller;
 
 import nsw.base.core.utils.ShiroFilterUtils;
 import nsw.base.core.utils.result.ResultString;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.sun.corba.se.spi.orbutil.fsm.Guard.Result;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * 视图控制�?,返回视图给前�?
