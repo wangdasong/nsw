@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.wangdasong</groupId>
     <artifactId>nsw-base-core</artifactId>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
 
     <name>nsw-base-core</name>
     <description>nsw-base-core is a common jar for nsw web application</description>
