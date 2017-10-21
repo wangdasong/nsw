@@ -1,9 +1,30 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>nsw</groupId>
+    <groupId>com.github.wangdasong</groupId>
     <artifactId>nsw-base-core</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.3</version>
+
+    <name>nsw-base-core</name>
+    <description>nsw-base-core is a common jar for nsw web application</description>
+    <url>http://github.com/wangdasong/</url>
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <name>wangdasong</name>
+            <email>wds_1983@163.com</email>
+        </developer>
+    </developers>
+    <scm>
+        <connection>scm:git:https://github.com/wangdasong/nsw.git</connection>
+        <developerConnection>scm:git:https://github.com/wangdasong/nsw.git</developerConnection>
+        <url>https://github.com/wangdasong/nsw</url>
+    </scm>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -305,11 +326,11 @@
             <version>${mybatis.spring.version}</version>
         </dependency>
         <!-- oracle 驱动包 -->
-        <dependency>
+        <!-- <dependency>
             <groupId>ojdbc6</groupId>
             <artifactId>ojdbc6</artifactId>
             <version>12.1.0.2</version>
-        </dependency>
+        </dependency> -->
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 		<dependency>
 		    <groupId>mysql</groupId>
@@ -332,16 +353,82 @@
 		</dependency>
         <!-- 数学计算公司 结束 -->
     </dependencies>
+    <!--
     <distributionManagement>
         <repository>
             <id>source</id>
             <name>source-releases</name>
-            <url>http://192.168.1.30:8080/artifactory/libs-release-local</url>
+            <url>http://219.143.7.217:1088/artifactory/libs-release-local</url>
         </repository>
         <snapshotRepository>
             <id>source</id>
             <name>source-snapshots</name>
-            <url>http://192.168.1.30:8080/artifactory/libs-snapshot-local</url>
+            <url>http://219.143.7.217:1088/artifactory/libs-snapshot-local</url>
         </snapshotRepository>
     </distributionManagement>
+    -->
+
+    <profiles>
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>2.4</version>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>jar-no-fork</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>2.10.4</version>
+                        <configuration>
+                            <charset>UTF-8</charset>
+                            <docencoding>UTF-8</docencoding>
+                            <additionalparam>-Xdoclint:none</additionalparam>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.5</version>
+                        <executions>
+                            <execution>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+            <distributionManagement>
+                <snapshotRepository>
+                    <id>oss</id>
+                    <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+                </snapshotRepository>
+                <repository>
+                    <id>oss</id>
+                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+                </repository>
+            </distributionManagement>
+        </profile>
+    </profiles>
 </project>
