@@ -252,9 +252,9 @@
         <!-- wsdl -->
         <!-- https://mvnrepository.com/artifact/javax.wsdl/com.springsource.javax.wsdl -->
         <dependency>
-            <groupId>javax.wsdl</groupId>
-            <artifactId>com.springsource.javax.wsdl</artifactId>
-            <version>1.6.1</version>
+            <groupId>wsdl4j</groupId>
+            <artifactId>wsdl4j</artifactId>
+            <version>1.6.2</version>
         </dependency>
         <!-- XML解析用jdom 开始 -->
         <dependency>
