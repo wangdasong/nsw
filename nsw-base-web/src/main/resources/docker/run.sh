@@ -26,3 +26,5 @@ mysql -h${HOSTNAME}  -P${PORT}  -u${USERNAME} -p${PASSWORD} -D ${DBNAME} -e "/op
 
 #启动redis
 service redis start
+/opt/tomcat7/bin/startup.sh
+tail -f /opt/tomcat7/logs/catalina.out
