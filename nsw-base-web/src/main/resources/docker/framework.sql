@@ -1,23 +1,3 @@
-/*
-Navicat MySQL Data Transfer
-
-Source Server         : 测试mysql
-Source Server Version : 50616
-Source Host           : 111.200.216.160:3306
-Source Database       : framework
-
-Target Server Type    : MYSQL
-Target Server Version : 50616
-File Encoding         : 65001
-
-Date: 2017-10-23 14:54:09
-*/
-
-SET FOREIGN_KEY_CHECKS=0;
-
--- ----------------------------
--- Table structure for `SMS_ATT_CONFIG`
--- ----------------------------
 DROP TABLE IF EXISTS `SMS_ATT_CONFIG`;
 CREATE TABLE `SMS_ATT_CONFIG` (
   `id` varchar(36) NOT NULL,

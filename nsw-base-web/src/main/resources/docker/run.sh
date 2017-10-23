@@ -1,15 +1,14 @@
 #!/bin/bash
 #初始化mysql
-#rm -rf /var/lib/mysql.* rm -rf /var/lib/mysql/*
+rm -rf /var/lib/mysql/*
 mysql_install_db --user=mysql --ldata=/var/lib/mysql
 #启动mysql服务
 mysqld_safe &
 #修改数据库root用户的密码
-mysql -u root  << !
+mysql -u root << !
 UPDATE mysql.user SET Password = PASSWORD('123456') WHERE User = 'root';
 GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '123456' WITH GRANT OPTION;
 flush privileges;
-exit;
 !
 #设置数据库相关环境变量
 HOSTNAME="127.0.0.1"                                           #数据库信息
