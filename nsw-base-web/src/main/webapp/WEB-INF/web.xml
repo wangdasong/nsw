@@ -14,18 +14,6 @@
 		<url-pattern>/druid/*</url-pattern>
 	</servlet-mapping>
 	<display-name>finance Created Web Application</display-name>
-	<!-- XFIRE Servlet 配置 -->
-	<servlet>
-		<servlet-name>XFireServlet</servlet-name>
-		<servlet-class>org.codehaus.xfire.spring.XFireSpringServlet</servlet-class>
-		<load-on-startup>5</load-on-startup>
-	</servlet>
-
-	<servlet-mapping>
-		<servlet-name>XFireServlet</servlet-name>
-		<url-pattern>/services/*</url-pattern>
-	</servlet-mapping>
-	<!-- XFIRE Servlet 配置 -->
 	<!-- 读取spring配置文件 -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
