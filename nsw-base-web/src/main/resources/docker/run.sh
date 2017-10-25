@@ -4,7 +4,7 @@ rm -rf /var/lib/mysql/*
 mysql_install_db --user=mysql --ldata=/var/lib/mysql
 #启动mysql服务
 echo "#############################开始启动mysql#########################"
-mysqld --user=mysql --datadir=/var/lib/mysql --skip-networking &
+mysqld --user=mysql --datadir=/var/lib/mysql &
 pid="$!"
 mysql=( mysql --protocol=socket -uroot )
 for i in {30..0}; do
