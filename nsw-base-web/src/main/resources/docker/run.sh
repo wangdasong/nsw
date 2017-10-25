@@ -25,7 +25,8 @@ echo "#############################结束启动mysql#########################"
 
 #启动redis
 echo "#############################开始启动redis#########################"
-sed -e 'bind 127.0.0.1'  /etc/redis.conf  > /etc/redis.conf
+rm -rf /etc/redis.conf
+cp /opt/src-nsw/nsw-base-web/src/main/resources/docker/redis.conf /etc/
 service redis start
 echo "#############################结束启动redis#########################"
 
