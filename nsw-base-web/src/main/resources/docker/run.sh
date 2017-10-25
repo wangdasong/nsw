@@ -1,7 +1,8 @@
 #!/bin/bash
 #初始化mysql
-rm -rf /var/lib/mysql/*
-mysql_install_db --user=mysql --ldata=/var/lib/mysql
+if [ ! -d /var/lib/mysql ]; then
+    mysql_install_db --user=mysql --ldata=/var/lib/mysql
+fi
 #启动mysql服务
 echo "#############################开始启动mysql#########################"
 mysqld --user=mysql --datadir=/var/lib/mysql &
