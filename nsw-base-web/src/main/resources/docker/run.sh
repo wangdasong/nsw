@@ -46,6 +46,16 @@ DBNAME="framework"                                                       #数据
 #创建数据库
 create_db_sql="create database IF NOT EXISTS ${DBNAME}"
 mysql -u${USERNAME} -p${PASSWORD} -e "${create_db_sql}"
+
+#修改数据库字符集
+set_server_char="set character_set_server = utf8;"
+set_database_char="set character_set_database = utf8;"
+mysql -u${USERNAME} -p${PASSWORD} -e "${set_server_char}"
+mysql -u${USERNAME} -p${PASSWORD} -e "${set_database_char}"
+
+
+mysql -u${USERNAME} -p${PASSWORD} -e "${set_db_server_char}"
+
 #导入数据
 mysql -u${USERNAME} -p${PASSWORD} -D ${DBNAME} < /opt/src-nsw/nsw-base-web/src/main/resources/docker/framework.sql
 
