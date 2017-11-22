@@ -115,8 +115,8 @@
       <file leaf-file-name="workspace.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="277" column="43" lean-forward="true" selection-start-line="277" selection-start-column="43" selection-end-line="277" selection-end-column="43" />
+            <state relative-caret-position="236">
+              <caret line="267" column="43" lean-forward="true" selection-start-line="267" selection-start-column="43" selection-end-line="267" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -926,7 +926,7 @@
       <workItem from="1507604678973" duration="72000" />
       <workItem from="1507604789126" duration="681000" />
       <workItem from="1507605655502" duration="19000" />
-      <workItem from="1511310538748" duration="3422000" />
+      <workItem from="1511310538748" duration="3553000" />
     </task>
     <task id="LOCAL-00001" summary="1、解决BUG类型强制转换">
       <created>1505357309276</created>
@@ -1005,11 +1005,18 @@
       <option name="project" value="LOCAL" />
       <updated>1511315689536</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="1、登录&amp;重定向controller移入core">
+      <created>1511316638532</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1511316638532</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="140097000" />
+    <option name="totallyTimeSpent" value="140228000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1024,7 +1031,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24581006" sideWeight="0.510661" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21899441" sideWeight="0.52771854" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850778" sideWeight="0.49573562" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1041,7 +1048,7 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.4914712" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34860334" sideWeight="0.49573562" order="12" side_tool="false" content_ui="tabs" x="35" y="391" width="1876" height="296" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21899441" sideWeight="0.47654584" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21899441" sideWeight="0.47228146" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.49573562" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.4936034" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21695095" sideWeight="0.49401197" order="7" side_tool="false" content_ui="combo" x="720" y="186" width="480" height="668" />
@@ -1442,8 +1449,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="277" column="43" lean-forward="true" selection-start-line="277" selection-start-column="43" selection-end-line="277" selection-end-column="43" />
+        <state relative-caret-position="236">
+          <caret line="267" column="43" lean-forward="true" selection-start-line="267" selection-start-column="43" selection-end-line="267" selection-end-column="43" />
           <folding />
         </state>
       </provider>
