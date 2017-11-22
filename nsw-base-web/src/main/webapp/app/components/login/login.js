@@ -196,7 +196,7 @@ var emailToGetBackPWD;
 //找回密码触发事件（主事件）
 function getBackPWD(){
 	emailToGetBackPWD = $('#input_emailGetBack').val();
-	var cFlag = checkCNPLMail($.trim(emailToGetBackPWD));
+	var cFlag = checkNSWMail($.trim(emailToGetBackPWD));
 	
 	if(cFlag){
 	    var url = "/rest/login/getBackPWD";
@@ -249,7 +249,7 @@ function checkMail(mail) {
 	 }
 }
 
-function checkCNPLMail(mail) {
+function checkNSWMail(mail) {
 	 var filter  = /^([a-zA-Z0-9_\.\-])+\@(cpscs+\.)+(cc)+$/;
 	 
 	 if (filter.test(mail)){
