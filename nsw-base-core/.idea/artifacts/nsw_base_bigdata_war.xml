@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="nsw-base-bigdata:war">
+    <output-path>$PROJECT_DIR$/../nsw-base-bigdata/target</output-path>
+    <root id="archive" name="ROOT.war">
+      <element id="artifact" artifact-name="nsw-base-bigdata:war exploded" />
+    </root>
+  </artifact>
+</component>

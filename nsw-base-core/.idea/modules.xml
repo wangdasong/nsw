@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../nsw-base-bigdata/nsw-base-bigdata.iml" filepath="$PROJECT_DIR$/../nsw-base-bigdata/nsw-base-bigdata.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nsw-base-core.iml" filepath="$PROJECT_DIR$/nsw-base-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../nsw-base-web/nsw-base-web.iml" filepath="$PROJECT_DIR$/../nsw-base-web/nsw-base-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../nsw-provider-balance/nsw-provider-balance/nsw-provider-balance.iml" filepath="$PROJECT_DIR$/../../nsw-provider-balance/nsw-provider-balance/nsw-provider-balance.iml" />
+    </modules>
+  </component>
+</project>

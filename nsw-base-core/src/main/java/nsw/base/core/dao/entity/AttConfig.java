@@ -1,6 +1,6 @@
 /********************************************************************
  *
- * Copyright 2016-2017 CNPL(CPSCS).Co.Ltd All rights reserved
+ * Copyright 2016-2017 nsw All rights reserved
  *
  ********************************************************************/
 package nsw.base.core.dao.entity;

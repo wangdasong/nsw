@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="nsw-base-bigdata" />
+        <module name="nsw-base-core" />
+        <module name="nsw-base-web" />
+        <module name="nsw-provider-balance" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="nsw-base-bigdata" target="1.7" />
+      <module name="nsw-base-core" target="1.7" />
+      <module name="nsw-base-web" target="1.7" />
+      <module name="nsw-provider-balance" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

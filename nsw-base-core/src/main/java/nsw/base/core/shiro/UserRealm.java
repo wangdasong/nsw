@@ -170,7 +170,7 @@ public class UserRealm extends AuthorizingRealm {
         }
         /**
          * 盐值构造器加密暂时不用，但spring-shiro文件中有配置，只是注释封存了。另shiro包（即本包目录）下的
-         * /finance/src/main/java/com/cpscs/finance/shiro/RetryLimitHashedCredentialsMatcher.java 类是关于盐值加密的salt若有需要随时可配。
+         * /finance/src/main/java/com/NSW/finance/shiro/RetryLimitHashedCredentialsMatcher.java 类是关于盐值加密的salt若有需要随时可配。
          * 
          * 交给AuthenticatingRealm使用CredentialsMatcher进行密码匹配，如果觉得不好可以在此判断或自定义实现
          */

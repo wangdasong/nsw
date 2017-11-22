@@ -250,12 +250,12 @@ function checkMail(mail) {
 }
 
 function checkNSWMail(mail) {
-	 var filter  = /^([a-zA-Z0-9_\.\-])+\@(cpscs+\.)+(cc)+$/;
+	 var filter  = /^([a-zA-Z0-9_\.\-])+\@(NSW+\.)+(cc)+$/;
 	 
 	 if (filter.test(mail)){
 		 return true;
 	 }else {
-		alert('您输入的邮箱地址非中邮物流供应链官方邮箱（@cpcsc.cc）');
+		alert('您输入的邮箱地址非您的官方邮箱（@cpcsc.cc）');
 		return false;
 	 }
 }
