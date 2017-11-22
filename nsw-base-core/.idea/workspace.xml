@@ -7,126 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d76a7de-1773-4034-a3cc-44084bef829b" name="默认的" comment="1、登录&amp;重定向controller移入core">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/nsw_base_bigdata_war.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/nsw_base_bigdata_war_exploded.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/nsw_base_web_war.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/nsw_base_web_war_exploded.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/nsw_provider_balance_war.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/nsw_provider_balance_war_exploded.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__aopalliance_aopalliance_1_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__c3p0_c3p0_0_9_1_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_druid_1_0_27.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_2_22.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_2_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_inject_extensions_guice_multibindings_3_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_inject_guice_3_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_beanutils_commons_beanutils_1_8_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_5.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_collections_commons_collections_3_2_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_fileupload_commons_fileupload_1_3_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_5.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_lang_commons_lang_2_5.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__dom4j_dom4j_1_6_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_annotation_jsr250_api_1_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_cache_cache_api_0_5.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_cache_implementation_cache_ri_common_0_5.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_enterprise_cdi_api_1_0_SP4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_inject_javax_inject_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_javax_servlet_api_3_1_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_wsdl_com_springsource_javax_wsdl_1_6_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jdom_jdom_1_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_17.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_18.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_sf_ehcache_ehcache_2_10_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_sf_ehcache_ehcache_core_2_6_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_sf_ehcache_ehcache_jcache_1_5_0_0_5.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_sf_ehcache_ehcache_jgroupsreplication_1_7.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_sf_ezmorph_ezmorph_1_0_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_sf_json_lib_json_lib_jdk15_2_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_sourceforge_jeval_jeval_0_9_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__nsw_nsw_base_core_0_0_1_SNAPSHOT.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ojdbc6_ojdbc6_12_1_0_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_pool2_2_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_3_10_beta2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_3_10_beta2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_schemas_3_10_beta2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_all_1_3_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_cache_1_4_0_RC2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_config_core_1_4_0_RC2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_config_ogdl_1_4_0_RC2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_core_1_4_0_RC2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_crypto_cipher_1_4_0_RC2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_crypto_core_1_4_0_RC2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_crypto_hash_1_4_0_RC2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_event_1_4_0_RC2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_guice_1_3_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_lang_1_4_0_RC2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_quartz_1_4_0_RC2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_xmlbeans_xmlbeans_2_3_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjrt_1_8_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_8_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_jackson_jackson_core_asl_1_9_13.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_jackson_jackson_mapper_asl_1_9_13.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_xfire_xfire_all_1_2_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_spec_javax_interceptor_jboss_interceptors_api_1_1_spec_1_0_0_Beta1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jgroups_jgroups_3_1_0_Final.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jsoup_jsoup_1_7_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_3_4_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_spring_1_3_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_opensymphony_quartz_quartz_1_6_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_quartz_scheduler_quartz_2_2_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_22.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_3_2_17_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_3_2_17_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_3_2_17_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_support_3_2_17_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_3_2_17_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_3_2_17_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_3_2_17_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_oxm_3_2_17_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_3_2_17_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_3_2_17_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_3_2_17_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_3_2_17_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__redis_clients_jedis_2_7_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__stax_stax_api_1_0_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xml_apis_xml_apis_1_0_b2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsw-base-core.iml" afterPath="$PROJECT_DIR$/nsw-base-core.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nsw/base/core/dao/entity/AttConfig.java" afterPath="$PROJECT_DIR$/src/main/java/nsw/base/core/dao/entity/AttConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nsw/base/core/dao/entity/Container.java" afterPath="$PROJECT_DIR$/src/main/java/nsw/base/core/dao/entity/Container.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nsw/base/core/dao/entity/Element.java" afterPath="$PROJECT_DIR$/src/main/java/nsw/base/core/dao/entity/Element.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nsw/base/core/dao/entity/Page.java" afterPath="$PROJECT_DIR$/src/main/java/nsw/base/core/dao/entity/Page.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nsw/base/core/dao/entity/Permission.java" afterPath="$PROJECT_DIR$/src/main/java/nsw/base/core/dao/entity/Permission.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nsw/base/core/dao/entity/PermissionResource.java" afterPath="$PROJECT_DIR$/src/main/java/nsw/base/core/dao/entity/PermissionResource.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nsw/base/core/dao/entity/ProviderConfig.java" afterPath="$PROJECT_DIR$/src/main/java/nsw/base/core/dao/entity/ProviderConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nsw/base/core/dao/entity/Resource.java" afterPath="$PROJECT_DIR$/src/main/java/nsw/base/core/dao/entity/Resource.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nsw/base/core/dao/entity/Role.java" afterPath="$PROJECT_DIR$/src/main/java/nsw/base/core/dao/entity/Role.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nsw/base/core/dao/entity/RolePermission.java" afterPath="$PROJECT_DIR$/src/main/java/nsw/base/core/dao/entity/RolePermission.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nsw/base/core/dao/entity/SubsysConfig.java" afterPath="$PROJECT_DIR$/src/main/java/nsw/base/core/dao/entity/SubsysConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nsw/base/core/dao/entity/User.java" afterPath="$PROJECT_DIR$/src/main/java/nsw/base/core/dao/entity/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nsw/base/core/dao/entity/UserRole.java" afterPath="$PROJECT_DIR$/src/main/java/nsw/base/core/dao/entity/UserRole.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nsw/base/core/dao/entity/Widget.java" afterPath="$PROJECT_DIR$/src/main/java/nsw/base/core/dao/entity/Widget.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nsw/base/core/shiro/UserRealm.java" afterPath="$PROJECT_DIR$/src/main/java/nsw/base/core/shiro/UserRealm.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../nsw-base-web/.classpath" afterPath="$PROJECT_DIR$/../nsw-base-web/.classpath" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../nsw-base-web/.project" afterPath="$PROJECT_DIR$/../nsw-base-web/.project" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../nsw-base-web/pom.xml" afterPath="$PROJECT_DIR$/../nsw-base-web/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../nsw-base-web/src/main/resources/docker/framework.sql" afterPath="$PROJECT_DIR$/../nsw-base-web/src/main/resources/docker/framework.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../nsw-base-web/src/main/webapp/app/components/login/login.js" afterPath="$PROJECT_DIR$/../nsw-base-web/src/main/webapp/app/components/login/login.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../nsw-base-web/src/main/webapp/index.html" afterPath="$PROJECT_DIR$/../nsw-base-web/src/main/webapp/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../nsw-base-web/src/main/webapp/views/errorpage/401.html" afterPath="$PROJECT_DIR$/../nsw-base-web/src/main/webapp/views/errorpage/401.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../nsw-base-web/src/main/webapp/views/errorpage/401_2.html" afterPath="$PROJECT_DIR$/../nsw-base-web/src/main/webapp/views/errorpage/401_2.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../nsw-base-web/src/main/webapp/views/errorpage/404.html" afterPath="$PROJECT_DIR$/../nsw-base-web/src/main/webapp/views/errorpage/404.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../nsw-base-web/src/main/webapp/views/errorpage/404_2.html" afterPath="$PROJECT_DIR$/../nsw-base-web/src/main/webapp/views/errorpage/404_2.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../nsw-base-web/src/main/webapp/views/errorpage/500.html" afterPath="$PROJECT_DIR$/../nsw-base-web/src/main/webapp/views/errorpage/500.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../nsw-base-web/src/main/webapp/views/login.html" afterPath="$PROJECT_DIR$/../nsw-base-web/src/main/webapp/views/login.html" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/../nsw-base-web/target/" />
@@ -144,16 +28,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="widget.chart.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../nsw-base-bigdata/src/main/webapp/app/controller/widget/chart/widget.chart.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="8" column="61" lean-forward="false" selection-start-line="8" selection-start-column="61" selection-end-line="8" selection-end-column="61" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="single.bar.chart.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../nsw-base-bigdata/src/main/webapp/app/controller/widget/chart/utils/single.bar.chart.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -216,11 +90,33 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="login.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../nsw-base-bigdata/src/main/webapp/app/components/login/login.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="257" column="44" lean-forward="true" selection-start-line="257" selection-start-column="44" selection-end-line="257" selection-end-column="44" />
+            <state relative-caret-position="272">
+              <caret line="261" column="0" lean-forward="true" selection-start-line="261" selection-start-column="0" selection-end-line="261" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PermissionResource.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/nsw/base/core/dao/entity/PermissionResource.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="400">
+              <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="workspace.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="348">
+              <caret line="274" column="32" lean-forward="false" selection-start-line="274" selection-start-column="32" selection-end-line="274" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -236,21 +132,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="widget.chart.tpl.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../nsw-base-bigdata/src/main/webapp/app/controller/widget/chart/widget.chart.tpl.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="32">
-              <caret line="2" column="6" lean-forward="false" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>echart</find>
       <find>currWidget</find>
       <find>initContainer</find>
       <find>PermissionResourceService</find>
@@ -267,7 +152,7 @@
       <find>breadcrumbs</find>
       <find>导航栏</find>
       <find>main-container</find>
-      <find>cpscs</find>
+      <find>nsw</find>
       <find>widget-chart</find>
       <find>widgetChartSingleBar</find>
       <find>single</find>
@@ -275,18 +160,19 @@
       <find>controll</find>
       <find>ForwardController</find>
       <find>color</find>
-      <find>CNPL(CPSCS).Co.Ltd</find>
+      <find>NSW.Co.Ltd</find>
       <find>CNPL</find>
       <find>CPSCS</find>
       <find>中邮物流供应链管理中心</find>
       <find>中邮物流供应链</find>
+      <find>NSW</find>
     </findStrings>
     <replaceStrings>
       <replace />
       <replace>nsw</replace>
-      <replace>NSW</replace>
       <replace>本系统</replace>
       <replace>您的</replace>
+      <replace>NSW</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -418,7 +304,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$USER_HOME$/.m2/settings.xml" />
         <option value="$PROJECT_DIR$/src/main/java/nsw/base/core/dao/persistence/PermissionResourceMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/nsw/base/core/utils/paging/SimplePage.java" />
         <option value="$PROJECT_DIR$/src/main/java/nsw/base/core/utils/WebContextFactoryUtil.java" />
@@ -469,6 +354,7 @@
         <option value="$PROJECT_DIR$/../../nsw-provider-balance/nsw-provider-balance/src/main/java/nsw/provider/balance/dao/entity/CalculationItemCfg.java" />
         <option value="$PROJECT_DIR$/../nsw-base-bigdata/src/main/webapp/views/errorpage/401.html" />
         <option value="$PROJECT_DIR$/../nsw-base-bigdata/src/main/webapp/app/components/login/login.js" />
+        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
       </list>
     </option>
   </component>
@@ -492,6 +378,9 @@
         <option name="importAutomatically" value="true" />
       </MavenImportingSettings>
     </option>
+  </component>
+  <component name="PhpServers">
+    <servers />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
@@ -677,7 +566,12 @@
           <expand>
             <path>
               <item name="nsw-base-core" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nsw-provider-balance" type="462c0819:PsiDirectoryNode" />
+              <item name="nsw-base-core" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="nsw-base-core" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nsw-base-core" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -694,7 +588,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="SearchEverywhereHistoryKey" value="ForwardController&#9;PSI&#9;JAVA://nsw.base.web.controller.urpl.ForwardController&#10;ace-s&#9;FILE&#9;file://E:/工作文档/10_nsw框架/代码/nsw/nsw-base-web/src/main/webapp/thirdparty/assets/css/ace-skins.min.css&#10;*ace*min*css&#9;FILE&#9;file://E:/工作文档/10_nsw框架/代码/nsw/nsw-base-bigdata/src/main/webapp/thirdparty/assets/css/ace.min.css&#10;DefaultExceptionHandler&#9;FILE&#9;file://E:/工作文档/10_nsw框架/代码/nsw/nsw-base-core/src/main/java/nsw/base/core/shiro/DefaultExceptionHandler.java&#10;UserRoleMapper&#9;FILE&#9;file://E:/工作文档/10_nsw框架/代码/nsw/nsw-base-core/src/main/java/nsw/base/core/dao/persistence/UserRoleMapper.java&#10;UserService&#9;PSI&#9;JAVA://nsw.base.core.service.UserService&#10;CommonUtils&#9;PSI&#9;JAVA://nsw.base.core.utils.CommonUtils&#10;JsonDateYMDSerializer&#9;PSI&#9;JAVA://nsw.base.core.utils.JsonDateYMDSerializer&#10;PropertyUtils&#9;PSI&#9;JAVA://nsw.base.core.utils.PropertyUtils&#10;RequestToBean.java&#9;FILE&#9;file://E:/工作文档/10_nsw框架/代码/nsw/nsw-base-core/src/main/java/nsw/base/core/utils/RequestToBean.java&#10;RequestToBean&#9;PSI&#9;JAVA://nsw.base.core.utils.RequestToBean&#10;ShiroFilterUtils&#9;PSI&#9;JAVA://nsw.base.core.utils.ShiroFilterUtils&#10;ThreadVariable&#9;PSI&#9;JAVA://nsw.base.core.utils.ThreadVariable&#10;UUIDGenerator&#9;PSI&#9;JAVA://nsw.base.core.utils.UUIDGenerator&#10;WebContextFactoryUtil&#9;PSI&#9;JAVA://nsw.base.core.utils.WebContextFactoryUtil&#10;SimplePage&#9;PSI&#9;JAVA://nsw.base.core.utils.paging.SimplePage&#10;PermissionResourceMapper.java&#9;FILE&#9;file://E:/工作文档/10_nsw框架/代码/nsw/nsw-base-core/src/main/java/nsw/base/core/dao/persistence/PermissionResourceMapper.java&#10;att&#9;PSI&#9;JAVA://nsw.base.core.dao.entity.AttConfig" />
+    <property name="SearchEverywhereHistoryKey" value="PermissionResource &#9;PSI&#9;JAVA://nsw.base.core.dao.entity.PermissionResource&#10;ForwardController&#9;PSI&#9;JAVA://nsw.base.web.controller.urpl.ForwardController&#10;ace-s&#9;FILE&#9;file://E:/工作文档/10_nsw框架/代码/nsw/nsw-base-web/src/main/webapp/thirdparty/assets/css/ace-skins.min.css&#10;*ace*min*css&#9;FILE&#9;file://E:/工作文档/10_nsw框架/代码/nsw/nsw-base-bigdata/src/main/webapp/thirdparty/assets/css/ace.min.css&#10;DefaultExceptionHandler&#9;FILE&#9;file://E:/工作文档/10_nsw框架/代码/nsw/nsw-base-core/src/main/java/nsw/base/core/shiro/DefaultExceptionHandler.java&#10;UserRoleMapper&#9;FILE&#9;file://E:/工作文档/10_nsw框架/代码/nsw/nsw-base-core/src/main/java/nsw/base/core/dao/persistence/UserRoleMapper.java&#10;UserService&#9;PSI&#9;JAVA://nsw.base.core.service.UserService&#10;CommonUtils&#9;PSI&#9;JAVA://nsw.base.core.utils.CommonUtils&#10;JsonDateYMDSerializer&#9;PSI&#9;JAVA://nsw.base.core.utils.JsonDateYMDSerializer&#10;PropertyUtils&#9;PSI&#9;JAVA://nsw.base.core.utils.PropertyUtils&#10;RequestToBean.java&#9;FILE&#9;file://E:/工作文档/10_nsw框架/代码/nsw/nsw-base-core/src/main/java/nsw/base/core/utils/RequestToBean.java&#10;RequestToBean&#9;PSI&#9;JAVA://nsw.base.core.utils.RequestToBean&#10;ShiroFilterUtils&#9;PSI&#9;JAVA://nsw.base.core.utils.ShiroFilterUtils&#10;ThreadVariable&#9;PSI&#9;JAVA://nsw.base.core.utils.ThreadVariable&#10;UUIDGenerator&#9;PSI&#9;JAVA://nsw.base.core.utils.UUIDGenerator&#10;WebContextFactoryUtil&#9;PSI&#9;JAVA://nsw.base.core.utils.WebContextFactoryUtil&#10;SimplePage&#9;PSI&#9;JAVA://nsw.base.core.utils.paging.SimplePage&#10;PermissionResourceMapper.java&#9;FILE&#9;file://E:/工作文档/10_nsw框架/代码/nsw/nsw-base-core/src/main/java/nsw/base/core/dao/persistence/PermissionResourceMapper.java&#10;att&#9;PSI&#9;JAVA://nsw.base.core.dao.entity.AttConfig" />
     <property name="jdk.selected.JAVA_MODULE" value="1.7" />
   </component>
   <component name="RecentsManager">
@@ -1042,7 +936,7 @@
       <workItem from="1507604678973" duration="72000" />
       <workItem from="1507604789126" duration="681000" />
       <workItem from="1507605655502" duration="19000" />
-      <workItem from="1511310538748" duration="1508000" />
+      <workItem from="1511310538748" duration="2734000" />
     </task>
     <task id="LOCAL-00001" summary="1、解决BUG类型强制转换">
       <created>1505357309276</created>
@@ -1107,11 +1001,18 @@
       <option name="project" value="LOCAL" />
       <updated>1511311897305</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="1、登录&amp;重定向controller移入core">
+      <created>1511312280573</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1511312280573</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="138183000" />
+    <option name="totallyTimeSpent" value="139409000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1124,7 +1025,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24581006" sideWeight="0.510661" order="9" side_tool="true" content_ui="tabs" />
@@ -1147,7 +1047,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21899441" sideWeight="0.47654584" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.49573562" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.4936034" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21695095" sideWeight="0.49401197" order="7" side_tool="false" content_ui="combo" x="720" y="186" width="480" height="668" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21695095" sideWeight="0.49401197" order="7" side_tool="false" content_ui="combo" x="720" y="186" width="480" height="668" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25586355" sideWeight="0.5057283" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24581006" sideWeight="0.48933902" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1196,20 +1096,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../nsw-base-bigdata/src/main/webapp/app/controller/widget/datepicker/widget.date.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../nsw-base-bigdata/src/main/webapp/app/controller/widget/daterangepicker/widget.date.range.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="49" column="53" lean-forward="true" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../nsw-base-bigdata/src/main/webapp/app/controller/widget/selecttree/widget.select.tree.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-128">
@@ -1541,8 +1427,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../nsw-base-bigdata/src/main/webapp/app/components/login/login.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="257" column="44" lean-forward="true" selection-start-line="257" selection-start-column="44" selection-end-line="257" selection-end-column="44" />
+        <state relative-caret-position="272">
+          <caret line="261" column="0" lean-forward="true" selection-start-line="261" selection-start-column="0" selection-end-line="261" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nsw/base/core/dao/entity/PermissionResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="274" column="32" lean-forward="false" selection-start-line="274" selection-start-column="32" selection-end-line="274" selection-end-column="32" />
           <folding />
         </state>
       </provider>
