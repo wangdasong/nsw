@@ -950,6 +950,8 @@ angular.module('controller.webpage.container.widget.datatable', [])
          							}else{
          								alert("操作成功！");
          							}
+         							//关掉删除操作框
+									$("#eData").click();
                      				//取得当前检索条件
                      				scope.$emit('getCurrConditionObject', {srcDirName:'datatable.page.conditionObject', srcDirID:widgetId});
                      				//取得页面的page信息
